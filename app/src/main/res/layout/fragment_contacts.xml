@@ -50,7 +50,7 @@
             android:id="@+id/menu_item"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/twitter"
+            android:src="@drawable/twitter"
             fab:fab_size="mini"
             fab:fab_label="Twitter" />
 
@@ -58,14 +58,14 @@
             android:id="@+id/menu_item2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/facebook"
+            android:src="@drawable/facebook"
             fab:fab_size="mini"
             fab:fab_label="Facebook" />
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/menu_item3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/instagram"
+            android:src="@drawable/instagram"
             fab:fab_size="mini"
             fab:fab_label="Instagram" />
 
