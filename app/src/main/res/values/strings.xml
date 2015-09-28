@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">nViewLive-O</string>
+
+    <string name="inbox">Watch Live</string>
+    <string name="starred">Listen Live</string>
+    <string name="sent_mail">News</string>
+    <string name="drafts">Contacts</string>
+    <string name="categories">Terms</string>
+    <string name="trash">Advertise</string>
+    <string name="spam">Spam</string>
+    <string name="settings">Settings</string>
+
+    <string name="add">Add</string>
+    <string name="search">Search</string>
+
+    <string name="important">Important</string>
+    <string name="documents">Documents</string>
+
+    <!-- Toast -->
+    <string name="open_user_profile">Open user profile</string>
+    <string name="open_settings">Open settings</string>
+
+    <string name="drawer_open">Open drawer navigation</string>
+    <string name="drawer_close">Navigation drawer Close</string>   
+</resources >
