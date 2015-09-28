@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">nViewLive-O</string>
+    <string name="app_name">KBC</string>
 
     <string name="inbox">Watch Live</string>
     <string name="starred">Listen Live</string>
