@@ -26,10 +26,12 @@ public class ViewPagerFragment extends Fragment{
     }
 
     private void createTabPagerItem(){
-        mTabs.add(new TabPagerItem(getString(R.string.starred), MainFragment.newInstance(getString(R.string.starred))));
-        mTabs.add(new TabPagerItem(getString(R.string.starred), RadioFragment.newInstance(getString(R.string.starred))));
-        mTabs.add(new TabPagerItem(getString(R.string.important), MainFragment.newInstance(getString(R.string.important))));
-        mTabs.add(new TabPagerItem(getString(R.string.documents), MainFragment.newInstance(getString(R.string.documents))));
+        mTabs.add(new TabPagerItem(getString(R.string.inter), MainFragment.newInstance(getString(R.string.business))));
+        mTabs.add(new TabPagerItem(getString(R.string.local), NewsFragment.newInstance(getString(R.string.local))));
+        mTabs.add(new TabPagerItem(getString(R.string.business), MainFragment.newInstance(getString(R.string.business))));
+        mTabs.add(new TabPagerItem(getString(R.string.sport), MainFragment.newInstance(getString(R.string.sport))));
+        mTabs.add(new TabPagerItem(getString(R.string.tech), MainFragment.newInstance(getString(R.string.tech))));
+
     }
 
     @Override

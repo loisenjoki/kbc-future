@@ -12,6 +12,8 @@ import br.liveo.interfaces.OnPrepareOptionsMenuLiveo;
 import br.liveo.navigationliveo.NavigationLiveo;
 import loise.liveo.navigationviewpagerliveo.R;
 import loise.liveo.ui.fragment.MainFragment;
+import loise.liveo.ui.fragment.RadioFragment;
+import loise.liveo.ui.fragment.TvFragment;
 import loise.liveo.ui.fragment.ViewPagerFragment;
 
 public class MainActivity extends NavigationLiveo implements OnItemClickListener {
@@ -22,16 +24,16 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
     public void onInt(Bundle bundle) {
 
         // User Information
-        this.userName.setText("Rudson Lima");
-        this.userEmail.setText("rudsonlive@gmail.com");
+        this.userName.setText("KBC");
+        this.userEmail.setText("Your Channel One TV");
         this.userPhoto.setImageResource(R.drawable.ic_rudsonlive);
         this.userBackground.setImageResource(R.drawable.ic_user_background_first);
 
         // Creating items navigation
         mHelpLiveo = new HelpLiveo();
         mHelpLiveo.add(getString(R.string.inbox), R.mipmap.ic_inbox_black_24dp, 7);
-        mHelpLiveo.addSubHeader(getString(R.string.categories)); //Item subHeader
         mHelpLiveo.add(getString(R.string.starred), R.mipmap.ic_star_black_24dp);
+        mHelpLiveo.addSubHeader(getString(R.string.categories)); //Item subHeader
         mHelpLiveo.add(getString(R.string.sent_mail), R.mipmap.ic_send_black_24dp);
         mHelpLiveo.add(getString(R.string.drafts), R.mipmap.ic_drafts_black_24dp);
         mHelpLiveo.addSeparator(); // Item separator
@@ -58,7 +60,13 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
         FragmentManager mFragmentManager = getSupportFragmentManager();
 
         switch (position){
-            case 2:
+            case 0:
+                mFragment = new TvFragment();
+                break;
+            case 1:
+                mFragment = new RadioFragment();
+                break;
+            case 3:
                 mFragment = new ViewPagerFragment();
                 break;
 

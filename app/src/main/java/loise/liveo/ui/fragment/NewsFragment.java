@@ -10,62 +10,34 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.EditText;
-import android.widget.GridView;
-import android.widget.Toast;
 
-import loise.liveo.adapter.CustomGrid;
 import loise.liveo.navigationviewpagerliveo.R;
 
 /**
  * Created by loise on 9/28/15.
  */
-public class RadioFragment extends Fragment {
+public class NewsFragment extends Fragment {
+
     private boolean mSearchCheck;
     public static final String TEXT_FRAGMENT = "TEXT_FRAGMENT";
 
-
-    GridView grid;
-    String[] web = {
-            "Radio Taifa fm",
-            "Minta fm",
-            "CoRo fm",
-            "Maytenga fm",
-            "Kitwek fm",
-            "KBC Channel 1",
-
-    } ;
-    int[] imageId = {
-            R.drawable.radiotaifa,
-            R.drawable.mintologo,
-            R.drawable.corologo,
-            R.drawable.mayiegalogo,
-            R.drawable.kitweklogo,
-            R.drawable.channel1logo,
-
-    };
+    public static NewsFragment newInstance(String text){
+        NewsFragment mFragment = new NewsFragment();
+        Bundle mBundle = new Bundle();
+        mBundle.putString(TEXT_FRAGMENT, text);
+        mFragment.setArguments(mBundle);
+        return mFragment;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // TODO Auto-generated method stub
-        View rootView = inflater.inflate(R.layout.radio_fragment, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
-        CustomGrid adapter = new CustomGrid(getActivity(), web, imageId);
-        grid=(GridView)rootView.findViewById(R.id.grid);
-        grid.setAdapter(adapter);
-        grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-                Toast.makeText(getActivity(), "You Clicked at " + web[+position], Toast.LENGTH_SHORT).show();
-
-            }
-        });
-
-
+//        TextView mTxtTitle = (TextView) rootView.findViewById(R.id.txtTitle);
+//        mTxtTitle.setText(getArguments().getString(TEXT_FRAGMENT));
 
         rootView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT ));
         return rootView;
