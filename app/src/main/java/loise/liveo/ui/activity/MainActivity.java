@@ -11,6 +11,7 @@ import br.liveo.interfaces.OnItemClickListener;
 import br.liveo.interfaces.OnPrepareOptionsMenuLiveo;
 import br.liveo.navigationliveo.NavigationLiveo;
 import loise.liveo.navigationviewpagerliveo.R;
+import loise.liveo.ui.fragment.ContactsFragment;
 import loise.liveo.ui.fragment.MainFragment;
 import loise.liveo.ui.fragment.RadioFragment;
 import loise.liveo.ui.fragment.TvFragment;
@@ -68,6 +69,9 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
                 break;
             case 3:
                 mFragment = new ViewPagerFragment();
+                break;
+            case 4:
+                mFragment= new ContactsFragment();
                 break;
 
             default:
