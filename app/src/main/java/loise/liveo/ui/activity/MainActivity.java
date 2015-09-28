@@ -27,8 +27,8 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
         // User Information
         this.userName.setText("KBC");
         this.userEmail.setText("Your Channel One TV");
-        this.userPhoto.setImageResource(R.drawable.ic_rudsonlive);
-        this.userBackground.setImageResource(R.drawable.ic_user_background_first);
+        this.userPhoto.setImageResource(R.drawable.kbclogo);
+        this.userBackground.setImageResource(R.drawable.ic_user_background);
 
         // Creating items navigation
         mHelpLiveo = new HelpLiveo();
