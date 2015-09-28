@@ -10,6 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
+        app:tabMode="scrollable"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
         <android.support.design.widget.TabLayout
@@ -17,7 +18,8 @@
             android:layout_gravity="center_horizontal"
             app:tabIndicatorColor="@color/nliveo_white"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            app:tabMode="scrollable" />
 
     </android.support.design.widget.AppBarLayout>
 
