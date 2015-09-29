@@ -1,15 +1,55 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:fab="http://schemas.android.com/apk/res-auto"
-    tools:context="loise.liveo.ui.fragment.ContactsFragment">
+    android:orientation="vertical"
+    tools:context="loise.liveo.ui.fragment.ContactsFragment"
+    android:weightSum="1">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Contact Us"
+        android:id="@+id/textView"
+        android:layout_gravity="center_horizontal|top"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:layout_marginTop="20dp"
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Email: md@kbc.co.ke"
+        android:id="@+id/textView2"
+        android:layout_gravity="left|top"
+        android:textColor="#000"
+        android:layout_marginTop="10dp"
+        android:textSize="20dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Tel:  +254(0)20 2223757 \n        +254 (0)20 2221630/44"
+        android:id="@+id/textView3"
+        android:layout_gravity="left|top"
+        android:textColor="#000"
+        android:layout_marginTop="10dp"
+        android:textSize="20dp"
+        />
 
 
     <com.github.clans.fab.FloatingActionMenu
         android:id="@+id/menu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="112dp"
+        android:layout_height="match_parent"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_marginRight="10dp"
@@ -22,7 +62,7 @@
         fab:menu_shadowXOffset="1dp"
         fab:menu_shadowYOffset="3dp"
         fab:menu_colorNormal="#ffda696b"
-        fab:menu_colorPressed="#E75043"
+        fab:menu_colorPressed="#DC302C"
         fab:menu_colorRipple="#99FFFFFF"
         fab:menu_animationDelayPerItem="50"
         fab:menu_icon="@drawable/fab_add"
@@ -44,15 +84,14 @@
         fab:menu_labels_singleLine="false"
         fab:menu_labels_ellipsize="none"
         fab:menu_labels_maxLines="-1"
-        android:layout_gravity="right|bottom">
+        android:layout_gravity="right">
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/menu_item"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/twitter"
-            fab:fab_size="mini"
-            fab:fab_label="Twitter" />
+            fab:fab_size="mini" />
 
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/menu_item2"
@@ -60,14 +99,14 @@
             android:layout_height="wrap_content"
             android:src="@drawable/facebook"
             fab:fab_size="mini"
-            fab:fab_label="Facebook" />
+            />
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/menu_item3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/instagram"
             fab:fab_size="mini"
-            fab:fab_label="Instagram" />
+             />
 
     </com.github.clans.fab.FloatingActionMenu>
     <!--<android.support.design.widget.FloatingActionButton
@@ -78,4 +117,4 @@
         android:clickable="true"
         android:src="@mipmap/ic_add_white_24dp" />-->
 
-</FrameLayout>
+</LinearLayout>
