@@ -5,17 +5,20 @@ package loise.liveo.adapter;
  */
 public class ProductsData {
     String name;
-    String price;
     String description;
+    String moredesc;
+    String price;
+
     int image;
 
     int id_;
 
 
-    public ProductsData(String name, String description, String price, int image, int id_){
+    public ProductsData(String name, String description,String moredesc, String price, int image, int id_){
 
         this.name = name;
         this.description = description;
+        this.moredesc = moredesc;
         this.price = price;
         this.image = image;
         this.id_ = id_;
@@ -28,6 +31,10 @@ public class ProductsData {
 
     public String getDescription(){
         return description;
+    }
+
+    public String getMoreData(){
+        return moredesc;
     }
 
 

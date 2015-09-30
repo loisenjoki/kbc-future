@@ -23,6 +23,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
         TextView textViewProductName;
         TextView textViewDescription;
+        TextView textViewMoreData;
         TextView textViewPrice;
         ImageView imageViewIcon;
 
@@ -52,6 +53,14 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int listPosition) {
 
+        holder.imageViewIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Toast.makeText()
+
+            }
+        });
+
         TextView textViewProductName = holder.textViewProductName;
         TextView textViewDescription = holder.textViewDescription;
         TextView textViewPrice = holder.textViewPrice;
@@ -59,6 +68,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
         textViewProductName.setText(productsDataSet.get(listPosition).getName());
         textViewDescription.setText(productsDataSet.get(listPosition).getDescription());
+
         textViewPrice.setText(productsDataSet.get(listPosition).getPrice());
         imageViewIcon.setImageResource(productsDataSet.get(listPosition).getImage());
     }

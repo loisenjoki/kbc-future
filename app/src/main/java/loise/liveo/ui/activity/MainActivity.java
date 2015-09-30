@@ -32,13 +32,13 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
 
         // Creating items navigation
         mHelpLiveo = new HelpLiveo();
-        mHelpLiveo.add(getString(R.string.inbox), R.mipmap.ic_inbox_black_24dp, 7);
-        mHelpLiveo.add(getString(R.string.starred), R.mipmap.ic_star_black_24dp);
+        mHelpLiveo.add(getString(R.string.inbox), R.mipmap.tv);
+        mHelpLiveo.add(getString(R.string.starred), R.mipmap.listen);
         mHelpLiveo.addSubHeader(getString(R.string.categories)); //Item subHeader
-        mHelpLiveo.add(getString(R.string.sent_mail), R.mipmap.ic_send_black_24dp);
-        mHelpLiveo.add(getString(R.string.drafts), R.mipmap.ic_drafts_black_24dp);
+        mHelpLiveo.add(getString(R.string.sent_mail), R.mipmap.news);
+        mHelpLiveo.add(getString(R.string.drafts), R.mipmap.conta);
         mHelpLiveo.addSeparator(); // Item separator
-        mHelpLiveo.add(getString(R.string.trash), R.mipmap.ic_delete_black_24dp);
+        mHelpLiveo.add(getString(R.string.trash), R.mipmap.ad);
         mHelpLiveo.add(getString(R.string.spam), R.mipmap.ic_report_black_24dp, 120);
 
         with(this).startingPosition(2) //Starting position in the list
