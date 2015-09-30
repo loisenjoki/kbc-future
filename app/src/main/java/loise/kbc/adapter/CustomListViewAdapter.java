@@ -1,4 +1,4 @@
-package loise.liveo.adapter;
+package loise.kbc.adapter;
 
 import android.app.Activity;
 import android.content.Context;
@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import loise.liveo.navigationviewpagerliveo.R;
+import loise.kbc.navigationviewpagerliveo.R;
 
 /**
  * Created by loise on 9/29/15.

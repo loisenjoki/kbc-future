@@ -1,4 +1,4 @@
-package loise.liveo.navigationviewpagerliveo;
+package loise.kbc.navigationviewpagerliveo;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

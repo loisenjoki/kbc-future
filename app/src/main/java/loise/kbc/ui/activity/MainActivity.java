@@ -1,4 +1,4 @@
-package loise.liveo.ui.activity;
+package loise.kbc.ui.activity;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,12 +10,12 @@ import br.liveo.Model.HelpLiveo;
 import br.liveo.interfaces.OnItemClickListener;
 import br.liveo.interfaces.OnPrepareOptionsMenuLiveo;
 import br.liveo.navigationliveo.NavigationLiveo;
-import loise.liveo.navigationviewpagerliveo.R;
-import loise.liveo.ui.fragment.ContactsFragment;
-import loise.liveo.ui.fragment.MainFragment;
-import loise.liveo.ui.fragment.RadioFragment;
-import loise.liveo.ui.fragment.TvFragment;
-import loise.liveo.ui.fragment.ViewPagerFragment;
+import loise.kbc.navigationviewpagerliveo.R;
+import loise.kbc.ui.fragment.ContactsFragment;
+import loise.kbc.ui.fragment.MainFragment;
+import loise.kbc.ui.fragment.RadioFragment;
+import loise.kbc.ui.fragment.TvFragment;
+import loise.kbc.ui.fragment.ViewPagerFragment;
 
 public class MainActivity extends NavigationLiveo implements OnItemClickListener {
 

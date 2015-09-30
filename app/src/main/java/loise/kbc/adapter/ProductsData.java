@@ -1,4 +1,4 @@
-package loise.liveo.adapter;
+package loise.kbc.adapter;
 
 /**
  * Created by v on 10-Feb-15.

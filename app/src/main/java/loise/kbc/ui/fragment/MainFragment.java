@@ -1,4 +1,4 @@
-package loise.liveo.ui.fragment;
+package loise.kbc.ui.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -14,7 +14,7 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import loise.liveo.navigationviewpagerliveo.R;
+import loise.kbc.navigationviewpagerliveo.R;
 
 public class MainFragment extends Fragment {
 

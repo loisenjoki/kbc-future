@@ -1,4 +1,4 @@
-package loise.liveo.ui.fragment;
+package loise.kbc.ui.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -15,8 +15,8 @@ import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.Toast;
 
-import loise.liveo.adapter.CustomGrid;
-import loise.liveo.navigationviewpagerliveo.R;
+import loise.kbc.adapter.CustomGrid;
+import loise.kbc.navigationviewpagerliveo.R;
 
 /**
  * Created by loise on 9/28/15.

@@ -1,4 +1,4 @@
-package loise.liveo.adapter;
+package loise.kbc.adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,8 +9,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import loise.liveo.navigationviewpagerliveo.R;
-import loise.liveo.ui.fragment.InternationalNews;
+import loise.kbc.navigationviewpagerliveo.R;
+import loise.kbc.ui.fragment.InternationalNews;
 
 /**
  * Created by v on 10-Feb-15.

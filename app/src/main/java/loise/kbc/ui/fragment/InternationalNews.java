@@ -1,4 +1,4 @@
-package loise.liveo.ui.fragment;
+package loise.kbc.ui.fragment;
 
 import android.content.Context;
 import android.content.Intent;
@@ -15,11 +15,11 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import loise.liveo.adapter.Adapter;
-import loise.liveo.adapter.Data;
-import loise.liveo.adapter.ProductsData;
-import loise.liveo.navigationviewpagerliveo.R;
-import loise.liveo.ui.activity.MoreNews;
+import loise.kbc.adapter.Adapter;
+import loise.kbc.adapter.Data;
+import loise.kbc.adapter.ProductsData;
+import loise.kbc.navigationviewpagerliveo.R;
+import loise.kbc.ui.activity.MoreNews;
 
 /**
  * Created by loise on 9/28/15.

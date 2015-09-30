@@ -1,6 +1,6 @@
-package loise.liveo.adapter;
+package loise.kbc.adapter;
 
-import loise.liveo.navigationviewpagerliveo.R;
+import loise.kbc.navigationviewpagerliveo.R;
 
 /**
  * Created by v on 10-Feb-15.

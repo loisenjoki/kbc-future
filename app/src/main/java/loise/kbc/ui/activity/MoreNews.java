@@ -1,4 +1,4 @@
-package loise.liveo.ui.activity;
+package loise.kbc.ui.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,10 +9,10 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
-import loise.liveo.adapter.CustomListViewAdapter;
-import loise.liveo.adapter.Data;
-import loise.liveo.adapter.ProductsData;
-import loise.liveo.navigationviewpagerliveo.R;
+import loise.kbc.adapter.CustomListViewAdapter;
+import loise.kbc.adapter.Data;
+import loise.kbc.adapter.ProductsData;
+import loise.kbc.navigationviewpagerliveo.R;
 
 public class MoreNews extends AppCompatActivity {
 

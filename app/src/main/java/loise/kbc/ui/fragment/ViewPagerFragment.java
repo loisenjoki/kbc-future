@@ -1,4 +1,4 @@
-package loise.liveo.ui.fragment;
+package loise.kbc.ui.fragment;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -12,9 +12,9 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
-import loise.liveo.adapter.TabPagerItem;
-import loise.liveo.adapter.ViewPagerAdapter;
-import loise.liveo.navigationviewpagerliveo.R;
+import loise.kbc.adapter.TabPagerItem;
+import loise.kbc.adapter.ViewPagerAdapter;
+import loise.kbc.navigationviewpagerliveo.R;
 
 public class ViewPagerFragment extends Fragment{
 	private List<TabPagerItem> mTabs = new ArrayList<>();
