@@ -13,11 +13,11 @@ public class Data {
             "Pizza is free on Fridays"};
 
     public static String[] descriptionArray = {
-            "In this case, the adapter helps us combine the RecyclerView and CardView. The layout we defined before for the cards will be the row layout of our contact list in the RecyclerView. Before doing it, we have to define our data model that stands at the base of our UI (i.e. what information we want to show)....",
-            "In this case, the adapter helps us combine the RecyclerView and CardView. The layout we defined before for the cards will be the row layout of our contact list in the RecyclerView. Before doing it, we have to define our data model that stands at the base of our UI (i.e. what information we want to show)...",
-            "In this case, the adapter helps us combine the RecyclerView and CardView. The layout we defined before for the cards will be the row layout of our contact list in the RecyclerView. Before doing it, we have to define our data model that stands at the base of our UI (i.e. what information we want to show)...",
-            "In this case, the adapter helps us combine the RecyclerView and CardView. The layout we defined before for the cards will be the row layout of our contact list in the RecyclerView. Before doing it, we have to define our data model that stands at the base of our UI (i.e. what information we want to show)...",
-            "In this case, the adapter helps us combine the RecyclerView and CardView. The layout we defined before for the cards will be the row layout of our contact list in the RecyclerView. Before doing it, we have to define our data model that stands at the base of our UI (i.e. what information we want to show)...",
+            "In this case, the adapter helps us combine the RecyclerView and CardView. The layout we defined before for the cards will be the row layout of our contact list in the RecyclerView.we have to define our data model that stands at the base of our UI....",
+            "In this case, the adapter helps us combine the RecyclerView and CardView. The layout we defined before for the cards will be the row layout of our contact list in the RecyclerView.we have to define our data model that stands at the base of our UI...",
+            "In this case, the adapter helps us combine the RecyclerView and CardView. The layout we defined before for the cards will be the row layout of our contact list in the RecyclerView.we have to define our data model that stands at the base of our UI...",
+            "In this case, the adapter helps us combine the RecyclerView and CardView. The layout we defined before for the cards will be the row layout of our contact list in the RecyclerView. we have to define our data model that stands at the base of our UI...",
+            "In this case, the adapter helps us combine the RecyclerView and CardView. The layout we defined before for the cards will be the row layout of our contact list in the RecyclerView. we have to define our data model that stands at the base of our UI...",
     };
 
     public static String[] moredesc = {
