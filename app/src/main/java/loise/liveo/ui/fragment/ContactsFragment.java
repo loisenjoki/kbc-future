@@ -8,20 +8,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.github.clans.fab.FloatingActionMenu;
-
 import loise.liveo.navigationviewpagerliveo.R;
 import loise.liveo.ui.activity.MainActivity;
+import loise.liveo.ui.activity.TimelineKbc;
+import loise.liveo.ui.activity.TwitterApplication;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class ContactsFragment extends android.support.v4.app.Fragment {
-    private FloatingActionMenu fab1;
-    private FloatingActionMenu fab2;
-    private FloatingActionMenu fab3;
-
+  
 
     public ContactsFragment() {
         // Required empty public constructor
@@ -44,7 +41,7 @@ public class ContactsFragment extends android.support.v4.app.Fragment {
         v.findViewById(R.id.menu_item).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(), MainActivity.class));
+                startActivity(new Intent(getActivity(), TimelineKbc.class));
             }
         });
         v.findViewById(R.id.menu_item2).setOnClickListener(new View.OnClickListener() {
