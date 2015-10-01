@@ -21,6 +21,10 @@
             android:name="loise.kbc.ui.activity.MoreNews"
             android:label="@string/title_activity_more_news" >
         </activity>
+        <activity
+            android:name="loise.kbc.ui.activity.MainActivityRadio"
+            android:label="Radio" >
+        </activity>
     </application>
 
 </manifest>
