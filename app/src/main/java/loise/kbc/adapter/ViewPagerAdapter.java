@@ -1,4 +1,4 @@
-package loise.liveo.adapter;
+package loise.kbc.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

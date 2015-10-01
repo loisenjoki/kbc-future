@@ -1,4 +1,4 @@
-package loise.liveo.ui.activity;
+package loise.kbc.ui.activity;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,12 +10,12 @@ import br.liveo.Model.HelpLiveo;
 import br.liveo.interfaces.OnItemClickListener;
 import br.liveo.interfaces.OnPrepareOptionsMenuLiveo;
 import br.liveo.navigationliveo.NavigationLiveo;
-import loise.liveo.navigationviewpagerliveo.R;
-import loise.liveo.ui.fragment.ContactsFragment;
-import loise.liveo.ui.fragment.MainFragment;
-import loise.liveo.ui.fragment.RadioFragment;
-import loise.liveo.ui.fragment.TvFragment;
-import loise.liveo.ui.fragment.ViewPagerFragment;
+import loise.kbc.navigationviewpagerliveo.R;
+import loise.kbc.ui.fragment.ContactsFragment;
+import loise.kbc.ui.fragment.MainFragment;
+import loise.kbc.ui.fragment.RadioFragment;
+import loise.kbc.ui.fragment.TvFragment;
+import loise.kbc.ui.fragment.ViewPagerFragment;
 
 public class MainActivity extends NavigationLiveo implements OnItemClickListener {
 
@@ -32,13 +32,13 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
 
         // Creating items navigation
         mHelpLiveo = new HelpLiveo();
-        mHelpLiveo.add(getString(R.string.inbox), R.mipmap.ic_inbox_black_24dp, 7);
-        mHelpLiveo.add(getString(R.string.starred), R.mipmap.ic_star_black_24dp);
+        mHelpLiveo.add(getString(R.string.inbox), R.mipmap.tv);
+        mHelpLiveo.add(getString(R.string.starred), R.mipmap.listen);
         mHelpLiveo.addSubHeader(getString(R.string.categories)); //Item subHeader
-        mHelpLiveo.add(getString(R.string.sent_mail), R.mipmap.ic_send_black_24dp);
-        mHelpLiveo.add(getString(R.string.drafts), R.mipmap.ic_drafts_black_24dp);
+        mHelpLiveo.add(getString(R.string.sent_mail), R.mipmap.news);
+        mHelpLiveo.add(getString(R.string.drafts), R.mipmap.conta);
         mHelpLiveo.addSeparator(); // Item separator
-        mHelpLiveo.add(getString(R.string.trash), R.mipmap.ic_delete_black_24dp);
+        mHelpLiveo.add(getString(R.string.trash), R.mipmap.ad);
         mHelpLiveo.add(getString(R.string.spam), R.mipmap.ic_report_black_24dp, 120);
 
         with(this).startingPosition(2) //Starting position in the list

@@ -7,8 +7,8 @@ import android.view.MenuItem;
 import com.twitter.sdk.android.core.TwitterAuthConfig;
 import com.twitter.sdk.android.Twitter;
 import io.fabric.sdk.android.Fabric;
+import loise.kbc.navigationviewpagerliveo.R;
 
-import loise.liveo.navigationviewpagerliveo.R;
 
 public class TwitterApplication extends AppCompatActivity {
     // Note: Your consumer key and secret should be obfuscated in your source code before shipping.
@@ -20,30 +20,13 @@ public class TwitterApplication extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
         Fabric.with(this, new Twitter(authConfig));
-        setContentView(R.layout.activity_twitter_list);
+        setContentView(R.layout.activity_timeline_kbc);
 
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_twitter_list, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
 
-        return super.onOptionsItemSelected(item);
-    }
+
 }

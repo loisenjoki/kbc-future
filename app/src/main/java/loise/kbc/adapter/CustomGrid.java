@@ -1,4 +1,4 @@
-package loise.liveo.adapter;
+package loise.kbc.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import loise.liveo.navigationviewpagerliveo.R;
+import loise.kbc.navigationviewpagerliveo.R;
 
 /**
  * Created by loise on 9/28/15.

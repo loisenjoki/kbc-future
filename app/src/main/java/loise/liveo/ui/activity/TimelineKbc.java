@@ -1,13 +1,10 @@
 package loise.liveo.ui.activity;
 
-import android.app.Dialog;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ListView;
 import android.widget.ProgressBar;
 
 import com.twitter.sdk.android.Twitter;
@@ -16,7 +13,8 @@ import com.twitter.sdk.android.tweetui.TweetTimelineListAdapter;
 import com.twitter.sdk.android.tweetui.UserTimeline;
 
 import io.fabric.sdk.android.Fabric;
-import loise.liveo.navigationviewpagerliveo.R;
+import loise.kbc.navigationviewpagerliveo.R;
+//import loise.liveo.navigationviewpagerliveo.R;
 
 public class TimelineKbc extends ListActivity {
     private static final String TWITTER_KEY = "CtXW8KLLGFfQTqWlrdoK7oUbR";
