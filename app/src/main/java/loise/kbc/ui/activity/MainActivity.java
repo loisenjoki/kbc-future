@@ -6,12 +6,15 @@ import android.support.v4.app.FragmentManager;
 import android.view.Menu;
 import android.view.View;
 
+
+
 import br.liveo.Model.HelpLiveo;
 import br.liveo.interfaces.OnItemClickListener;
 import br.liveo.interfaces.OnPrepareOptionsMenuLiveo;
 import br.liveo.navigationliveo.NavigationLiveo;
 import loise.kbc.navigationviewpagerliveo.R;
 import loise.kbc.ui.fragment.ContactsFragment;
+import loise.kbc.ui.fragment.LogInFragment;
 import loise.kbc.ui.fragment.MainFragment;
 import loise.kbc.ui.fragment.RadioFragment;
 import loise.kbc.ui.fragment.TvFragment;
@@ -34,11 +37,12 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
         mHelpLiveo = new HelpLiveo();
         mHelpLiveo.add(getString(R.string.inbox), R.mipmap.tv);
         mHelpLiveo.add(getString(R.string.starred), R.mipmap.listen);
-        mHelpLiveo.addSubHeader(getString(R.string.categories)); //Item subHeader
+       // mHelpLiveo.addSubHeader(getString(R.string.categories)); //Item subHeader
         mHelpLiveo.add(getString(R.string.sent_mail), R.mipmap.news);
         mHelpLiveo.add(getString(R.string.drafts), R.mipmap.conta);
-        mHelpLiveo.addSeparator(); // Item separator
+       // mHelpLiveo.addSeparator(); // Item separator
         mHelpLiveo.add(getString(R.string.trash), R.mipmap.ad);
+        mHelpLiveo.add(getString(R.string.login),R.mipmap.conta);
         mHelpLiveo.add(getString(R.string.spam), R.mipmap.ic_report_black_24dp, 120);
 
         with(this).startingPosition(2) //Starting position in the list
@@ -67,11 +71,17 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
             case 1:
                 mFragment = new RadioFragment();
                 break;
-            case 3:
+            case 2:
                 mFragment = new ViewPagerFragment();
                 break;
-            case 4:
+            case 3:
                 mFragment= new ContactsFragment();
+                break;
+            case 4:
+                mFragment=new RadioFragment();
+                break;
+            case 5:
+                mFragment= new LogInFragment();
                 break;
 
             default:

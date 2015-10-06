@@ -25,8 +25,8 @@ public class TwitterApplication extends AppCompatActivity {
 
     }
 
-
-
-
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
 }
