@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="loise.kbc.navigationviewpagerliveo" >
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -17,13 +20,35 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="c4187f8ac4cb5d8068a1328986d55d80386316d1" />
+
         <activity
-            android:name="loise.kbc.ui.activity.MoreNews"
-            android:label="@string/title_activity_more_news" >
+            android:name="loise.liveo.ui.activity.TwitterApplication"
+            android:label="@string/title_activity_twitter_list" >
         </activity>
+        <activity
+            android:name="loise.liveo.ui.activity.TimelineKbc"
+            android:label="@string/title_activity_timeline_kbc" >
+        </activity>
+        <!--<activity-->
+            <!--android:name="loise.kbc.ui.fragment.MoreNews"-->
+            <!--android:label="@string/title_activity_more_news" >-->
+        <!--</activity>-->
         <activity
             android:name="loise.kbc.ui.activity.MainActivityRadio"
             android:label="Radio" >
+        </activity>
+        <activity
+            android:name="loise.kbc.ui.activity.News"
+            android:label="@string/title_activity_news"
+            android:theme="@style/myTheme.NoActionBar" >
+        </activity>
+        <activity android:name="loise.kbc.ui.activity.KBCTv" >
+        </activity>
+        <activity android:name="loise.kbc.ui.activity.Video" >
         </activity>
     </application>
 

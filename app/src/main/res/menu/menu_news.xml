@@ -1,0 +1,32 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" tools:context="loise.kbc.ui.activity.News">
+    <item android:id="@+id/action_settings" android:title="@string/action_settings"
+        android:orderInCategory="100" app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_back"
+        android:icon="@mipmap/back"
+        app:showAsAction="always"
+        android:title="back"/>
+
+    <item
+        android:id="@+id/menu_search"
+        app:actionViewClass="android.support.v7.widget.SearchView"
+        android:icon="@mipmap/ic_search_white_24dp"
+        app:showAsAction="always|collapseActionView"
+        android:title="@string/search"/>
+    <item
+        android:id="@+id/menu_add"
+        android:icon="@mipmap/share"
+        app:showAsAction="always"
+        android:title="share"/>
+    <item
+        android:id="@+id/menu_rate"
+        android:icon="@mipmap/rate"
+        app:showAsAction="always"
+        android:title="rate"/>
+
+
+
+</menu>

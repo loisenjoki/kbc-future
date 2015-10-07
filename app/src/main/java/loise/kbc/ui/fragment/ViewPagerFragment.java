@@ -27,7 +27,7 @@ public class ViewPagerFragment extends Fragment{
 
     private void createTabPagerItem(){
         mTabs.add(new TabPagerItem(getString(R.string.inter), InternationalNews.newInstance(getString(R.string.inter))));
-        mTabs.add(new TabPagerItem(getString(R.string.local), NewsFragment.newInstance(getString(R.string.local))));
+        mTabs.add(new TabPagerItem(getString(R.string.local), Localnews.newInstance(getString(R.string.local))));
         mTabs.add(new TabPagerItem(getString(R.string.business), MainFragment.newInstance(getString(R.string.business))));
         mTabs.add(new TabPagerItem(getString(R.string.sport), MainFragment.newInstance(getString(R.string.sport))));
         mTabs.add(new TabPagerItem(getString(R.string.tech), MainFragment.newInstance(getString(R.string.tech))));

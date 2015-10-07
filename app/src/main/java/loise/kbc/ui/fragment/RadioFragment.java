@@ -19,6 +19,7 @@ import android.widget.Toast;
 import loise.kbc.adapter.CustomGrid;
 import loise.kbc.navigationviewpagerliveo.R;
 import loise.kbc.ui.activity.MainActivityRadio;
+import loise.kbc.ui.activity.News;
 
 /**
  * Created by loise on 9/28/15.
@@ -26,7 +27,6 @@ import loise.kbc.ui.activity.MainActivityRadio;
 public class RadioFragment extends Fragment {
     private boolean mSearchCheck;
     public static final String TEXT_FRAGMENT = "TEXT_FRAGMENT";
-
 
     GridView grid;
     String[] web = {
@@ -67,6 +67,9 @@ public class RadioFragment extends Fragment {
                 switch (position){
                     case 0:
                         startActivity(new Intent(getActivity(), MainActivityRadio.class));
+                        break;
+                    case 1:
+                        startActivity(new Intent(getActivity(), News.class));
                 }
             }
         });
