@@ -44,7 +44,13 @@
         </activity>
         <activity
             android:name="loise.kbc.ui.activity.SignUpActivity"
-            android:label="@string/title_activity_sign_up" >
+            android:label="@string/title_activity_sign_up"
+            android:parentActivityName="loise.kbc.ui.activity.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="loise.kbc.ui.activity.MainActivity">
+
+            </meta-data>
         </activity>
     </application>
 

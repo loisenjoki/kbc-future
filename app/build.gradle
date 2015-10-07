@@ -40,6 +40,7 @@ dependencies {
         transitive = true;
     }
     compile 'com.github.chenupt.android:springindicator:1.0.2@aar'
+    compile 'com.android.support:appcompat-v7:21.0.+'
    // compile 'com.facebook.android:facebook-android-sdk:4.0.0'
   //  compile 'com.facebook.android:facebook-android-sdk:4.0.0'
 }
