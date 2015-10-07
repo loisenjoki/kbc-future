@@ -33,7 +33,7 @@ public class TimelineKbc extends ListActivity {
       //  twitterprogressbar= ProgressDialog.show(TimelineKbc.this, "Loading tweets", "Please Wait",true);
 
 
-        final UserTimeline userTimeline=new UserTimeline.Builder().screenName("KBCKenya").build();
+        final UserTimeline userTimeline=new UserTimeline.Builder().screenName("KBCChannel1").build();
 
         ProgressBar pb = (ProgressBar) findViewById(R.id.pbdialog);
         pb.setVisibility(ProgressBar.VISIBLE);
