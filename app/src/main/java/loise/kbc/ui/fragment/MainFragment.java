@@ -1,6 +1,6 @@
+
 package loise.kbc.ui.fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
@@ -13,15 +13,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.EditText;
-import android.widget.ShareActionProvider;
 
 import loise.kbc.navigationviewpagerliveo.R;
+
 
 public class MainFragment extends Fragment {
 
     private boolean mSearchCheck;
     public static final String TEXT_FRAGMENT = "TEXT_FRAGMENT";
-	private ShareActionProvider mShareActionProvider;
 	
 	public static MainFragment newInstance(String text){
 		MainFragment mFragment = new MainFragment();
@@ -37,9 +36,10 @@ public class MainFragment extends Fragment {
 		// TODO Auto-generated method stub		
 		View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
+        /*TextView mTxtTitle = (TextView) rootView.findViewById(R.id.txtTitle);
+        mTxtTitle.setText(getArguments().getString(TEXT_FRAGMENT));*/
 
-
-		rootView.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT ));
+		rootView.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT ));		
 		return rootView;		
 	}
 
@@ -49,56 +49,41 @@ public class MainFragment extends Fragment {
 		super.onActivityCreated(savedInstanceState);
 		setHasOptionsMenu(true);
 	}
-
+	
 	@Override
 	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
 		// TODO Auto-generated method stub
-		super.onCreateOptionsMenu(menu, inflater);
+		super.onCreateOptionsMenu(menu, inflater);		
 		inflater.inflate(R.menu.menu, menu);
 
-		SearchView searchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.menu_search));
-		searchView.setQueryHint(this.getString(R.string.search));
+        SearchView searchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.menu_search));
+        searchView.setQueryHint(this.getString(R.string.search));
 
-		((EditText) searchView.findViewById(android.support.v7.appcompat.R.id.search_src_text))
-				.setHintTextColor(getResources().getColor(R.color.nliveo_white));
-		searchView.setOnQueryTextListener(onQuerySearchView);
+        ((EditText)searchView.findViewById(android.support.v7.appcompat.R.id.search_src_text))
+                .setHintTextColor(getResources().getColor(R.color.nliveo_white));
+        searchView.setOnQueryTextListener(onQuerySearchView);
 
-
-
-// 			Locate MenuItem with ShareActionProvider
-		MenuItem item = menu.findItem(R.id.menu_add);
 		menu.findItem(R.id.menu_add).setVisible(true);
-		//mShareActionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(item);
-
 		menu.findItem(R.id.menu_search).setVisible(true);
-
-		mSearchCheck = false;
-
-
-	}
-
+  	    
+		mSearchCheck = false;	
+	}	
+	
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		// TODO Auto-generated method stub
-
-
+		
 		switch (item.getItemId()) {
+
 		case R.id.menu_add:
-			Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
-			sharingIntent.setType("text/plain");
-			String shareBody = "www.kbc.co.ke";
-			sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Subject Here");
-			sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
-			startActivity(Intent.createChooser(sharingIntent, "Share via"));
 
-
-			break;
-
+			break;				
+		
 		case R.id.menu_search:
 			mSearchCheck = true;
 
 			break;
-		}
+		}		
 		return true;
 	}	
 
@@ -117,3 +102,4 @@ public class MainFragment extends Fragment {
        }
    };
 }
+

@@ -1,15 +1,19 @@
+
 package loise.kbc.ui.fragment;
 
 
-import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import loise.kbc.navigationviewpagerliveo.R;
+
+
 import loise.liveo.ui.activity.TimelineKbc;
+import loise.liveo.ui.activity.TwitterApplication;
+import loise.kbc.navigationviewpagerliveo.R;
 
 
 

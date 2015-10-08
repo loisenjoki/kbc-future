@@ -1,3 +1,4 @@
+
 package loise.liveo.ui.activity;
 
 import android.app.ListActivity;
@@ -5,6 +6,7 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ProgressBar;
 
 import com.twitter.sdk.android.Twitter;
 import com.twitter.sdk.android.core.TwitterAuthConfig;
@@ -29,21 +31,19 @@ public class TimelineKbc extends ListActivity {
         Fabric.with(this, new Twitter(authConfig));
         setContentView(R.layout.activity_timeline_kbc);
       //  twitterprogressbar= ProgressDialog.show(TimelineKbc.this, "Loading tweets", "Please Wait",true);
-        ProgressDialog dialog = new ProgressDialog(TimelineKbc.this);
-        dialog.setMessage("Your message..");
-        dialog.show();
 
-        final UserTimeline userTimeline=new UserTimeline.Builder().screenName("KBCKenya").build();
 
-        //ProgressBar pb = (ProgressBar) findViewById(R.id.pbdialog);
-        //pb.setVisibility(ProgressBar.VISIBLE);
+        final UserTimeline userTimeline=new UserTimeline.Builder().screenName("KBCChannel1").build();
+
+        ProgressBar pb = (ProgressBar) findViewById(R.id.pbdialog);
+        pb.setVisibility(ProgressBar.VISIBLE);
 
         final TweetTimelineListAdapter adapter=new TweetTimelineListAdapter.Builder(this).setTimeline(userTimeline).build();
         setListAdapter(adapter);
 
-        //.setVisibility(ProgressBar.INVISIBLE);
+        pb.setVisibility(ProgressBar.INVISIBLE);
 
-        dialog.dismiss();
+       // twitterprogressbar.dismiss();
 
     }
 
@@ -69,3 +69,4 @@ public class TimelineKbc extends ListActivity {
         return super.onOptionsItemSelected(item);
     }
 }
+
