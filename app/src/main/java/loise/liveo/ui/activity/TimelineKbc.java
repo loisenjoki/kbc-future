@@ -1,9 +1,11 @@
 
 package loise.liveo.ui.activity;
 
+import android.app.Activity;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ProgressBar;

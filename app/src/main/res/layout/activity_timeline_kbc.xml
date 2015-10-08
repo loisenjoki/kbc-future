@@ -17,11 +17,16 @@
         twittersdk:tw__tweet_id="20"/>-->
 
 
+
     <TextView android:text="KBCChannel1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_height="30dp"
         android:id="@+id/emptytext"
         android:gravity="center_horizontal|center_vertical"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:textColor="#000"
+
         />
     <ProgressBar
         android:layout_width="wrap_content"
@@ -34,12 +39,14 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:divider="#e1e8ed"
-        android:dividerHeight="1dp"
-        android:drawSelectorOnTop="false"
+        android:dividerHeight="4dp"
+        android:drawSelectorOnTop="true"
         android:elevation="2dp"
         android:paddingTop="10dp"
         android:layout_marginTop="5dp"
+        android:background="@drawable/customshape"
         />
+
 
 
 </LinearLayout>
