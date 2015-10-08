@@ -1,3 +1,4 @@
+
 package loise.kbc.ui.fragment;
 
 import android.os.Build;
@@ -15,6 +16,7 @@ import java.util.List;
 import loise.kbc.adapter.TabPagerItem;
 import loise.kbc.adapter.ViewPagerAdapter;
 import loise.kbc.navigationviewpagerliveo.R;
+
 
 public class ViewPagerFragment extends Fragment{
 	private List<TabPagerItem> mTabs = new ArrayList<>();

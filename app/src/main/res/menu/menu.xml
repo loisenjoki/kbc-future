@@ -1,3 +1,4 @@
+
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -5,12 +6,18 @@
         android:id="@+id/menu_search"
         app:actionViewClass="android.support.v7.widget.SearchView"
         android:icon="@mipmap/ic_search_white_24dp"
-        app:showAsAction="ifRoom|collapseActionView"
+        app:showAsAction="always|collapseActionView"
         android:title="@string/search"/>
     <item
         android:id="@+id/menu_add"
-        android:icon="@mipmap/ic_add_white_24dp"
-        app:showAsAction="ifRoom"
-        android:title="@string/add"/>
+        android:icon="@mipmap/share"
+        app:showAsAction="always"
+        android:title="share"/>
+    <item
+        android:id="@+id/menu_rate"
+        android:icon="@mipmap/rate"
+        app:showAsAction="always"
+        android:title="rate"/>
+
 
 </menu>

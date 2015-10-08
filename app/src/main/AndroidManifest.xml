@@ -8,6 +8,7 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
         android:name="loise.liveo.ui.activity.TwitterApplication"
@@ -15,6 +16,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/myTheme" >
+
         <activity
             android:name="loise.kbc.ui.activity.MainActivity"
             android:label="@string/app_name"
@@ -28,12 +30,14 @@
 
         <meta-data
             android:name="io.fabric.ApiKey"
-            android:value="c4187f8ac4cb5d8068a1328986d55d80386316d1" />
+            android:value="c4187f8ac4cb5d8068a1328986d55d80386316d1" >
 
-        <activity
+        </meta-data>
+
+       <!-- <activity
             android:name="loise.liveo.ui.activity.TwitterApplication"
             android:label="@string/title_activity_twitter_list" >
-        </activity>
+        </activity>-->
         <activity
             android:name="loise.liveo.ui.activity.TimelineKbc"
             android:label="@string/title_activity_timeline_kbc" >
@@ -52,6 +56,29 @@
 
             </meta-data>
         </activity>
+        <activity
+            android:name="loise.kbc.ui.activity.MainActivityRadio"
+            android:label="Radio" >
+        </activity>
+        <activity
+            android:name="loise.kbc.ui.activity.News"
+            android:label="@string/title_activity_news"
+            android:theme="@style/myTheme.NoActionBar" >
+        </activity>
+        <activity android:name="loise.kbc.ui.activity.KBCTv" >
+        </activity>
+        <activity android:name="loise.kbc.ui.activity.Video" >
+        </activity>
+
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="c4187f8ac4cb5d8068a1328986d55d80386316d1" />
+
+
+
+
     </application>
 
 </manifest>
+

@@ -6,15 +6,16 @@ import android.support.v4.app.FragmentManager;
 import android.view.Menu;
 import android.view.View;
 
+import loise.kbc.navigationviewpagerliveo.R;
+import loise.kbc.ui.fragment.AdvertismentFragment;
+import loise.kbc.ui.fragment.ContactsFragment;
+import loise.kbc.ui.fragment.LogInFragment;
 
 
 import br.liveo.Model.HelpLiveo;
 import br.liveo.interfaces.OnItemClickListener;
 import br.liveo.interfaces.OnPrepareOptionsMenuLiveo;
 import br.liveo.navigationliveo.NavigationLiveo;
-import loise.kbc.navigationviewpagerliveo.R;
-import loise.kbc.ui.fragment.ContactsFragment;
-import loise.kbc.ui.fragment.LogInFragment;
 import loise.kbc.ui.fragment.MainFragment;
 import loise.kbc.ui.fragment.RadioFragment;
 import loise.kbc.ui.fragment.TvFragment;
@@ -83,6 +84,9 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
             case 5:
                 mFragment= new LogInFragment();
                 break;
+            case 6:
+                mFragment= new AdvertismentFragment();
+                break;
 
             default:
                 mFragment = MainFragment.newInstance(mHelpLiveo.get(position).getName());
@@ -116,3 +120,4 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
         }
     };
 }
+

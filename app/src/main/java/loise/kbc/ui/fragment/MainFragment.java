@@ -1,3 +1,4 @@
+
 package loise.kbc.ui.fragment;
 
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import loise.kbc.navigationviewpagerliveo.R;
+
 
 public class MainFragment extends Fragment {
 
@@ -35,8 +37,8 @@ public class MainFragment extends Fragment {
 		// TODO Auto-generated method stub		
 		View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
-        TextView mTxtTitle = (TextView) rootView.findViewById(R.id.txtTitle);
-        mTxtTitle.setText(getArguments().getString(TEXT_FRAGMENT));
+        /*TextView mTxtTitle = (TextView) rootView.findViewById(R.id.txtTitle);
+        mTxtTitle.setText(getArguments().getString(TEXT_FRAGMENT));*/
 
 		rootView.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT ));		
 		return rootView;		
@@ -101,3 +103,4 @@ public class MainFragment extends Fragment {
        }
    };
 }
+

@@ -1,3 +1,4 @@
+
 package loise.liveo.ui.activity;
 
 import android.app.Application;
@@ -8,7 +9,6 @@ import android.view.MenuItem;
 import com.twitter.sdk.android.core.TwitterAuthConfig;
 import com.twitter.sdk.android.Twitter;
 import io.fabric.sdk.android.Fabric;
-import loise.kbc.navigationviewpagerliveo.R;
 
 
 public class TwitterApplication extends Application {
@@ -36,3 +36,4 @@ public class TwitterApplication extends Application {
 
 
 }
+
