@@ -1,5 +1,7 @@
 package loise.kbc.ui.activity;
 
+import android.app.ActionBar;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -13,12 +15,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import loise.kbc.navigationviewpagerliveo.R;
 import loise.kbc.ui.fragment.InternationalNews;
 import loise.kbc.ui.fragment.MoreNews;
 
-public class News extends AppCompatActivity {
+public class News extends AppCompatActivity implements View.OnClickListener {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -34,6 +37,7 @@ public class News extends AppCompatActivity {
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
+    private Drawable navigationIcon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +46,12 @@ public class News extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        //setting the backword arrow
+      ActionBar mActionBar;
+        setNavigationIcon(getResources().getDrawable(R.mipmap.back));
+        toolbar.setNavigationOnClickListener(this);
+
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -49,13 +59,13 @@ public class News extends AppCompatActivity {
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
-
-
-
-
     }
 
+    @Override
+    public void onClick(View v) {
+        Toast.makeText(getApplicationContext(),"boom",Toast.LENGTH_SHORT).show();
 
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -78,6 +88,9 @@ public class News extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void setNavigationIcon(Drawable navigationIcon) {
+        this.navigationIcon = navigationIcon;
+    }
 
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
