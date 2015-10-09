@@ -24,8 +24,8 @@ import io.fabric.sdk.android.Fabric;
 import loise.kbc.navigationviewpagerliveo.R;
 
 public class TimelineKbc extends AppCompatActivity {
-    private static final String TWITTER_KEY = "CtXW8KLLGFfQTqWlrdoK7oUbR";
-    private static final String TWITTER_SECRET = "xq0mHEOlOpBVfr1uyvehFF1dt05YIAPxCHav0diBfr99QuBXrL";
+  //  private static final String TWITTER_KEY = "CtXW8KLLGFfQTqWlrdoK7oUbR";
+   // private static final String TWITTER_SECRET = "xq0mHEOlOpBVfr1uyvehFF1dt05YIAPxCHav0diBfr99QuBXrL";
     private Toolbar toolbar;
     private ProgressDialog barprogress;
     private ListView listview;
@@ -35,22 +35,21 @@ public class TimelineKbc extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
-        Fabric.with(this, new Twitter(authConfig));
+       // TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
+       // Fabric.with(this, new Twitter(authConfig));
         setContentView(R.layout.activity_timeline_kbc);
 
 
-
-
-        barprogress=ProgressDialog.show(TimelineKbc.this,"","Loading.Please wait...", true);
+        barprogress=    ProgressDialog.show(TimelineKbc.this,"In progress","Loading.Please wait...");
 
         listview = (ListView)findViewById(R.id.list);
 
         final UserTimeline userTimeline=new UserTimeline.Builder().screenName("KBCChannel1").build();
 
         final TweetTimelineListAdapter adapter=new TweetTimelineListAdapter.Builder(this).setTimeline(userTimeline).build();
-        barprogress.dismiss();
         listview.setAdapter(adapter);
+        barprogress.dismiss();
+
 
 
     }
