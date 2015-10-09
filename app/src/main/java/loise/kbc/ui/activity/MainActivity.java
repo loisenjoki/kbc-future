@@ -17,6 +17,7 @@ import br.liveo.interfaces.OnItemClickListener;
 import br.liveo.interfaces.OnPrepareOptionsMenuLiveo;
 import br.liveo.navigationliveo.NavigationLiveo;
 import loise.kbc.ui.fragment.MainFragment;
+import loise.kbc.ui.fragment.Presenters;
 import loise.kbc.ui.fragment.RadioFragment;
 import loise.kbc.ui.fragment.TvFragment;
 import loise.kbc.ui.fragment.ViewPagerFragment;
@@ -45,6 +46,7 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
         mHelpLiveo.add(getString(R.string.trash), R.mipmap.ad);
         mHelpLiveo.add(getString(R.string.login),R.mipmap.conta);
         mHelpLiveo.add(getString(R.string.spam), R.mipmap.ic_report_black_24dp, 120);
+        mHelpLiveo.add(getString(R.string.presenters),R.mipmap.conta);
 
         with(this).startingPosition(2) //Starting position in the list
                 .addAllHelpItem(mHelpLiveo.getHelp())
@@ -86,6 +88,9 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
                 break;
             case 6:
                 mFragment= new AdvertismentFragment();
+                break;
+            case 7:
+                mFragment= new Presenters();
                 break;
 
             default:

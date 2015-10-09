@@ -1,8 +1,5 @@
-
-
 package loise.kbc.ui.fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
@@ -20,32 +17,32 @@ import android.widget.Toast;
 
 import loise.kbc.adapter.CustomGrid;
 import loise.kbc.navigationviewpagerliveo.R;
-import loise.kbc.ui.activity.MainActivityRadio;
 
 /**
- * Created by loise on 9/28/15.
+ * Created by loise on 10/8/15.
  */
-public class RadioFragment extends Fragment {
+public class Presenters extends Fragment {
     private boolean mSearchCheck;
     public static final String TEXT_FRAGMENT = "TEXT_FRAGMENT";
 
     GridView grid;
     String[] web = {
-            "Radio Taifa fm",
-            "Minta fm",
-            "CoRo fm",
-            "Maytenga fm",
-            "Kitwek fm",
-            "KBC Channel 1",
+            "Mambo Mbotela",
+            "Owuor Alero",
+            "Jared Ombui",
+            "Mambo Mbotela",
+            "Owuor Alero",
+            "Jared Ombui",
+
 
     } ;
     int[] imageId = {
-            R.drawable.radiotaifa,
-            R.drawable.mintologo,
-            R.drawable.corologo,
-            R.drawable.mayiegalogo,
-            R.drawable.kitweklogo,
-            R.drawable.channel1logo,
+            R.drawable.mabombotela,
+            R.drawable.owouralero,
+            R.drawable.jaredombui,
+            R.drawable.mabombotela,
+            R.drawable.owouralero,
+            R.drawable.jaredombui,
 
     };
 
@@ -66,9 +63,6 @@ public class RadioFragment extends Fragment {
                 Toast.makeText(getActivity(), "You Clicked at " + web[+position], Toast.LENGTH_SHORT).show();
 
                 switch (position){
-                    case 0:
-                        startActivity(new Intent(getActivity(), MainActivityRadio.class));
-                        break;
 
                 }
             }
