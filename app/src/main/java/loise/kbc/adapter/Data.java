@@ -6,7 +6,7 @@ import loise.kbc.navigationviewpagerliveo.R;
  * Created by v on 10-Feb-15.
  */
 public class Data {
-    public static String[] nameArray = {"CORD,teachers Pay and Gvnt",
+    public static String[] nameArray = {"Salary increase for teachers",
             "Secirity at UhuruPark",
             "Pop is Visiting Kenya",
             "Fred Jackson is coming",
@@ -41,11 +41,11 @@ public class Data {
     };
 
     public static Integer[] drawableArray = {
-            R.drawable.mintologo,
-            R.drawable.mayiegalogo,
-            R.drawable.channel1logo,
-            R.drawable.kbclogo,
-            R.drawable.corologo,
+            R.drawable.cord,
+            R.drawable.uhuru,
+            R.drawable.pop,
+            R.drawable.fred,
+            R.drawable.pizza,
     };
     public static Integer[] id_ = {0, 1, 2, 3, 4, 5};
 }

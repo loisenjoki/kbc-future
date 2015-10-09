@@ -13,4 +13,9 @@
         <item name="colorPrimary">@color/nliveo_red_colorPrimaryDark</item>
         <item name="colorPrimaryDark">@color/nliveo_red_colorPrimaryDark</item>
     </style>
+
+    <style name="customeTextViewStyle" parent="android:Widget.TextView">fonts
+        <item name="android:fontFamily">sans_serif_light</item>
+
+    </style>
 </resources>
