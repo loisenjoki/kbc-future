@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">nViewLive-O</string>
+    <!--<string name="app_name">nViewLive-O</string>
 
     <string name="inbox">Caixa de entrada</string>
     <string name="starred">Com estrela</string>
@@ -19,10 +19,10 @@
     <string name="important">Importante</string>
     <string name="documents">Documentos</string>
 
-    <!-- Toast -->
+    &lt;!&ndash; Toast &ndash;&gt;
     <string name="open_user_profile">Abrir perfil do usuário</string>
     <string name="open_settings">Abrir configurações</string>
 
     <string name="drawer_open">Abrir drawer navigation</string>
-    <string name="drawer_close">Navigation drawer Fechar</string>   
+    <string name="drawer_close">Navigation drawer Fechar</string>   -->
 </resources >
