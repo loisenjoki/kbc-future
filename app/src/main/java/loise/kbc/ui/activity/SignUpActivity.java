@@ -3,6 +3,11 @@ package loise.kbc.ui.activity;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+
+import android.app.ActionBar;
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.CursorLoader;
 import android.content.Loader;
@@ -24,6 +29,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,6 +60,8 @@ public class SignUpActivity extends AppCompatActivity implements LoaderCallbacks
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
+    Button signupbutton;
+
     //private ActionBar actionBar=getActionBar();
 
 
@@ -81,11 +89,14 @@ public class SignUpActivity extends AppCompatActivity implements LoaderCallbacks
             }
         });
 
-        Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
+        Button mEmailSignInButton = (Button) findViewById(R.id.sign_in_button);
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
                 attemptLogin();
+              startActivity(new Intent(SignUpActivity.this, MainActivity.class));
+              //  Toast.makeText(getApplicationContext(), "Thank you for signing in",Toast.LENGTH_LONG).show();
+
             }
         });
 

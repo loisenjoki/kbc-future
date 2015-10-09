@@ -3,5 +3,7 @@
     <color name="text_color">#545454</color>
     <color name="shadow">#555555</color>
     <color name="title">#777777</color>
+    <color name="ColorPrimary">#FF5722</color>
+    <color name="ColorPrimaryDark">#E64A19</color>
 
 </resources>

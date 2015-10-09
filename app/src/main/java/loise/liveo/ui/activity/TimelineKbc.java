@@ -1,11 +1,16 @@
 
 package loise.liveo.ui.activity;
 
+import android.app.Activity;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 
 import com.twitter.sdk.android.Twitter;
@@ -13,39 +18,43 @@ import com.twitter.sdk.android.core.TwitterAuthConfig;
 import com.twitter.sdk.android.tweetui.TweetTimelineListAdapter;
 import com.twitter.sdk.android.tweetui.UserTimeline;
 
+import java.util.List;
+
 import io.fabric.sdk.android.Fabric;
 import loise.kbc.navigationviewpagerliveo.R;
 
-public class TimelineKbc extends ListActivity {
-    private static final String TWITTER_KEY = "CtXW8KLLGFfQTqWlrdoK7oUbR";
-    private static final String TWITTER_SECRET = "xq0mHEOlOpBVfr1uyvehFF1dt05YIAPxCHav0diBfr99QuBXrL";
-
-   ProgressDialog twitterprogressbar;
-
+public class TimelineKbc extends AppCompatActivity {
+  //  private static final String TWITTER_KEY = "CtXW8KLLGFfQTqWlrdoK7oUbR";
+   // private static final String TWITTER_SECRET = "xq0mHEOlOpBVfr1uyvehFF1dt05YIAPxCHav0diBfr99QuBXrL";
+    private Toolbar toolbar;
+    private ProgressDialog barprogress;
+    private ListView listview;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
-        Fabric.with(this, new Twitter(authConfig));
-        setContentView(R.layout.activity_timeline_kbc);
-      //  twitterprogressbar= ProgressDialog.show(TimelineKbc.this, "Loading tweets", "Please Wait",true);
 
+       // TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
+       // Fabric.with(this, new Twitter(authConfig));
+        setContentView(R.layout.activity_timeline_kbc);
+
+
+        barprogress=    ProgressDialog.show(TimelineKbc.this,"In progress","Loading.Please wait...");
+
+        listview = (ListView)findViewById(R.id.list);
 
         final UserTimeline userTimeline=new UserTimeline.Builder().screenName("KBCChannel1").build();
 
-        ProgressBar pb = (ProgressBar) findViewById(R.id.pbdialog);
-        pb.setVisibility(ProgressBar.VISIBLE);
-
         final TweetTimelineListAdapter adapter=new TweetTimelineListAdapter.Builder(this).setTimeline(userTimeline).build();
-        setListAdapter(adapter);
+        listview.setAdapter(adapter);
+        barprogress.dismiss();
 
-        pb.setVisibility(ProgressBar.INVISIBLE);
 
-       // twitterprogressbar.dismiss();
 
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -68,5 +77,8 @@ public class TimelineKbc extends ListActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
+
 }
 
