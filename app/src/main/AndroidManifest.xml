@@ -20,7 +20,7 @@
         <activity
             android:name="loise.kbc.ui.activity.SplashScreen"
             android:label="@string/app_name"
-            android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen">
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen" >
              >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -62,6 +62,7 @@
             android:name="loise.kbc.ui.activity.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/nLiveoDrawer" />
+
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="c4187f8ac4cb5d8068a1328986d55d80386316d1" />

@@ -47,7 +47,7 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
         mHelpLiveo.add(getString(R.string.trash), R.mipmap.ad);
         mHelpLiveo.add(getString(R.string.login),R.mipmap.conta);
 
-        mHelpLiveo.add(getString(R.string.spam), R.mipmap.ic_report_black_24dp, 120);
+        mHelpLiveo.add(getString(R.string.spam), R.mipmap.ic_report_black_24dp);
         mHelpLiveo.add(getString(R.string.presenters),R.mipmap.conta);
 
         with(this).startingPosition(2) //Starting position in the list
