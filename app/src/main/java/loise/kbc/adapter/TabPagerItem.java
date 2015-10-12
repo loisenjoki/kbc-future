@@ -6,6 +6,7 @@ public class TabPagerItem {
 
     private final CharSequence mTitle;
     private final Fragment mFragment;
+    private int icon;
 
     public TabPagerItem(CharSequence title, Fragment fragment) {
         this.mTitle = title;
@@ -18,5 +19,10 @@ public class TabPagerItem {
 
     public CharSequence getTitle() {
         return mTitle;
+    }
+
+    public int setIcon(int icon) {
+        this.icon = icon;
+        return icon;
     }
 }
