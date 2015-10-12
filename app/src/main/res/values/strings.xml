@@ -23,6 +23,10 @@
     <string name="sport">Sport</string>
     <string name="tech">Technology</string>
 
+    <string name="tv">LIVE</string>
+    <string name="radio">RADIO</string>
+    <string name="news">NEWS</string>
+
     <!-- Toast -->
     <string name="open_user_profile">Open user profile</string>
     <string name="open_settings">Open settings</string>
