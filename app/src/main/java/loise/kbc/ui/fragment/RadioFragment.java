@@ -29,6 +29,14 @@ public class RadioFragment extends Fragment {
     private boolean mSearchCheck;
     public static final String TEXT_FRAGMENT = "TEXT_FRAGMENT";
 
+    public static RadioFragment newInstance(String text){
+        RadioFragment mFragment = new RadioFragment();
+        Bundle mBundle = new Bundle();
+        mBundle.putString(TEXT_FRAGMENT, text);
+        mFragment.setArguments(mBundle);
+        return mFragment;
+    }
+
     GridView grid;
     String[] web = {
             "Radio Taifa fm",

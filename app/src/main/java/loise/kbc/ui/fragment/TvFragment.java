@@ -17,6 +17,15 @@ import loise.kbc.navigationviewpagerliveo.R;
  */
 public class TvFragment extends Fragment {
     String TAG = "com.ebookfrenzy.videoplayer";
+    public static final String TEXT_FRAGMENT = "TEXT_FRAGMENT";
+
+    public static TvFragment newInstance(String text){
+        TvFragment mFragment = new TvFragment();
+        Bundle mBundle = new Bundle();
+        mBundle.putString(TEXT_FRAGMENT, text);
+        mFragment.setArguments(mBundle);
+        return mFragment;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

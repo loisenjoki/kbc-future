@@ -1,4 +1,3 @@
-
 package loise.kbc.ui.fragment;
 
 import android.os.Build;
@@ -17,8 +16,10 @@ import loise.kbc.adapter.TabPagerItem;
 import loise.kbc.adapter.ViewPagerAdapter;
 import loise.kbc.navigationviewpagerliveo.R;
 
-
-public class ViewPagerFragment extends Fragment{
+/**
+ * Created by loise on 10/12/15.
+ */
+public class ViewPagerFragment1 extends Fragment {
     private List<TabPagerItem> mTabs = new ArrayList<>();
 
     @Override
@@ -27,12 +28,10 @@ public class ViewPagerFragment extends Fragment{
         createTabPagerItem();
     }
 
-    private void createTabPagerItem() {
-        mTabs.add(new TabPagerItem(getString(R.string.inter), InternationalNews.newInstance(getString(R.string.inter))));
-        mTabs.add(new TabPagerItem(getString(R.string.local), NewsFragment.newInstance(getString(R.string.local))));
-        mTabs.add(new TabPagerItem(getString(R.string.business), MainFragment.newInstance(getString(R.string.business))));
-        mTabs.add(new TabPagerItem(getString(R.string.sport), MainFragment.newInstance(getString(R.string.sport))));
-        mTabs.add(new TabPagerItem(getString(R.string.tech), MainFragment.newInstance(getString(R.string.tech))));
+    private void createTabPagerItem(){
+        mTabs.add(new TabPagerItem(getString(R.string.tv), TvFragment.newInstance(getString(R.string.tv))));
+        mTabs.add(new TabPagerItem(getString(R.string.radio), RadioFragment.newInstance(getString(R.string.radio))));
+        mTabs.add(new TabPagerItem(getString(R.string.news), InternationalNews.newInstance(getString(R.string.news))));
     }
 
     @Override
@@ -51,8 +50,8 @@ public class ViewPagerFragment extends Fragment{
         mViewPager.setAdapter(new ViewPagerAdapter(getChildFragmentManager(), mTabs));
         final TabLayout mSlidingTabLayout = (TabLayout) view.findViewById(R.id.tabLayout);
 
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                mSlidingTabLayout.setElevation(10);
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            mSlidingTabLayout.setElevation(10);
         }
 
         mViewPager.postDelayed(new Runnable() {
@@ -63,3 +62,4 @@ public class ViewPagerFragment extends Fragment{
         }, 1);
     }
 }
+
