@@ -21,6 +21,7 @@ import android.widget.Toast;
 import loise.kbc.adapter.CustomGrid;
 import loise.kbc.navigationviewpagerliveo.R;
 import loise.kbc.ui.activity.MainActivityRadio;
+import loise.kbc.ui.activity.RadioTaifa;
 
 /**
  * Created by loise on 9/28/15.
@@ -75,7 +76,7 @@ public class RadioFragment extends Fragment {
 
                 switch (position){
                     case 0:
-                        startActivity(new Intent(getActivity(), MainActivityRadio.class));
+                        startActivity(new Intent(getActivity(), RadioTaifa.class));
                         break;
 
                 }
