@@ -21,8 +21,8 @@ public class RadioTaifa extends AppCompatActivity {
             "Item 4"
     } ;
     Integer[] imageId = {
-            R.drawable.ic_action_stat_reply,
-            R.drawable.ic_action_stat_reply,
+            R.mipmap.listen,
+            R.mipmap.blog,
             R.drawable.ic_action_stat_reply,
             R.drawable.ic_action_stat_reply
 
@@ -45,7 +45,7 @@ public class RadioTaifa extends AppCompatActivity {
                                         int position, long id) {
                     switch (position){
                         case 0:
-                            startActivity(new Intent(getActivity(), MainActivityRadio.class));
+                            startActivity(new Intent(getApplicationContext(), MainActivityRadio.class));
                             break;
                     }
                     Toast.makeText(RadioTaifa.this, "You Clicked at " + web[+position], Toast.LENGTH_SHORT).show();

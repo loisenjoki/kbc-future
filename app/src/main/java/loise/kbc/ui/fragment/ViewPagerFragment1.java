@@ -22,6 +22,8 @@ import loise.kbc.navigationviewpagerliveo.R;
 public class ViewPagerFragment1 extends Fragment {
     private List<TabPagerItem> mTabs = new ArrayList<>();
 
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,9 +31,10 @@ public class ViewPagerFragment1 extends Fragment {
     }
 
     private void createTabPagerItem(){
+        mTabs.add(new TabPagerItem(getString(R.string.news), InternationalNews.newInstance(getString(R.string.news))));
         mTabs.add(new TabPagerItem(getString(R.string.tv), TvFragment.newInstance(getString(R.string.tv))));
         mTabs.add(new TabPagerItem(getString(R.string.radio), RadioFragment.newInstance(getString(R.string.radio))));
-        mTabs.add(new TabPagerItem(getString(R.string.news), InternationalNews.newInstance(getString(R.string.news))));
+
     }
 
     @Override
@@ -61,5 +64,7 @@ public class ViewPagerFragment1 extends Fragment {
             }
         }, 1);
     }
+
+
 }
 

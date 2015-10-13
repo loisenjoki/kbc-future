@@ -31,8 +31,8 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
         // User Information
         this.userName.setText("KBC");
         this.userEmail.setText("Your Channel One TV");
-        this.userPhoto.setImageResource(R.drawable.kbclogo);
-        this.userBackground.setImageResource(R.drawable.ic_user_background);
+        //this.userPhoto.setImageResource(R.drawable.kbclogo);
+        this.userBackground.setImageResource(R.drawable.newsroom2);
 
         // Creating items navigation
         mHelpLiveo = new HelpLiveo();
@@ -45,10 +45,10 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
         mHelpLiveo.add(getString(R.string.trash), R.mipmap.ad);
         mHelpLiveo.add(getString(R.string.login),R.mipmap.conta);
 
-        mHelpLiveo.add(getString(R.string.spam), R.mipmap.ic_report_black_24dp, 120);
+        mHelpLiveo.add(getString(R.string.spam), R.mipmap.ic_report_black_24dp);
         mHelpLiveo.add(getString(R.string.presenters),R.mipmap.conta);
 
-        with(this).startingPosition(2) //Starting position in the list
+        with(this).startingPosition(0) //Starting position in the list
                 .addAllHelpItem(mHelpLiveo.getHelp())
                 .colorNameSubHeader(R.color.nliveo_blue_colorPrimary)
                 .colorItemSelected(R.color.nliveo_blue_colorPrimary)

@@ -52,7 +52,7 @@ public class News extends AppCompatActivity implements View.OnClickListener {
         setNavigationIcon(getResources().getDrawable(R.mipmap.back));
         toolbar.setNavigationOnClickListener(this);
 
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+//        getActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         // Create the adapter that will return a fragment for each of the three
