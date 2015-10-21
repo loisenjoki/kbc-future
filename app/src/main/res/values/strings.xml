@@ -4,9 +4,12 @@
     <string name="app_name">KBC</string>
 
     <string name="inbox">Watch Live</string>
-    <string name="starred">Listen Live</string>
-    <string name="sent_mail">News</string>
-    <string name="drafts">Contacts</string>
+    <string name="starred">International News</string>
+    <string name="sent_mail">Local News</string>
+    <string name="drafts">Business</string>
+    <string name="sports">Sports</string>
+    <string name="techn">Technology</string>
+
     <string name="categories">Updates</string>
     <string name="trash">Advertise</string>
     <string name="login">LogIn</string>
@@ -23,7 +26,7 @@
     <string name="sport">Sport</string>
     <string name="tech">Technology</string>
 
-    <string name="tv">LIVE</string>
+    <string name="tv"> Watch LIVE</string>
     <string name="radio">RADIO</string>
     <string name="news">NEWS</string>
 

@@ -13,11 +13,12 @@ import br.liveo.navigationliveo.NavigationLiveo;
 import loise.kbc.navigationviewpagerliveo.R;
 import loise.kbc.ui.fragment.AdvertismentFragment;
 import loise.kbc.ui.fragment.ContactsFragment;
+import loise.kbc.ui.fragment.InternationalNews;
+import loise.kbc.ui.fragment.Localnews;
 import loise.kbc.ui.fragment.LogInFragment;
 import loise.kbc.ui.fragment.MainFragment;
 import loise.kbc.ui.fragment.Presenters;
 import loise.kbc.ui.fragment.RadioFragment;
-import loise.kbc.ui.fragment.ViewPagerFragment;
 import loise.kbc.ui.fragment.ViewPagerFragment1;
 
 public class MainActivity extends NavigationLiveo implements OnItemClickListener {
@@ -36,8 +37,8 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
         // Creating items navigation
         mHelpLiveo = new HelpLiveo();
         mHelpLiveo.add(getString(R.string.inbox), R.mipmap.tv);
+        mHelpLiveo.addSubHeader(getString(R.string.categories)); //Item subHeader
         mHelpLiveo.add(getString(R.string.starred), R.mipmap.listen);
-       // mHelpLiveo.addSubHeader(getString(R.string.categories)); //Item subHeader
         mHelpLiveo.add(getString(R.string.sent_mail), R.mipmap.news);
         mHelpLiveo.add(getString(R.string.drafts), R.mipmap.conta);
        // mHelpLiveo.addSeparator(); // Item separator
@@ -47,7 +48,7 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
         mHelpLiveo.add(getString(R.string.spam), R.mipmap.ic_report_black_24dp);
         mHelpLiveo.add(getString(R.string.presenters),R.mipmap.conta);
 
-        with(this).startingPosition(2) //Starting position in the list
+        with(this).startingPosition(0) //Starting position in the list
                 .addAllHelpItem(mHelpLiveo.getHelp())
                 .colorNameSubHeader(R.color.nliveo_blue_colorPrimary)
                 .colorItemSelected(R.color.nliveo_blue_colorPrimary)
@@ -70,25 +71,25 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
             case 0:
                 mFragment = new ViewPagerFragment1();
                 break;
-            case 1:
-                mFragment = new RadioFragment();
-                break;
             case 2:
-                mFragment = new ViewPagerFragment();
+                mFragment = new InternationalNews();
                 break;
             case 3:
-                mFragment= new ContactsFragment();
+                mFragment = new Localnews();
                 break;
             case 4:
-                mFragment=new RadioFragment();
+                mFragment= new ContactsFragment();
                 break;
             case 5:
-                mFragment= new LogInFragment();
+                mFragment=new RadioFragment();
                 break;
             case 6:
-                mFragment= new AdvertismentFragment();
+                mFragment= new LogInFragment();
                 break;
             case 7:
+                mFragment= new AdvertismentFragment();
+                break;
+            case 8:
                 mFragment= new Presenters();
 
                 break;

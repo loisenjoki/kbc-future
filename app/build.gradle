@@ -13,7 +13,7 @@ android {
     buildToolsVersion "22.0.1"
 
     defaultConfig {
-        applicationId "br.liveo.navigationviewpagerliveo"
+        applicationId "loise.kbc.navigationviewpagerliveo"
         minSdkVersion 14
         targetSdkVersion 22
         versionCode 1

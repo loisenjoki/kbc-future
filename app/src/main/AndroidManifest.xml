@@ -67,6 +67,8 @@
             android:name="io.fabric.ApiKey"
             android:value="c4187f8ac4cb5d8068a1328986d55d80386316d1" />
 
+        <activity android:name="loise.kbc.ui.activity.RadioTaifa" >
+        </activity>
     </application>
 
 </manifest>
