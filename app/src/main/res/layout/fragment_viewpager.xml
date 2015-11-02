@@ -20,14 +20,15 @@
         <android.support.design.widget.TabLayout
             android:id="@+id/tabLayout"
             android:layout_gravity="center_horizontal"
-            app:tabIndicatorColor="@color/nliveo_white"
+            app:tabIndicatorColor="#D64937"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
             android:background="#000"
             app:tabMode="fixed"
             app:tabGravity="fill"
-            app:tabSelectedTextColor="#D64937"/>
+            app:tabSelectedTextColor="#D64937"
+           />
 
     </android.support.design.widget.AppBarLayout>
 

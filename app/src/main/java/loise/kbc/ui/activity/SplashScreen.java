@@ -37,4 +37,9 @@ public class SplashScreen extends Activity {
         }, SPLASH_TIME_OUT);
 
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
 }

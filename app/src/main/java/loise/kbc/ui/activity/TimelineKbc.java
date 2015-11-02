@@ -1,31 +1,19 @@
 
-package loise.liveo.ui.activity;
+package loise.kbc.ui.activity;
 
-import android.app.Activity;
-import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 
-import com.twitter.sdk.android.Twitter;
-import com.twitter.sdk.android.core.Callback;
-import com.twitter.sdk.android.core.Result;
-import com.twitter.sdk.android.core.TwitterAuthConfig;
-import com.twitter.sdk.android.core.TwitterException;
-import com.twitter.sdk.android.core.models.Tweet;
-import com.twitter.sdk.android.tweetui.TimelineResult;
+import com.cjj.MaterialRefreshLayout;
+import com.cjj.MaterialRefreshListener;
 import com.twitter.sdk.android.tweetui.TweetTimelineListAdapter;
 import com.twitter.sdk.android.tweetui.UserTimeline;
 
-import java.util.List;
-
-import io.fabric.sdk.android.Fabric;
 import loise.kbc.navigationviewpagerliveo.R;
 
 public class TimelineKbc extends AppCompatActivity {
@@ -58,7 +46,7 @@ public class TimelineKbc extends AppCompatActivity {
         adapter = new TweetTimelineListAdapter.Builder(this).setTimeline(userTimeline).build();
 
         listview.setAdapter(adapter);
-       // barprogress.dismiss();
+        barprogress.dismiss();
 
 
 
@@ -72,6 +60,22 @@ public class TimelineKbc extends AppCompatActivity {
             public void failure(TwitterException exception) {
             }
         });*/
+       /* MaterialRefreshLayout materialRefreshLayout = (MaterialRefreshLayout) findViewById(R.id.refresh);
+        materialRefreshLayout.setIsOverLay(false);
+        materialRefreshLayout.setWaveShow(false);
+        materialRefreshLayout.setMaterialRefreshListener(new MaterialRefreshListener() {
+            @Override
+            public void onRefresh(MaterialRefreshLayout materialRefreshLayout) {
+
+            }
+
+            @Override
+            public void onRefreshLoadMore(MaterialRefreshLayout materialRefreshLayout) {
+                super.onRefreshLoadMore(materialRefreshLayout);
+            }
+        });
+        materialRefreshLayout.finishRefresh();
+        materialRefreshLayout.finishRefreshLoadMore();*/
 
 
     }

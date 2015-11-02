@@ -11,8 +11,7 @@ import android.view.ViewGroup;
 
 
 
-import loise.liveo.ui.activity.TimelineKbc;
-import loise.liveo.ui.activity.TwitterApplication;
+import loise.kbc.ui.activity.TimelineKbc;
 import loise.kbc.navigationviewpagerliveo.R;
 
 

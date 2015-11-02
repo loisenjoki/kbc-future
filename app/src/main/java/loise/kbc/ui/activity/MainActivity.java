@@ -11,7 +11,7 @@ import br.liveo.interfaces.OnItemClickListener;
 import br.liveo.interfaces.OnPrepareOptionsMenuLiveo;
 import br.liveo.navigationliveo.NavigationLiveo;
 import loise.kbc.navigationviewpagerliveo.R;
-import loise.kbc.ui.fragment.AdvertismentFragment;
+import loise.kbc.ui.fragment.TermsandAgreement;
 import loise.kbc.ui.fragment.ContactsFragment;
 import loise.kbc.ui.fragment.InternationalNews;
 import loise.kbc.ui.fragment.Localnews;
@@ -44,7 +44,6 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
        // mHelpLiveo.addSeparator(); // Item separator
         mHelpLiveo.add(getString(R.string.trash), R.mipmap.ad);
         mHelpLiveo.add(getString(R.string.login),R.mipmap.conta);
-
         mHelpLiveo.add(getString(R.string.spam), R.mipmap.ic_report_black_24dp);
         mHelpLiveo.add(getString(R.string.presenters),R.mipmap.conta);
 
@@ -87,7 +86,7 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
                 mFragment= new LogInFragment();
                 break;
             case 7:
-                mFragment= new AdvertismentFragment();
+                mFragment= new TermsandAgreement();
                 break;
             case 8:
                 mFragment= new Presenters();

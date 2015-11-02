@@ -4,6 +4,7 @@ package loise.kbc.ui.fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -20,6 +21,9 @@ import android.widget.EditText;
 import android.widget.ShareActionProvider;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.cjj.MaterialRefreshLayout;
+import com.cjj.MaterialRefreshListener;
 
 import java.util.ArrayList;
 
@@ -55,6 +59,7 @@ public class Localnews extends Fragment {
     public static View.OnClickListener myOnClickListener;
     private static ArrayList<Integer> removedItems;
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -88,6 +93,27 @@ public class Localnews extends Fragment {
         removedItems = new ArrayList<Integer>();
         adapter = new Adapter(products);
         recyclerView.setAdapter(adapter);
+
+        final MaterialRefreshLayout materialRefreshLayout = (MaterialRefreshLayout)rootView.findViewById(R.id.refresh);
+        materialRefreshLayout.setIsOverLay(false);
+        materialRefreshLayout.setWaveShow(false);
+        materialRefreshLayout.setShowArrow(true);
+        materialRefreshLayout.setMaterialRefreshListener(new MaterialRefreshListener() {
+            @Override
+            public void onRefresh(MaterialRefreshLayout materialRefreshLayout) {
+
+            }
+
+            @Override
+            public void onRefreshLoadMore(MaterialRefreshLayout materialRefreshLayout) {
+                super.onRefreshLoadMore(materialRefreshLayout);
+            }
+
+        });
+
+
+        materialRefreshLayout.finishRefresh();
+        materialRefreshLayout.finishRefreshLoadMore();
 
         return rootView;
     }

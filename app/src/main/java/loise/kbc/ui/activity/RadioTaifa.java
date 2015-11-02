@@ -1,5 +1,6 @@
 package loise.kbc.ui.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +8,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.github.ivbaranov.mli.MaterialLetterIcon;
 
 import loise.kbc.adapter.CustomList;
 import loise.kbc.navigationviewpagerliveo.R;
@@ -29,10 +32,14 @@ public class RadioTaifa extends AppCompatActivity {
     };
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_radio_taifa);
+
+
+
 
             CustomList adapter = new
                     CustomList(RadioTaifa.this, web, imageId);

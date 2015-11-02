@@ -11,4 +11,7 @@
         <item name="colorPrimaryDark">@color/ColorPrimaryDark</item>
         <!-- Customize your theme here. -->
     </style>
+    <style name="custom_theme" parent="android:Theme.Dialog">
+        <item name="android:textColor">#FF00DFFF</item>
+    </style>
 </resources>

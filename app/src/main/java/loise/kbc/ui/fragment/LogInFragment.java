@@ -1,15 +1,12 @@
 package loise.kbc.ui.fragment;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,7 +14,6 @@ import com.twitter.sdk.android.Twitter;
 import com.twitter.sdk.android.core.Callback;
 import com.twitter.sdk.android.core.Result;
 import com.twitter.sdk.android.core.TwitterAuthConfig;
-import com.twitter.sdk.android.core.TwitterAuthToken;
 import com.twitter.sdk.android.core.TwitterException;
 import com.twitter.sdk.android.core.TwitterSession;
 import com.twitter.sdk.android.core.identity.TwitterLoginButton;
@@ -26,7 +22,6 @@ import io.fabric.sdk.android.Fabric;
 import loise.kbc.navigationviewpagerliveo.R;
 import loise.kbc.ui.activity.MainActivity;
 import loise.kbc.ui.activity.SignUpActivity;
-import loise.liveo.ui.activity.TimelineKbc;
 
 import static loise.kbc.navigationviewpagerliveo.R.layout.fragment_log_in;
 

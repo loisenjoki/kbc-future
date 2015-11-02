@@ -6,7 +6,7 @@
     <string name="inbox">Watch Live</string>
     <string name="starred">International News</string>
     <string name="sent_mail">Local News</string>
-    <string name="drafts">Business</string>
+    <string name="drafts">Contacts</string>
     <string name="sports">Sports</string>
     <string name="techn">Technology</string>
 
@@ -69,6 +69,6 @@
     <string name="title_logo">NATIONAL GEOGRAPHIC</string>
     <string name="btn_skip_intro">Skip Intro</string>
     <string name="error_player">There was an error initializing the YouTubePlayer (%1$s)</string>
-
+    <string name="action_licenses">License</string>
 
 </resources>

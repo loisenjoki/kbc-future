@@ -29,7 +29,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="loise.liveo.ui.activity.TimelineKbc"
+            android:name="loise.kbc.ui.activity.TimelineKbc"
             android:label="@string/title_activity_timeline_kbc" >
         </activity>
         <activity
