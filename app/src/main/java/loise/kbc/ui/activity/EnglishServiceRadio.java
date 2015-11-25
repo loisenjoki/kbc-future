@@ -39,7 +39,7 @@ public class EnglishServiceRadio extends AppCompatActivity {
         webview.setWebViewClient(new WebViewClient() {
             public void onPageFinished(WebView view, String url) {
 
-                webview.loadUrl("javascript:(document.body.style.fontSize ='30pt');");
+                webview.loadUrl("javascript:(function() { document.getElementsByTagName('video')[0].play(); })()");
             }
         });
         webview.getSettings().setJavaScriptEnabled(true);
