@@ -21,7 +21,6 @@
             android:name="loise.kbc.ui.activity.SplashScreen"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen" >
-             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -68,6 +67,10 @@
             android:value="c4187f8ac4cb5d8068a1328986d55d80386316d1" />
 
         <activity android:name="loise.kbc.ui.activity.RadioTaifa" >
+        </activity>
+        <activity android:name="loise.kbc.ui.activity.EnglishServiceRadio" >
+        </activity>
+        <activity android:name="loise.kbc.ui.activity.CoroRadio" >
         </activity>
     </application>
 
