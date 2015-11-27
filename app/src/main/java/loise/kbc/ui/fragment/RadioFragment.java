@@ -20,6 +20,7 @@ import android.widget.Toast;
 
 import loise.kbc.adapter.CustomGrid;
 import loise.kbc.navigationviewpagerliveo.R;
+import loise.kbc.ui.activity.CoroRadio;
 import loise.kbc.ui.activity.MainActivityRadio;
 import loise.kbc.ui.activity.RadioTaifa;
 
@@ -75,8 +76,12 @@ public class RadioFragment extends Fragment {
                 Toast.makeText(getActivity(), "You Clicked at " + web[+position], Toast.LENGTH_SHORT).show();
 
                 switch (position){
+
                     case 0:
                         startActivity(new Intent(getActivity(), RadioTaifa.class));
+                        break;
+                    case 2:
+                        startActivity(new Intent(getActivity(), CoroRadio.class));
                         break;
 
                 }

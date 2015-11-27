@@ -16,7 +16,9 @@ public class MainActivityRadio extends Activity implements RadioListener {
     /**
      * Example radio stream URL
      */
-    private final String RADIO_URL = "http://37.247.100.115/;stream.nsv";
+    //private final String RADIO_URL = "http://37.247.100.115/;stream.nsv";
+    //http://iframe.dacast.com/b/37017/c/78898
+    private final String RADIO_URL = "http://iframe.dacast.com/b/37017/c/78898";
 
     /**
      * Radio Manager initialization
