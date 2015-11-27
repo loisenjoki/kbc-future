@@ -39,8 +39,8 @@ public class TermsandAgreement extends android.support.v4.app.Fragment{
                 .setView(view)
                 .setPositiveButton(android.R.string.ok, null)
                 .show();
-    }
-*/
+    }*/
+
                       /*  public void onSingleClick(final View view) {
                         final String name = "LicensesDialog";
                         final String url = "http://psdev.de";
