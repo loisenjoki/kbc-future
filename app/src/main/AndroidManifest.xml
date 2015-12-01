@@ -72,6 +72,12 @@
         </activity>
         <activity android:name="loise.kbc.ui.activity.CoroRadio" >
         </activity>
+        <activity android:name="loise.kbc.ui.activity.PwaniRadio" >
+        </activity>
+        <activity android:name="loise.kbc.ui.activity.IftiinRadio" >
+        </activity>
+        <activity android:name="loise.kbc.ui.activity.LiveTv" >
+        </activity>
     </application>
 
 </manifest>

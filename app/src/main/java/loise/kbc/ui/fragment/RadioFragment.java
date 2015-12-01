@@ -21,7 +21,11 @@ import android.widget.Toast;
 import loise.kbc.adapter.CustomGrid;
 import loise.kbc.navigationviewpagerliveo.R;
 import loise.kbc.ui.activity.CoroRadio;
+import loise.kbc.ui.activity.EnglishServiceRadio;
+import loise.kbc.ui.activity.IftiinRadio;
+import loise.kbc.ui.activity.LiveTv;
 import loise.kbc.ui.activity.MainActivityRadio;
+import loise.kbc.ui.activity.PwaniRadio;
 import loise.kbc.ui.activity.RadioTaifa;
 
 /**
@@ -42,19 +46,19 @@ public class RadioFragment extends Fragment {
     GridView grid;
     String[] web = {
             "Radio Taifa fm",
-            "Minta fm",
-            "CoRo fm",
-            "Maytenga fm",
-            "Kitwek fm",
+            "English service",
+            "Coro Fm",
+            "Iftiin",
+            "Pwani",
             "KBC Channel 1",
 
     } ;
     int[] imageId = {
             R.drawable.radiotaifa,
-            R.drawable.mintologo,
+            R.drawable.english,
             R.drawable.corologo,
-            R.drawable.mayiegalogo,
-            R.drawable.kitweklogo,
+            R.drawable.iftiin,
+            R.drawable.pwani,
             R.drawable.channel1logo,
 
     };
@@ -80,8 +84,20 @@ public class RadioFragment extends Fragment {
                     case 0:
                         startActivity(new Intent(getActivity(), RadioTaifa.class));
                         break;
+                    case 1:
+                        startActivity(new Intent(getActivity(), EnglishServiceRadio.class));
+                        break;
                     case 2:
                         startActivity(new Intent(getActivity(), CoroRadio.class));
+                        break;
+                    case 3:
+                        startActivity(new Intent(getActivity(), IftiinRadio.class));
+                        break;
+                    case 4:
+                        startActivity(new Intent(getActivity(), PwaniRadio.class));
+                        break;
+                    case 5:
+                        startActivity(new Intent(getActivity(), LiveTv.class));
                         break;
 
                 }
