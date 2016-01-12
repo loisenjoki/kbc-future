@@ -50,7 +50,7 @@ public class RadioFragment extends Fragment {
             "Coro Fm",
             "Iftiin",
             "Pwani",
-            "KBC Channel 1",
+            "Mayienga ",
 
     } ;
     int[] imageId = {
@@ -59,7 +59,7 @@ public class RadioFragment extends Fragment {
             R.drawable.corologo,
             R.drawable.iftiin,
             R.drawable.pwani,
-            R.drawable.channel1logo,
+            R.drawable.mayiegalogo,
 
     };
 

@@ -30,27 +30,27 @@
         </activity>
         <activity
             android:name="loise.kbc.ui.activity.TimelineKbc"
-            android:label="@string/title_activity_timeline_kbc"></activity>
+            android:label="@string/title_activity_timeline_kbc" />
         <activity
             android:name="loise.kbc.ui.activity.MoreNews"
-            android:label="@string/title_activity_more_news"></activity>
+            android:label="@string/title_activity_more_news" />
         <activity
             android:name="loise.kbc.ui.activity.SignUpActivity"
             android:label="@string/title_activity_sign_up"
             android:parentActivityName="loise.kbc.ui.activity.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="loise.kbc.ui.activity.MainActivity"></meta-data>
+                android:value="loise.kbc.ui.activity.MainActivity" />
         </activity>
         <activity
             android:name="loise.kbc.ui.activity.MainActivityRadio"
-            android:label="Radio"></activity>
+            android:label="Radio" />
         <activity
             android:name="loise.kbc.ui.activity.News"
             android:label="@string/title_activity_news"
-            android:theme="@style/myTheme.NoActionBar"></activity>
-        <activity android:name="loise.kbc.ui.activity.KBCTv"></activity>
-        <activity android:name="loise.kbc.ui.activity.Video"></activity>
+            android:theme="@style/myTheme.NoActionBar" />
+        <activity android:name="loise.kbc.ui.activity.KBCTv" />
+        <activity android:name="loise.kbc.ui.activity.Video" />
         <activity
             android:name="loise.kbc.ui.activity.MainActivity"
             android:label="@string/app_name"
@@ -60,13 +60,14 @@
             android:name="io.fabric.ApiKey"
             android:value="c4187f8ac4cb5d8068a1328986d55d80386316d1" />
 
-        <activity android:name="loise.kbc.ui.activity.RadioTaifa"></activity>
-        <activity android:name="loise.kbc.ui.activity.EnglishServiceRadio"></activity>
-        <activity android:name="loise.kbc.ui.activity.CoroRadio"></activity>
-        <activity android:name="loise.kbc.ui.activity.PwaniRadio"></activity>
-        <activity android:name="loise.kbc.ui.activity.IftiinRadio"></activity>
-        <activity android:name="loise.kbc.ui.activity.LiveTv"></activity>
-        <activity android:name="loise.kbc.ui.activity.InstagramFeed"></activity>
+        <activity android:name="loise.kbc.ui.activity.RadioTaifa" />
+        <activity android:name="loise.kbc.ui.activity.EnglishServiceRadio" />
+        <activity android:name="loise.kbc.ui.activity.CoroRadio" />
+        <activity android:name="loise.kbc.ui.activity.PwaniRadio" />
+        <activity android:name="loise.kbc.ui.activity.IftiinRadio" />
+        <activity android:name="loise.kbc.ui.activity.LiveTv" />
+        <activity android:name="loise.kbc.ui.activity.InstagramFeed" />
+        <activity android:name="loise.kbc.ui.activity.Mayienga"></activity>
     </application>
 
 </manifest>
