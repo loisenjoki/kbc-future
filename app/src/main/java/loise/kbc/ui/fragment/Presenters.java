@@ -67,7 +67,7 @@ public class Presenters extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                Toast.makeText(getActivity(), "You Clicked at " + web[+position], Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "This is  " + web[+position], Toast.LENGTH_SHORT).show();
 
                 switch (position){
 

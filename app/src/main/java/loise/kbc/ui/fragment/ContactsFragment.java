@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
-
+import loise.kbc.ui.activity.InstagramFeed;
 import loise.kbc.ui.activity.TimelineKbc;
 import loise.kbc.navigationviewpagerliveo.R;
 
@@ -55,7 +55,7 @@ public class ContactsFragment extends android.support.v4.app.Fragment {
         v.findViewById(R.id.menu_item3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(),TimelineKbc.class));
+                startActivity(new Intent(getActivity(),InstagramFeed.class));
             }
         });
 
