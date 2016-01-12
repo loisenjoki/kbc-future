@@ -34,22 +34,22 @@ public class PresentersProfile extends android.support.v4.app.Fragment {
 
     GridView grid;
     String[] web = {
-            "Mambo Mbotela",
-            "Owuor Alero",
-            "Jared Ombui",
-            "Mambo Mbotela",
-            "Owuor Alero",
-            "Jared Ombui",
+            "Bonnie Musambi",
+            "Beatrice Gatonye ",
+            "John Jacob",
+            "Isaac Lemoka",
+            "Obrien Kimani",
+            "Victor Muyakane",
 
 
     } ;
     int[] imageId = {
-            R.drawable.mabombotela,
-            R.drawable.owouralero,
-            R.drawable.jaredombui,
-            R.drawable.mabombotela,
-            R.drawable.owouralero,
-            R.drawable.jaredombui,
+            R.drawable.bonnie,
+            R.drawable.gatonye,
+            R.drawable.kioria,
+            R.drawable.lemoka,
+            R.drawable.obrien,
+            R.drawable.victor,
 
 
     };
