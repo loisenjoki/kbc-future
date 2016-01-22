@@ -11,6 +11,7 @@ import br.liveo.interfaces.OnItemClickListener;
 import br.liveo.interfaces.OnPrepareOptionsMenuLiveo;
 import br.liveo.navigationliveo.NavigationLiveo;
 import loise.kbc.navigationviewpagerliveo.R;
+import loise.kbc.ui.fragment.AdvertismentFragment;
 import loise.kbc.ui.fragment.TermsandAgreement;
 import loise.kbc.ui.fragment.ContactsFragment;
 import loise.kbc.ui.fragment.InternationalNews;
@@ -29,23 +30,36 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
     public void onInt(Bundle bundle) {
 
         // User Information
-        this.userName.setText("KBC");
-        this.userEmail.setText("Your Channel One TV");
+       // this.userName.setText("KBC");
+        //quitthis.userEmail.setText("Your Channel One TV");
         //this.userPhoto.setImageResource(R.drawable.kbclogo);
-        this.userBackground.setImageResource(R.drawable.newsroom2);
+        this.userBackground.setImageResource(R.drawable.kbclogos);
 
         // Creating items navigation
         mHelpLiveo = new HelpLiveo();
         mHelpLiveo.add(getString(R.string.inbox), R.mipmap.tv);
         mHelpLiveo.addSubHeader(getString(R.string.categories)); //Item subHeader
-        mHelpLiveo.add(getString(R.string.starred), R.mipmap.listen);
-        mHelpLiveo.add(getString(R.string.sent_mail), R.mipmap.news);
-        mHelpLiveo.add(getString(R.string.drafts), R.mipmap.conta);
+       //// mHelpLiveo.add(getString(R.string.starred), R.mipmap.listen);
+        //mHelpLiveo.add(getString(R.string.sent_mail), R.mipmap.news);
+       //
+
+        //mHelpLiveo.addSubHeader(getString(R.string.categories)); //Item subHeader
+        mHelpLiveo.add(getString(R.string.local), R.mipmap.news);
+        mHelpLiveo.add(getString(R.string.inter), R.mipmap.listen);
+        mHelpLiveo.add(getString(R.string.business), R.mipmap.news);
+        mHelpLiveo.add(getString(R.string.sports), R.mipmap.news);
+        mHelpLiveo.add(getString(R.string.tech), R.mipmap.news);
+        mHelpLiveo.add(getString(R.string.lifestlye), R.mipmap.news);
+        mHelpLiveo.addSubHeader(getString(R.string.categories)); //Item subHeader
        // mHelpLiveo.addSeparator(); // Item separator
+        mHelpLiveo.add(getString(R.string.drafts), R.mipmap.conta);
         mHelpLiveo.add(getString(R.string.trash), R.mipmap.ad);
         mHelpLiveo.add(getString(R.string.login),R.mipmap.conta);
-        mHelpLiveo.add(getString(R.string.spam), R.mipmap.ic_report_black_24dp);
         mHelpLiveo.add(getString(R.string.presenters),R.mipmap.conta);
+        mHelpLiveo.add(getString(R.string.spam), R.mipmap.ic_report_black_24dp);
+
+
+
 
         with(this).startingPosition(0) //Starting position in the list
                 .addAllHelpItem(mHelpLiveo.getHelp())
@@ -66,10 +80,13 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
         Fragment mFragment;
         FragmentManager mFragmentManager = getSupportFragmentManager();
 
-        switch (position){
+        switch (position) {
             case 0:
                 mFragment = new ViewPagerFragment1();
                 break;
+            /*case 1:
+                mFragment = new InternationalNews();
+                break;*/
             case 2:
                 mFragment = new InternationalNews();
                 break;
@@ -77,20 +94,33 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
                 mFragment = new Localnews();
                 break;
             case 4:
-                mFragment= new ContactsFragment();
+                mFragment = new Localnews();
                 break;
             case 5:
-                mFragment=new RadioFragment();
+                mFragment = new Localnews();
                 break;
             case 6:
-                mFragment= new LogInFragment();
+                mFragment = new Localnews();
                 break;
             case 7:
-                mFragment= new TermsandAgreement();
+                mFragment = new Localnews();
                 break;
-            case 8:
-                mFragment= new Presenters();
 
+            case 9:
+                mFragment = new ContactsFragment();
+                break;
+            case 10:
+                mFragment = new AdvertismentFragment();
+
+                break;
+            case 11:
+                mFragment = new LogInFragment();
+                break;
+            case 12:
+                mFragment = new Presenters();
+                break;
+            case 13:
+                mFragment=new AdvertismentFragment();
                 break;
 
             default:
@@ -102,8 +132,9 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
             mFragmentManager.beginTransaction().replace(R.id.container, mFragment).commit();
         }
 
-        setElevationToolBar(position != 2 ? 15 : 0);
-    }
+            setElevationToolBar(position != 2 ? 15 : 0);
+        }
+
 
     private OnPrepareOptionsMenuLiveo onPrepare = new OnPrepareOptionsMenuLiveo() {
         @Override

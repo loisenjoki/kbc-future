@@ -25,6 +25,7 @@
     <string name="business">Business</string>
     <string name="sport">Sport</string>
     <string name="tech">Technology</string>
+    <string name="lifestlye">Life Style</string>
 
     <string name="tv"> Watch LIVE</string>
     <string name="radio">RADIO</string>
@@ -70,5 +71,7 @@
     <string name="btn_skip_intro">Skip Intro</string>
     <string name="error_player">There was an error initializing the YouTubePlayer (%1$s)</string>
     <string name="action_licenses">License</string>
+
+
 
 </resources>
