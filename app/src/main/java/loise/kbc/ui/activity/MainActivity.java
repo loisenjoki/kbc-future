@@ -45,7 +45,7 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
 
         //mHelpLiveo.addSubHeader(getString(R.string.categories)); //Item subHeader
         mHelpLiveo.add(getString(R.string.local), R.mipmap.news);
-        mHelpLiveo.add(getString(R.string.inter), R.mipmap.listen);
+        mHelpLiveo.add(getString(R.string.inter), R.mipmap.news);
         mHelpLiveo.add(getString(R.string.business), R.mipmap.news);
         mHelpLiveo.add(getString(R.string.sports), R.mipmap.news);
         mHelpLiveo.add(getString(R.string.tech), R.mipmap.news);
