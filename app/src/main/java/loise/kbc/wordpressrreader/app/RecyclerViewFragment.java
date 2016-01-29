@@ -325,9 +325,9 @@ public class RecyclerViewFragment extends Fragment implements SwipeRefreshLayout
         mRecyclerView.setVisibility(View.VISIBLE);
     }
 
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
+  //  @Override
+    public void onAttach(Fragment activity) {
+        super.onAttach(getActivity());
 
         try {
             mListener = (PostListListener) activity;

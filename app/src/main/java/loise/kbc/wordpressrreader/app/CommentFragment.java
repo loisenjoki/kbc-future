@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import android.webkit.CookieManager;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+
 
 import loise.kbc.navigationviewpagerliveo.R;
 import loise.kbc.wordpressrreader.util.Config;
@@ -106,10 +108,10 @@ public class CommentFragment extends Fragment {
                 Log.d(TAG, "Disqus Thread Id: " + disqusThreadId);
 
                 // Reset Actionbar
-                ((MainActivity) getActivity()).setSupportActionBar(toolbar);
-                ((MainActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-                ((MainActivity)getActivity()).getSupportActionBar()
-                        .setTitle(getString(R.string.action_comments));
+               /* ((MainActivity) getActivity()).setSupportActionBar(toolbar);
+                ((MainActivity)getActivity()).setSupportActionBar().setDisplayHomeAsUpEnabled(true);
+                ((MainActivity)getActivity()).setSupportActionBar*/
+                       // .setTitle(getString(R.string.action_comments));
             }
         });
     }
@@ -127,9 +129,9 @@ public class CommentFragment extends Fragment {
         super.onHiddenChanged(hidden);
     }
 
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
+   // @Override
+    public void onAttach(Fragment activity) {
+        super.onAttach(getActivity());
         try {
             mListener = (CommentListener) activity;
         } catch (ClassCastException e) {

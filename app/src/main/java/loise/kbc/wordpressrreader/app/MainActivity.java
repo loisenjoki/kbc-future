@@ -1,14 +1,16 @@
 package loise.kbc.wordpressrreader.app;
 
 import android.os.Bundle;
+
 import android.support.v4.app.Fragment;
+
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ShareActionProvider;
 
 import loise.kbc.navigationviewpagerliveo.R;
 import loise.kbc.wordpressrreader.model.Post;
@@ -17,6 +19,7 @@ public class MainActivity extends Fragment implements
         RecyclerViewFragment.PostListListener, PostFragment.PostListener,
         TabLayoutFragment.TabLayoutListener, SearchResultFragment.SearchResultListener,
         CommentFragment.CommentListener {
+
 
     private static final String TAG = MainActivity.class.getSimpleName();
     public static final String TAB_LAYOUT_FRAGMENT_TAG = "TabLayoutFragment";
@@ -29,17 +32,30 @@ public class MainActivity extends Fragment implements
     private CommentFragment cf;
     private SearchResultFragment srf;
 
+    private boolean mSearchCheck;
+    public static final String TEXT_FRAGMENT = "TEXT_FRAGMENT";
+    private ShareActionProvider mShareActionProvider;
+
+    public static MainActivity newInstance(String text) {
+        MainActivity mFragment = new MainActivity();
+        Bundle mBundle = new Bundle();
+        mBundle.putString(TEXT_FRAGMENT, text);
+        mFragment.setArguments(mBundle);
+        return mFragment;
+    }
+
+
  /*   @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);*/
- @Override
+
  public View onCreateView(LayoutInflater inflater, ViewGroup container,
                           Bundle savedInstanceState) {
      // Inflate the layout for this fragment
-     View v= inflater.inflate(R.layout.fragment_contacts, container, false);
+     View v= inflater.inflate(R.layout.main2, container, false);
         //setContentView(R.layout.activity_main);
 
-        fm = getSupportFragmentManager();
+        fm = getActivity().getSupportFragmentManager();
 
         // Setup fragments
         tlf = new TabLayoutFragment();
@@ -55,6 +71,8 @@ public class MainActivity extends Fragment implements
         ft.hide(pf);
         ft.hide(cf);
         ft.commit();
+
+     return v;
     }
 
     /**
@@ -121,7 +139,7 @@ public class MainActivity extends Fragment implements
      */
     @Override
     public void onCommentSelected(int id) {
-        cf = (CommentFragment) getSupportFragmentManager().findFragmentByTag(COMMENT_FRAGMENT_TAG);
+        cf = (CommentFragment) getActivity().getSupportFragmentManager().findFragmentByTag(COMMENT_FRAGMENT_TAG);
         Bundle args = new Bundle();
         args.putInt("id", id);
         // Setup CommentFragment to display the right comments page
@@ -139,10 +157,10 @@ public class MainActivity extends Fragment implements
     /**
      * Intercept back button event, reset ActionBar if necessary
      */
-    @Override
+
     public void onBackPressed() {
         resetActionBarIfApplicable();
-        super.onBackPressed();
+        super.getActivity().onBackPressed();
     }
 
     /**
@@ -167,7 +185,7 @@ public class MainActivity extends Fragment implements
     @Override
     public void onPostSelected(Post post, boolean isSearch) {
         // Find the fragment in order to set it up later
-        pf = (PostFragment) getSupportFragmentManager().findFragmentByTag(POST_FRAGMENT_TAG);
+        pf = (PostFragment) getActivity().getSupportFragmentManager().findFragmentByTag(POST_FRAGMENT_TAG);
 
         // Set necessary arguments
         Bundle args = new Bundle();

@@ -150,8 +150,8 @@ public class PostFragment extends Fragment {
                 Log.d(TAG, "Featured Image: " + featuredImageUrl);
 
                 // Reset Actionbar
-                ((MainActivity) getActivity()).setSupportActionBar(toolbar);
-                ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+                //((MainActivity) getActivity()).setSupportActionBar(toolbar);
+                //((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
                 // Expand the Toolbar by default
                 expandToolbar();
@@ -262,13 +262,13 @@ public class PostFragment extends Fragment {
                 });
     }
 
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
+    //@Override
+    public void onAttach(Fragment fragment) {
+        super.onAttach(getActivity());
         try {
-            mListener = (PostListener) activity;
+            mListener = (PostListener) fragment;
         } catch (ClassCastException e) {
-            throw new ClassCastException(activity.toString()
+            throw new ClassCastException(fragment.toString()
                     + " must implement PostListener");
         }
     }

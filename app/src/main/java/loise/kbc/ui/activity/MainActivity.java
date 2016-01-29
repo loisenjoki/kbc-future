@@ -82,7 +82,7 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
 
         switch (position) {
             case 0:
-                mFragment = new ViewPagerFragment1();
+                mFragment = new Localnews();
                 break;
             /*case 1:
                 mFragment = new InternationalNews();
@@ -91,7 +91,7 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
                 mFragment = new InternationalNews();
                 break;
             case 3:
-                mFragment = new Localnews();
+                mFragment = new loise.kbc.wordpressrreader.app.MainActivity();
                 break;
             case 4:
                 mFragment = new Localnews();

@@ -14,7 +14,7 @@ android {
 
     defaultConfig {
         applicationId "loise.kbc.navigationviewpagerliveo"
-        minSdkVersion 14
+        minSdkVersion 18
         targetSdkVersion 22
         versionCode 1
         versionName "v0.1L"

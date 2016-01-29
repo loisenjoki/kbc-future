@@ -5,11 +5,13 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+
 
 import loise.kbc.navigationviewpagerliveo.R;
 
@@ -60,10 +62,11 @@ public class SearchResultFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_search_result, container, false);
 
         Toolbar toolbar = (Toolbar) v.findViewById(R.id.toolbar);
-        ((MainActivity) getActivity()).setSupportActionBar(toolbar);
-        ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        ((MainActivity) getActivity()).getSupportActionBar()
-                .setTitle(getString(R.string.search_result) + " \"" + mQuery + "\"");
+
+  /*      ((MainActivity) getActivity()).setSupportActionBar(toolbar);
+        ((MainActivity) getActivity()).setSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        ((MainActivity) getActivity()).setSupportActionBar()
+                .setTitle(getString(R.string.search_result) + " \"" + mQuery + "\"");*/
 
         FragmentTransaction ft = getChildFragmentManager().beginTransaction();
 

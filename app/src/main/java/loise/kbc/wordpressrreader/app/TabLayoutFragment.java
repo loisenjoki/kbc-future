@@ -9,6 +9,7 @@ import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,6 +19,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SearchView;
+
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -78,7 +80,7 @@ public class TabLayoutFragment extends Fragment implements SearchView.OnQueryTex
         View rootView = inflater.inflate(R.layout.fragment_tab_layout, container, false);
 
         toolbar = (Toolbar) rootView.findViewById(R.id.toolbar);
-        ((MainActivity)getActivity()).setSupportActionBar(toolbar);
+       // ((MainActivity)getActivity()).setSupportActionBar(toolbar);
 
         mTabLayout = (TabLayout) rootView.findViewById(R.id.tab_layout);
         mViewPager = (ViewPager) rootView.findViewById(R.id.viewpager);
@@ -128,7 +130,7 @@ public class TabLayoutFragment extends Fragment implements SearchView.OnQueryTex
      * Reset the ActionBar to show proper menu and collapse SearchView
      */
     protected void resetActionBar() {
-        ((MainActivity)getActivity()).setSupportActionBar(toolbar);
+      //  ((MainActivity)getActivity()).setSupportActionBar(toolbar);
         searchMenuItem.collapseActionView();
     }
 
@@ -194,9 +196,9 @@ public class TabLayoutFragment extends Fragment implements SearchView.OnQueryTex
         return false;
     }
 
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
+   // @Override
+    public void onAttach(Fragment activity) {
+        super.onAttach(getActivity());
 
         try {
             mListener = (TabLayoutListener) activity;
