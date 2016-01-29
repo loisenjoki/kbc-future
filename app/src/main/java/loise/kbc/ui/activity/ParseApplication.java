@@ -5,10 +5,12 @@ import android.os.Bundle;
 import com.parse.Parse;
 import com.parse.ParseObject;
 
+import loise.kbc.wordpressrreader.app.AppController;
+
 /**
  * Created by faith on 12/1/15.
  */
-public class ParseApplication extends Application
+public class ParseApplication extends AppController
 {
 
 
