@@ -14,4 +14,17 @@
     <style name="custom_theme" parent="android:Theme.Dialog">
         <item name="android:textColor">#FF00DFFF</item>
     </style>
+
+    <!-- Custom widget styles -->
+    <style name="CustomTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorColor">?android:textColorPrimary</item>
+        <item name="tabIndicatorHeight">2dp</item>
+        <item name="tabBackground">@color/colorPrimary</item>
+        <item name="tabTextAppearance">@style/CustomTabTextAppearance</item>
+    </style>
+
+    <style name="CustomTabTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">#FFAB91</item>
+    </style>
 </resources>
