@@ -10,6 +10,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -49,7 +50,7 @@ public class TabLayoutFragment extends Fragment implements SearchView.OnQueryTex
     private ProgressDialog mProgressDialog;
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
-    private Toolbar toolbar;
+  Toolbar toolbar;
     private SearchView searchView;
     private MenuItem searchMenuItem;
 
@@ -79,9 +80,8 @@ public class TabLayoutFragment extends Fragment implements SearchView.OnQueryTex
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_tab_layout, container, false);
 
-        toolbar = (Toolbar) rootView.findViewById(R.id.toolbar);
-       // ((MainActivity)getActivity()).setSupportActionBar(toolbar);
-
+//        toolbar = (Toolbar) rootView.findViewById(R.id.toolbar);
+     //((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
         mTabLayout = (TabLayout) rootView.findViewById(R.id.tab_layout);
         mViewPager = (ViewPager) rootView.findViewById(R.id.viewpager);
         // Preload 1 page to either side of the current page
@@ -212,5 +212,6 @@ public class TabLayoutFragment extends Fragment implements SearchView.OnQueryTex
     public interface TabLayoutListener {
         void onSearchSubmitted(String query);
     }
+
 
 }

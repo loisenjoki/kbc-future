@@ -20,6 +20,7 @@ import loise.kbc.ui.fragment.LogInFragment;
 import loise.kbc.ui.fragment.MainFragment;
 import loise.kbc.ui.fragment.Presenters;
 import loise.kbc.ui.fragment.RadioFragment;
+import loise.kbc.ui.fragment.ViewPagerFragment;
 import loise.kbc.ui.fragment.ViewPagerFragment1;
 
 public class MainActivity extends NavigationLiveo implements OnItemClickListener {
@@ -82,7 +83,7 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
 
         switch (position) {
             case 0:
-                mFragment = new Localnews();
+                mFragment = new ViewPagerFragment1();
                 break;
             /*case 1:
                 mFragment = new InternationalNews();
@@ -91,7 +92,7 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
                 mFragment = new InternationalNews();
                 break;
             case 3:
-                mFragment = new loise.kbc.wordpressrreader.app.MainActivity();
+                mFragment = new loise.kbc.wordpressrreader.app.TabLayoutFragment();
                 break;
             case 4:
                 mFragment = new Localnews();
