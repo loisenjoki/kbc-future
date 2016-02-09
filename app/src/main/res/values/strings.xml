@@ -5,7 +5,7 @@
 
     <string name="inbox">Watch Live</string>
     <string name="starred">International News</string>
-    <string name="sent_mail">Local News</string>
+    <string name="sent_mail">News</string>
     <string name="drafts">Contacts</string>
     <string name="sports">Sports</string>
     <string name="techn">Technology</string>
@@ -21,7 +21,7 @@
     <string name="search">Search</string>
 
     <string name="inter">International</string>
-    <string name="local">Local News</string>
+    <string name="local">News</string>
     <string name="business">Business</string>
     <string name="sport">Sport</string>
     <string name="tech">Technology</string>

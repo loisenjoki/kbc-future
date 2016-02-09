@@ -129,9 +129,9 @@ public class CommentFragment extends Fragment {
         super.onHiddenChanged(hidden);
     }
 
-   // @Override
-    public void onAttach(Fragment activity) {
-        super.onAttach(getActivity());
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
         try {
             mListener = (CommentListener) activity;
         } catch (ClassCastException e) {

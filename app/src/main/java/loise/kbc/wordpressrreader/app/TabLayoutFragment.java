@@ -80,8 +80,8 @@ public class TabLayoutFragment extends Fragment implements SearchView.OnQueryTex
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_tab_layout, container, false);
 
-//        toolbar = (Toolbar) rootView.findViewById(R.id.toolbar);
-     //((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
+        toolbar = (Toolbar) rootView.findViewById(R.id.toolbarwp);
+     //((MainActivity)getActivity()).setSupportActionBar(toolbar);
         mTabLayout = (TabLayout) rootView.findViewById(R.id.tab_layout);
         mViewPager = (ViewPager) rootView.findViewById(R.id.viewpager);
         // Preload 1 page to either side of the current page
@@ -196,9 +196,9 @@ public class TabLayoutFragment extends Fragment implements SearchView.OnQueryTex
         return false;
     }
 
-   // @Override
-    public void onAttach(Fragment activity) {
-        super.onAttach(getActivity());
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
 
         try {
             mListener = (TabLayoutListener) activity;
@@ -212,6 +212,8 @@ public class TabLayoutFragment extends Fragment implements SearchView.OnQueryTex
     public interface TabLayoutListener {
         void onSearchSubmitted(String query);
     }
+
+
 
 
 }

@@ -12,6 +12,7 @@ import br.liveo.interfaces.OnPrepareOptionsMenuLiveo;
 import br.liveo.navigationliveo.NavigationLiveo;
 import loise.kbc.navigationviewpagerliveo.R;
 import loise.kbc.ui.fragment.AdvertismentFragment;
+import loise.kbc.ui.fragment.Business;
 import loise.kbc.ui.fragment.TermsandAgreement;
 import loise.kbc.ui.fragment.ContactsFragment;
 import loise.kbc.ui.fragment.InternationalNews;
@@ -22,6 +23,9 @@ import loise.kbc.ui.fragment.Presenters;
 import loise.kbc.ui.fragment.RadioFragment;
 import loise.kbc.ui.fragment.ViewPagerFragment;
 import loise.kbc.ui.fragment.ViewPagerFragment1;
+import loise.kbc.wordpressrreader.app.PostFragment;
+import loise.kbc.wordpressrreader.app.RecyclerViewFragment;
+import loise.kbc.wordpressrreader.app.TabLayoutFragment;
 
 public class MainActivity extends NavigationLiveo implements OnItemClickListener {
 
@@ -38,19 +42,20 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
 
         // Creating items navigation
         mHelpLiveo = new HelpLiveo();
-        mHelpLiveo.add(getString(R.string.inbox), R.mipmap.tv);
+        mHelpLiveo.add(getString(R.string.local), R.mipmap.news);
         mHelpLiveo.addSubHeader(getString(R.string.categories)); //Item subHeader
        //// mHelpLiveo.add(getString(R.string.starred), R.mipmap.listen);
         //mHelpLiveo.add(getString(R.string.sent_mail), R.mipmap.news);
        //
 
         //mHelpLiveo.addSubHeader(getString(R.string.categories)); //Item subHeader
-        mHelpLiveo.add(getString(R.string.local), R.mipmap.news);
-        mHelpLiveo.add(getString(R.string.inter), R.mipmap.news);
-        mHelpLiveo.add(getString(R.string.business), R.mipmap.news);
-        mHelpLiveo.add(getString(R.string.sports), R.mipmap.news);
-        mHelpLiveo.add(getString(R.string.tech), R.mipmap.news);
-        mHelpLiveo.add(getString(R.string.lifestlye), R.mipmap.news);
+        mHelpLiveo.add(getString(R.string.inbox), R.mipmap.tv);
+
+        //mHelpLiveo.add(getString(R.string.inter), R.mipmap.news);
+      //  mHelpLiveo.add(getString(R.string.business), R.mipmap.news);
+        //mHelpLiveo.add(getString(R.string.sports), R.mipmap.news);
+        //mHelpLiveo.add(getString(R.string.tech), R.mipmap.news);
+       // mHelpLiveo.add(getString(R.string.lifestlye), R.mipmap.news);
         mHelpLiveo.addSubHeader(getString(R.string.categories)); //Item subHeader
        // mHelpLiveo.addSeparator(); // Item separator
         mHelpLiveo.add(getString(R.string.drafts), R.mipmap.conta);
@@ -83,45 +88,28 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
 
         switch (position) {
             case 0:
-                mFragment = new ViewPagerFragment1();
+                mFragment = new Business();
                 break;
             /*case 1:
                 mFragment = new InternationalNews();
                 break;*/
             case 2:
-                mFragment = new InternationalNews();
-                break;
-            case 3:
-                mFragment = new loise.kbc.wordpressrreader.app.TabLayoutFragment();
+                mFragment = new ViewPagerFragment1();
                 break;
             case 4:
-                mFragment = new Localnews();
-                break;
-            case 5:
-                mFragment = new Localnews();
-                break;
-            case 6:
-                mFragment = new Localnews();
-                break;
-            case 7:
-                mFragment = new Localnews();
-                break;
-
-            case 9:
                 mFragment = new ContactsFragment();
                 break;
-            case 10:
+            case 5:
                 mFragment = new AdvertismentFragment();
-
                 break;
-            case 11:
+            case 6:
                 mFragment = new LogInFragment();
                 break;
-            case 12:
+            case 7:
                 mFragment = new Presenters();
                 break;
-            case 13:
-                mFragment=new AdvertismentFragment();
+            case 8:
+                mFragment = new AdvertismentFragment();
                 break;
 
             default:

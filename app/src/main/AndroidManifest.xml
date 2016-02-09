@@ -68,6 +68,7 @@
         <activity android:name="loise.kbc.ui.activity.LiveTv" />
         <activity android:name="loise.kbc.ui.activity.InstagramFeed" />
         <activity android:name="loise.kbc.ui.activity.Mayienga"></activity>
+        <activity android:name="loise.kbc.wordpressrreader.app.MainActivity"/>
     </application>
 
 </manifest>

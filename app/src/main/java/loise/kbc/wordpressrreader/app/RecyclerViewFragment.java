@@ -45,7 +45,7 @@ public class RecyclerViewFragment extends Fragment implements SwipeRefreshLayout
     protected static final String QUERY = "query";
 
     private SwipeRefreshLayout mSwipeRefreshLayout;
-    public RecyclerView mRecyclerView;
+    private RecyclerView mRecyclerView;
     private MyRecyclerViewAdaptor mAdaptor;
     private LinearLayoutManager mLayoutManager;
     // Widget to show user a loading message
@@ -325,9 +325,9 @@ public class RecyclerViewFragment extends Fragment implements SwipeRefreshLayout
         mRecyclerView.setVisibility(View.VISIBLE);
     }
 
-  //  @Override
-    public void onAttach(Fragment activity) {
-        super.onAttach(getActivity());
+    //@Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
 
         try {
             mListener = (PostListListener) activity;
@@ -343,3 +343,4 @@ public class RecyclerViewFragment extends Fragment implements SwipeRefreshLayout
     }
 
 }
+

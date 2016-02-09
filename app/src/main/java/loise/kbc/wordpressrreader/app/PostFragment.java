@@ -80,7 +80,7 @@ public class PostFragment extends Fragment {
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_post, container, false);
 
-        toolbar = (Toolbar) rootView.findViewById(R.id.toolbar);
+        toolbar = (Toolbar) rootView.findViewById(R.id.toolbarwp);
         //((MainActivity)getActivity()).setSupportActionBar(toolbar);
 
         CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout)
@@ -150,8 +150,8 @@ public class PostFragment extends Fragment {
                 Log.d(TAG, "Featured Image: " + featuredImageUrl);
 
                 // Reset Actionbar
-                //((MainActivity) getActivity()).setSupportActionBar(toolbar);
-                //((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+               // ((MainActivity) getActivity()).setSupportActionBar(toolbar);
+                ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
                 // Expand the Toolbar by default
                 expandToolbar();
@@ -262,13 +262,13 @@ public class PostFragment extends Fragment {
                 });
     }
 
-    //@Override
-    public void onAttach(Fragment fragment) {
-        super.onAttach(getActivity());
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
         try {
-            mListener = (PostListener) fragment;
+            mListener = (PostListener) activity;
         } catch (ClassCastException e) {
-            throw new ClassCastException(fragment.toString()
+            throw new ClassCastException(activity.toString()
                     + " must implement PostListener");
         }
     }

@@ -1,4 +1,5 @@
 <resources>
+
     <style name="myTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
@@ -6,13 +7,14 @@
     <style name="myTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="myTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-
+        <item name="windowActionBar">false</item>
         <item name="colorPrimary">@color/ColorPrimary</item>
         <item name="colorPrimaryDark">@color/ColorPrimaryDark</item>
         <!-- Customize your theme here. -->
     </style>
     <style name="custom_theme" parent="android:Theme.Dialog">
         <item name="android:textColor">#FF00DFFF</item>
+
     </style>
 
     <!-- Custom widget styles -->

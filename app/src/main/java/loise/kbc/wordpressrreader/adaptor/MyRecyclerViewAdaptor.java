@@ -60,7 +60,7 @@ public class MyRecyclerViewAdaptor extends RecyclerView.Adapter<MyRecyclerViewAd
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mListener.onItemClick(posts.get(i));
+                mListener.onItemClick(posts.get(i ));
             }
         });
     }
