@@ -2,18 +2,15 @@ package loise.kbc.ui.activity;
 
 import android.app.Application;
 import android.os.Bundle;
-import com.parse.Parse;
-import com.parse.ParseObject;
 
 import loise.kbc.wordpressrreader.app.AppController;
 
 /**
  * Created by faith on 12/1/15.
  */
-public class ParseApplication extends AppController
-{
+public class ParseApplication{
 
-
+/*
     @Override
     public void onCreate() {
         super.onCreate();
@@ -24,5 +21,5 @@ public class ParseApplication extends AppController
         ParseObject testObject = new ParseObject("TestObject");
         testObject.put("foo", "bar");
         testObject.saveInBackground();
-    }
+    }*/
 }

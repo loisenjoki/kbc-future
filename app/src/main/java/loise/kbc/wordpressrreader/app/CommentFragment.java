@@ -54,7 +54,7 @@ public class CommentFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_comment, container, false);
 
-        toolbar = (Toolbar) rootView.findViewById(R.id.toolbar);
+        toolbar = (Toolbar) rootView.findViewById(R.id.toolbarw);
 
         // Setup WebView
         webView = (WebView) rootView.findViewById(R.id.webView_comment);
@@ -108,10 +108,11 @@ public class CommentFragment extends Fragment {
                 Log.d(TAG, "Disqus Thread Id: " + disqusThreadId);
 
                 // Reset Actionbar
-               /* ((MainActivity) getActivity()).setSupportActionBar(toolbar);
-                ((MainActivity)getActivity()).setSupportActionBar().setDisplayHomeAsUpEnabled(true);
-                ((MainActivity)getActivity()).setSupportActionBar*/
-                       // .setTitle(getString(R.string.action_comments));
+
+               // ((MainActivity) getActivity()).setSupportActionBar(toolbar);
+                ((MainActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+                ((MainActivity)getActivity()).getSupportActionBar()
+                        .setTitle(getString(R.string.action_comments));
             }
         });
     }

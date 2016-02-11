@@ -14,7 +14,7 @@ android {
 
     defaultConfig {
         applicationId "loise.kbc.navigationviewpagerliveo"
-        minSdkVersion 18
+        minSdkVersion 15
         targetSdkVersion 22
         versionCode 1
         versionName "v0.1L"
@@ -42,7 +42,7 @@ dependencies {
 
     compile fileTree(dir: 'libs', include: ['YouTubeAndroidPlayerApi.jar'])
 
-    compile fileTree(dir: 'libs', include: 'Parse-1.11.0.jar')
+   // compile fileTree(dir: 'libs', include: 'Parse-1.11.0.jar')
 
     // compile 'com.facebook.android:facebook-android-sdk:4.0.0'
     //  compile 'com.facebook.android:facebook-android-sdk:4.0.0'

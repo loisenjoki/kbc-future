@@ -1,12 +1,16 @@
 package loise.kbc.ui.fragment;
 
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.MediaController;
 import android.widget.VideoView;
 
@@ -31,30 +35,35 @@ public class TvFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.activity_video, container, false);
 
-        final VideoView videoView = (VideoView)v.findViewById(R.id.videoView1);
+        final WebView video = (WebView)v.findViewById(R.id.videoView1);
 
-        videoView.setVideoPath(
-                "http://www.ebookfrenzy.com/android_book/movie.mp4");
 
-        //adding the video controller
-        MediaController mediaController = new
-                MediaController(getActivity());
-        mediaController.setAnchorView(videoView);
-        videoView.setMediaController(mediaController);
-
-        //setting on preparational listener
-        videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener()  {
-            @Override
-            public void onPrepared(MediaPlayer mp) {
-                Log.i(TAG, "Duration = " +
-                        videoView.getDuration());
-            }
+        video.getSettings().setJavaScriptEnabled(true);
+//video.getSettings().setPluginState(WebSettings.PluginState.ON);
+//video.getSettings().setUserAgent(USER_MOBILE);
+        video.setWebChromeClient(new WebChromeClient() {
         });
 
-        videoView.start();
-
-
-
+        final String mimeType = "text/html";
+        final String encoding = "UTF-8";
+        String html = getHTML("0sFTC7l0okg"); //Only change this video id to change video!
+        video.loadDataWithBaseURL("", html, mimeType, encoding, "");
         return v;
+
     }
+
+    public String getHTML(String videoId) {
+
+
+        String html =
+                "<iframe class=\"youtube-player\" "
+                        + "style=\"border: 0; width: 100%; height: 100%;"
+                        + "padding:0px; margin:5px\" "
+                        + "src=\"http://iframe.dacast.com/b/57052/c/75409"
+                        + "frameborder=\"0\" " + "allowfullscreen autobuffer "
+                        + "controls onclick=\"this.play()\">\n" + "</iframe>\n";
+        return html;
+    }
+
+
 }

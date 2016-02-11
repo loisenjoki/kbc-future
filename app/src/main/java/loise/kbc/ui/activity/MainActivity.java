@@ -42,15 +42,16 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
 
         // Creating items navigation
         mHelpLiveo = new HelpLiveo();
-        mHelpLiveo.add(getString(R.string.local), R.mipmap.news);
+
+        mHelpLiveo.add(getString(R.string.inbox), R.mipmap.tv);
         mHelpLiveo.addSubHeader(getString(R.string.categories)); //Item subHeader
        //// mHelpLiveo.add(getString(R.string.starred), R.mipmap.listen);
         //mHelpLiveo.add(getString(R.string.sent_mail), R.mipmap.news);
        //
 
         //mHelpLiveo.addSubHeader(getString(R.string.categories)); //Item subHeader
-        mHelpLiveo.add(getString(R.string.inbox), R.mipmap.tv);
 
+        mHelpLiveo.add(getString(R.string.local), R.mipmap.news);
         //mHelpLiveo.add(getString(R.string.inter), R.mipmap.news);
       //  mHelpLiveo.add(getString(R.string.business), R.mipmap.news);
         //mHelpLiveo.add(getString(R.string.sports), R.mipmap.news);
@@ -88,13 +89,13 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
 
         switch (position) {
             case 0:
-                mFragment = new Business();
+                mFragment = new ViewPagerFragment1();
                 break;
             /*case 1:
                 mFragment = new InternationalNews();
                 break;*/
             case 2:
-                mFragment = new ViewPagerFragment1();
+                mFragment = new Business();
                 break;
             case 4:
                 mFragment = new ContactsFragment();
