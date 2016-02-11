@@ -3,6 +3,7 @@ package loise.kbc.ui.fragment;
 
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
@@ -49,7 +50,11 @@ public class ContactsFragment extends android.support.v4.app.Fragment {
         v.findViewById(R.id.menu_item2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(), TimelineKbc.class));
+                Intent intent1 = new Intent();
+                intent1.setAction(Intent.ACTION_VIEW);
+                intent1.addCategory(Intent.CATEGORY_BROWSABLE);
+                intent1.setData(Uri.parse("https://www.facebook.com/kbcchannel1/"));
+                startActivity(intent1);
             }
         });
         v.findViewById(R.id.menu_item3).setOnClickListener(new View.OnClickListener() {
