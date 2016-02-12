@@ -14,6 +14,8 @@ import android.webkit.WebViewClient;
 import android.widget.MediaController;
 import android.widget.VideoView;
 
+import java.lang.reflect.InvocationTargetException;
+
 import loise.kbc.navigationviewpagerliveo.R;
 
 /**
@@ -30,12 +32,13 @@ public class TvFragment extends Fragment {
         mFragment.setArguments(mBundle);
         return mFragment;
     }
+    WebView video;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.activity_video, container, false);
 
-        final WebView video = (WebView)v.findViewById(R.id.videoView1);
+        video = (WebView)v.findViewById(R.id.videoView1);
 
 
         video.getSettings().setJavaScriptEnabled(true);
@@ -48,7 +51,14 @@ public class TvFragment extends Fragment {
         final String encoding = "UTF-8";
         String html = getHTML("0sFTC7l0okg"); //Only change this video id to change video!
         video.loadDataWithBaseURL("", html, mimeType, encoding, "");
+
+            super.onPause();
+
+
+
         return v;
+
+
 
     }
 
@@ -63,6 +73,25 @@ public class TvFragment extends Fragment {
                         + "frameborder=\"0\" " + "allowfullscreen autobuffer "
                         + "controls onclick=\"this.play()\">\n" + "</iframe>\n";
         return html;
+    }
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        try {
+            Class.forName("android.webkit.WebView")
+                    .getMethod("onPause", (Class[]) null)
+                    .invoke(video, (Object[]) null);
+
+        } catch(ClassNotFoundException cnfe) {
+
+        } catch(NoSuchMethodException nsme) {
+
+        } catch(InvocationTargetException ite) {
+
+        } catch (IllegalAccessException iae) {
+
+        }
     }
 
 

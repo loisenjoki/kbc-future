@@ -63,9 +63,6 @@ public class ContactsFragment extends android.support.v4.app.Fragment {
                 startActivity(new Intent(getActivity(),InstagramFeed.class));
             }
         });
-
-
-
         return v;
 
 

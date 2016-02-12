@@ -50,7 +50,7 @@ public class TabLayoutFragment extends Fragment implements SearchView.OnQueryTex
     private ProgressDialog mProgressDialog;
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
-  Toolbar toolbar;
+    Toolbar toolbar;
     private SearchView searchView;
     private MenuItem searchMenuItem;
 
@@ -81,7 +81,10 @@ public class TabLayoutFragment extends Fragment implements SearchView.OnQueryTex
         View rootView = inflater.inflate(R.layout.fragment_tab_layout, container, false);
 
         toolbar = (Toolbar) rootView.findViewById(R.id.toolbarwp);
-     //((MainActivity)getActivity()).setSupportActionBar(toolbar);
+      // ((MainActivity)getActivity()).setSupportActionBar(toolbar);
+        ((MainActivity) getActivity()).getFragmentManager(toolbar);
+        ((MainActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        ((MainActivity)getActivity()).getSupportActionBar();
         mTabLayout = (TabLayout) rootView.findViewById(R.id.tab_layout);
         mViewPager = (ViewPager) rootView.findViewById(R.id.viewpager);
         // Preload 1 page to either side of the current page
@@ -120,7 +123,10 @@ public class TabLayoutFragment extends Fragment implements SearchView.OnQueryTex
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.action_search) {
+        ((MainActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        ((MainActivity)getActivity()).getSupportActionBar();
+
+        if (item.getItemId() == R.layout.business) {
             searchView.requestFocus();
         }
         return true;
@@ -130,7 +136,8 @@ public class TabLayoutFragment extends Fragment implements SearchView.OnQueryTex
      * Reset the ActionBar to show proper menu and collapse SearchView
      */
     protected void resetActionBar() {
-      //  ((MainActivity)getActivity()).setSupportActionBar(toolbar);
+        ((MainActivity) getActivity()).getFragmentManager(toolbar);
+        ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         searchMenuItem.collapseActionView();
     }
 

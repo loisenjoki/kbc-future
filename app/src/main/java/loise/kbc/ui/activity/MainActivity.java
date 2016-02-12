@@ -13,19 +13,11 @@ import br.liveo.navigationliveo.NavigationLiveo;
 import loise.kbc.navigationviewpagerliveo.R;
 import loise.kbc.ui.fragment.AdvertismentFragment;
 import loise.kbc.ui.fragment.Business;
-import loise.kbc.ui.fragment.TermsandAgreement;
 import loise.kbc.ui.fragment.ContactsFragment;
-import loise.kbc.ui.fragment.InternationalNews;
-import loise.kbc.ui.fragment.Localnews;
 import loise.kbc.ui.fragment.LogInFragment;
 import loise.kbc.ui.fragment.MainFragment;
 import loise.kbc.ui.fragment.Presenters;
-import loise.kbc.ui.fragment.RadioFragment;
-import loise.kbc.ui.fragment.ViewPagerFragment;
 import loise.kbc.ui.fragment.ViewPagerFragment1;
-import loise.kbc.wordpressrreader.app.PostFragment;
-import loise.kbc.wordpressrreader.app.RecyclerViewFragment;
-import loise.kbc.wordpressrreader.app.TabLayoutFragment;
 
 public class MainActivity extends NavigationLiveo implements OnItemClickListener {
 

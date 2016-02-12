@@ -1,10 +1,12 @@
 package loise.kbc.wordpressrreader.app;
 
+import android.app.ActionBar;
 import android.os.Bundle;
 
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import loise.kbc.wordpressrreader.model.Post;
 
@@ -85,6 +87,11 @@ public class MainActivity extends AppCompatActivity implements
         ft.commit();
     }
 
+    @Override
+    public void getFragmentManager(Toolbar toolbar) {
+
+    }
+
     /**
      * Invoked when a search query is submitted
      *
@@ -154,6 +161,10 @@ public class MainActivity extends AppCompatActivity implements
         }
     }
 
+    public ActionBar setSupportActionBar() {
+        return null;
+    }
+
     // Commented out coz we will let fragments handle their own Options Menus
     //@Override
     //public boolean onCreateOptionsMenu(Menu menu) {
@@ -161,4 +172,6 @@ public class MainActivity extends AppCompatActivity implements
     //    getMenuInflater().inflate(R.menu.menu_main, menu);
     //    return true;
     //}
+
+
 }

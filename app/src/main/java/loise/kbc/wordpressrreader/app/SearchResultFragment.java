@@ -63,10 +63,10 @@ public class SearchResultFragment extends Fragment {
 
         Toolbar toolbar = (Toolbar) v.findViewById(R.id.toolbar);
 
-  /*      ((MainActivity) getActivity()).setSupportActionBar(toolbar);
+      ((MainActivity) getActivity()).setSupportActionBar(toolbar);
         ((MainActivity) getActivity()).setSupportActionBar().setDisplayHomeAsUpEnabled(true);
         ((MainActivity) getActivity()).setSupportActionBar()
-                .setTitle(getString(R.string.search_result) + " \"" + mQuery + "\"");*/
+                .setTitle(getString(R.string.search_result) + " \"" + mQuery + "\"");
 
         FragmentTransaction ft = getChildFragmentManager().beginTransaction();
 

@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -340,6 +341,8 @@ public class RecyclerViewFragment extends Fragment implements SwipeRefreshLayout
     // Interface used to communicate with MainActivity
     public interface PostListListener {
         void onPostSelected(Post post, boolean isSearch);
+
+        void getFragmentManager(Toolbar toolbar);
     }
 
 }

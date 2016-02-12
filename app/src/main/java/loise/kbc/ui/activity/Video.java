@@ -18,8 +18,7 @@ public class Video extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video);
 
-        final VideoView videoView =
-                (VideoView) findViewById(R.id.videoView1);
+        /*final VideoView videoView =(VideoView)findViewById(R.id.videoView1);
 
         videoView.setVideoPath(
                 "http://www.ebookfrenzy.com/android_book/movie.mp4");
@@ -39,7 +38,7 @@ public class Video extends AppCompatActivity {
             }
         });
 
-        videoView.start();
+        videoView.start();*/
 
 
     }

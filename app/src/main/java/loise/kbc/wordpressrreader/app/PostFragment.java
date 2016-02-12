@@ -150,7 +150,7 @@ public class PostFragment extends Fragment {
                 Log.d(TAG, "Featured Image: " + featuredImageUrl);
 
                 // Reset Actionbar
-               // ((MainActivity) getActivity()).setSupportActionBar(toolbar);
+                ((MainActivity) getActivity()).getFragmentManager(toolbar);
                 ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
                 // Expand the Toolbar by default
