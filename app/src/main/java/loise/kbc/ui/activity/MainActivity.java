@@ -1,5 +1,6 @@
 package loise.kbc.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -12,7 +13,6 @@ import br.liveo.interfaces.OnPrepareOptionsMenuLiveo;
 import br.liveo.navigationliveo.NavigationLiveo;
 import loise.kbc.navigationviewpagerliveo.R;
 import loise.kbc.ui.fragment.AdvertismentFragment;
-import loise.kbc.ui.fragment.Business;
 import loise.kbc.ui.fragment.ContactsFragment;
 import loise.kbc.ui.fragment.LogInFragment;
 import loise.kbc.ui.fragment.MainFragment;
@@ -76,19 +76,20 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
 
     @Override
     public void onItemClick(int position) {
-        Fragment mFragment;
+        Fragment mFragment = null;
         FragmentManager mFragmentManager = getSupportFragmentManager();
 
         switch (position) {
             case 0:
                 mFragment = new ViewPagerFragment1();
                 break;
-            /*case 1:
-                mFragment = new InternationalNews();
-                break;*/
             case 2:
-                mFragment = new Business();
+                Intent intent = new Intent(getApplicationContext(), loise.kbc.wordpressrreader.app.MainActivity.class);
+                startActivity(intent);
                 break;
+            /*case 2:
+                mFragment = new TabLayoutFragment();
+                break;*/
             case 4:
                 mFragment = new ContactsFragment();
                 break;

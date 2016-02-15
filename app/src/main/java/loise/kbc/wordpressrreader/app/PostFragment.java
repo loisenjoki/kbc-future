@@ -192,9 +192,9 @@ public class PostFragment extends Fragment {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.action_comments:
+           /* case R.id.action_comments:
                 mListener.onCommentSelected(id);
-                return true;
+                return true;*/
             case R.id.action_share:
                 return true;
             case R.id.action_send_to_wear:
@@ -290,7 +290,7 @@ public class PostFragment extends Fragment {
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface PostListener {
-        void onCommentSelected(int id);
+       // void onCommentSelected(int id);
         void onHomePressed();
     }
 

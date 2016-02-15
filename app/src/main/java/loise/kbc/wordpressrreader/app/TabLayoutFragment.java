@@ -10,7 +10,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 
-import android.support.v7.app.AppCompatActivity;
+
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -53,10 +53,9 @@ public class TabLayoutFragment extends Fragment implements SearchView.OnQueryTex
     Toolbar toolbar;
     private SearchView searchView;
     private MenuItem searchMenuItem;
-
     // List of all categories
     protected static ArrayList<Category> categories = null;
-
+    TabLayoutListener mmListener;
     private TabLayoutListener mListener;
 
     public TabLayoutFragment() {
@@ -123,13 +122,13 @@ public class TabLayoutFragment extends Fragment implements SearchView.OnQueryTex
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        ((MainActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        ((MainActivity)getActivity()).getSupportActionBar();
+            if (item.getItemId() == android.R.id.home) {
 
-        if (item.getItemId() == R.layout.business) {
-            searchView.requestFocus();
-        }
-        return true;
+              ;
+            }
+            return true;
+
+
     }
 
     /**
@@ -218,9 +217,12 @@ public class TabLayoutFragment extends Fragment implements SearchView.OnQueryTex
     // Interface used to communicate with MainActivity
     public interface TabLayoutListener {
         void onSearchSubmitted(String query);
+
+
+        void onCommentSelected(int id);
     }
 
 
-
-
+    public interface TabLayoutBack {
+    }
 }

@@ -6,14 +6,17 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+
+import loise.kbc.navigationviewpagerliveo.R;
 import loise.kbc.wordpressrreader.model.Post;
 
 public class MainActivity extends AppCompatActivity implements
         RecyclerViewFragment.PostListListener, PostFragment.PostListener,
         TabLayoutFragment.TabLayoutListener, SearchResultFragment.SearchResultListener,
-        CommentFragment.CommentListener {
+        CommentFragment.CommentListener{
 
     private static final String TAG = MainActivity.class.getSimpleName();
     public static final String TAB_LAYOUT_FRAGMENT_TAG = "TabLayoutFragment";
@@ -29,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main);
 
         fm = getSupportFragmentManager();
 
@@ -86,6 +89,8 @@ public class MainActivity extends AppCompatActivity implements
         ft.addToBackStack(null);
         ft.commit();
     }
+
+
 
     @Override
     public void getFragmentManager(Toolbar toolbar) {
@@ -157,7 +162,7 @@ public class MainActivity extends AppCompatActivity implements
     private void resetActionBarIfApplicable() {
         Log.d(TAG, "SearchResultFragment is visible: " + srf.isHidden());
         if (srf.isVisible()) {
-            tlf.resetActionBar();
+           // tlf.resetActionBar();
         }
     }
 

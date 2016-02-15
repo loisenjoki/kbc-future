@@ -65,7 +65,7 @@ public class CommentFragment extends Fragment {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            mListener.onHomePressed();
+             mListener.onHomePressed();
         }
         return true;
     }
