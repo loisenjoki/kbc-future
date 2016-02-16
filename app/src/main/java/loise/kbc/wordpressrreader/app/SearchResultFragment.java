@@ -61,9 +61,9 @@ public class SearchResultFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_search_result, container, false);
 
-        Toolbar toolbar = (Toolbar) v.findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) v.findViewById(R.id.toolbarw);
 
-      ((MainActivity) getActivity()).setSupportActionBar(toolbar);
+        ((MainActivity) getActivity()).setSupportActionBar(toolbar);
         ((MainActivity) getActivity()).setSupportActionBar().setDisplayHomeAsUpEnabled(true);
         ((MainActivity) getActivity()).setSupportActionBar()
                 .setTitle(getString(R.string.search_result) + " \"" + mQuery + "\"");
