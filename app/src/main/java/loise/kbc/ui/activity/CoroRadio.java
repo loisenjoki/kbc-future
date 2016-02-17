@@ -25,7 +25,7 @@ public class CoroRadio extends Fragment {
 
         //inintializaaing the webiew
 
-        final WebView webview = (WebView)v.findViewById(R.id.webView2);
+   webview = (WebView)v.findViewById(R.id.webView2);
         //http://iframe.dacast.com/b/37017/c/79023
 
         String Url = "http://iframe.dacast.com/b/57052/c/79190";

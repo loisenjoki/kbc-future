@@ -26,7 +26,7 @@ public class EnglishServiceRadio extends Fragment {
 
         //inintializaaing the webiew
 
-        final WebView webview = (WebView)v.findViewById(R.id.webView);
+         webview = (WebView)v.findViewById(R.id.webView);
         //http://iframe.dacast.com/b/37017/c/79023
 
         String Url = "http://iframe.dacast.com/b/57052/c/79191";
@@ -66,19 +66,21 @@ public class EnglishServiceRadio extends Fragment {
 
     public void onPause() {
         super.onPause();
-
         try {
-            Class.forName("android.webkit.WebView").getMethod("onPause", (Class[]) null).invoke(webview, (Object[]) null);
+            Class.forName("android.webkit.WebView")
+                    .getMethod("onPause", (Class[]) null)
+                    .invoke(webview, (Object[]) null);
 
-        } catch (ClassNotFoundException cnfe) {
+        } catch(ClassNotFoundException cnfe) {
 
-        } catch (NoSuchMethodException nsme) {
+        } catch(NoSuchMethodException nsme) {
 
-        } catch (InvocationTargetException ite) {
+        } catch(InvocationTargetException ite) {
 
         } catch (IllegalAccessException iae) {
 
         }
+
     }
 }
 

@@ -24,7 +24,7 @@ public class Mayienga extends Fragment {
         super.onCreate(savedInstanceState);
         View v = inflater.inflate(R.layout.activity_mayienga, container, false);
 
-        final WebView webview = (WebView) v.findViewById(R.id.webView4);
+         webview = (WebView) v.findViewById(R.id.webView4);
         //http://iframe.dacast.com/b/37017/c/79023
 
         String Url = "http://iframe.dacast.com/b/57052/c/79193";

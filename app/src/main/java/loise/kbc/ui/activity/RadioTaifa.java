@@ -33,7 +33,7 @@ public class RadioTaifa extends Fragment {
 
         //inintializaaing the webiew
 
-        final WebView webview = (WebView) v.findViewById(R.id.webView);
+         webview = (WebView) v.findViewById(R.id.webView);
         //http://iframe.dacast.com/b/37017/c/79023
 
         String Url = "http://iframe.dacast.com/b/57052/c/79192";

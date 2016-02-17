@@ -89,6 +89,7 @@ public class TabLayoutFragment extends Fragment implements SearchView.OnQueryTex
         // Preload 1 page to either side of the current page
         mViewPager.setOffscreenPageLimit(1);
 
+
         return rootView;
     }
 
@@ -125,6 +126,18 @@ public class TabLayoutFragment extends Fragment implements SearchView.OnQueryTex
         if (item.getItemId() == R.id.action_search) {
             searchView.requestFocus();
         }
+        else if(item.getItemId() == R.id.home) {
+            searchView.requestFocus();
+        }
+
+
+       /* toolbar.setNavigationIcon(getResources().getDrawable(R.mipmap.leftarrow));
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //What to do on back clicked
+            }
+        });*/
         return true;
     }
 
@@ -133,7 +146,7 @@ public class TabLayoutFragment extends Fragment implements SearchView.OnQueryTex
      */
     protected void resetActionBar() {
         ((MainActivity)getActivity()).setSupportActionBar(toolbar);
-        searchMenuItem.collapseActionView();
+        //searchMenuItem.collapseActionView();
     }
 
     /**
