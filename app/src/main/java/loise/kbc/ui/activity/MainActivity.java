@@ -30,33 +30,37 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
        // this.userName.setText("KBC");
         //quitthis.userEmail.setText("Your Channel One TV");
         //this.userPhoto.setImageResource(R.drawable.kbclogo);
-        this.userBackground.setImageResource(R.drawable.kbclogos);
+        this.userBackground.setImageResource(R.drawable.kbcover);
 
         // Creating items navigation
         mHelpLiveo = new HelpLiveo();
 
         mHelpLiveo.add(getString(R.string.inbox), R.mipmap.tv);
         mHelpLiveo.addSubHeader(getString(R.string.categories)); //Item subHeader
-       //// mHelpLiveo.add(getString(R.string.starred), R.mipmap.listen);
+        // mHelpLiveo.add(getString(R.string.starred), R.mipmap.listen);
         //mHelpLiveo.add(getString(R.string.sent_mail), R.mipmap.news);
-       //
+        //
 
         //mHelpLiveo.addSubHeader(getString(R.string.categories)); //Item subHeader
 
         mHelpLiveo.add(getString(R.string.local), R.mipmap.news);
         //mHelpLiveo.add(getString(R.string.inter), R.mipmap.news);
-      //  mHelpLiveo.add(getString(R.string.business), R.mipmap.news);
+        //  mHelpLiveo.add(getString(R.string.business), R.mipmap.news);
         //mHelpLiveo.add(getString(R.string.sports), R.mipmap.news);
         //mHelpLiveo.add(getString(R.string.tech), R.mipmap.news);
-       // mHelpLiveo.add(getString(R.string.lifestlye), R.mipmap.news);
+        // mHelpLiveo.add(getString(R.string.lifestlye), R.mipmap.news);
+        mHelpLiveo.addSubHeader(getString(R.string.Listen)); //Item subHeader
+        // mHelpLiveo.addSeparator(); // Item separator
+        mHelpLiveo.add(getString(R.string.RadioTaifa),R.drawable.radiotaifa);
+        mHelpLiveo.add(getString(R.string.Englishservice),R.mipmap.listen);
+        mHelpLiveo.add(getString(R.string.Iftiin),R.mipmap.listen);
+        mHelpLiveo.add(getString(R.string.Mayiega), R.mipmap.listen);
+        mHelpLiveo.add(getString(R.string.Pwani), R.mipmap.listen);
+        mHelpLiveo.add(getString(R.string.Coro), R.mipmap.listen);
         mHelpLiveo.addSubHeader(getString(R.string.categories)); //Item subHeader
-       // mHelpLiveo.addSeparator(); // Item separator
+
         mHelpLiveo.add(getString(R.string.drafts), R.mipmap.conta);
         mHelpLiveo.add(getString(R.string.trash), R.mipmap.ad);
-        mHelpLiveo.add(getString(R.string.login),R.mipmap.conta);
-        mHelpLiveo.add(getString(R.string.presenters),R.mipmap.conta);
-        mHelpLiveo.add(getString(R.string.spam), R.mipmap.ic_report_black_24dp);
-
 
 
 
@@ -91,19 +95,28 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
                 mFragment = new TabLayoutFragment();
                 break;*/
             case 4:
-                mFragment = new ContactsFragment();
+                mFragment = new RadioTaifa();
                 break;
             case 5:
-                mFragment = new AdvertismentFragment();
+                mFragment = new EnglishServiceRadio();
                 break;
             case 6:
-                mFragment = new LogInFragment();
+                mFragment = new IftiinRadio();
                 break;
             case 7:
-                mFragment = new Presenters();
+                mFragment = new Mayienga();
                 break;
             case 8:
-                mFragment = new AdvertismentFragment();
+                mFragment = new PwaniRadio();
+                break;
+            case 9:
+                mFragment = new CoroRadio();
+                break;
+            case 11:
+                mFragment =new ContactsFragment();
+                break;
+            case 12:
+                mFragment=new AdvertismentFragment();
                 break;
 
             default:

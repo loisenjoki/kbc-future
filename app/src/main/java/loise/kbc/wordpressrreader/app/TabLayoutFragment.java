@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
@@ -50,12 +51,13 @@ public class TabLayoutFragment extends Fragment implements SearchView.OnQueryTex
     private ProgressDialog mProgressDialog;
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
-    Toolbar toolbar;
+    private Toolbar toolbar;
     private SearchView searchView;
     private MenuItem searchMenuItem;
+
     // List of all categories
     protected static ArrayList<Category> categories = null;
-    TabLayoutListener mmListener;
+
     private TabLayoutListener mListener;
 
     public TabLayoutFragment() {
@@ -80,10 +82,8 @@ public class TabLayoutFragment extends Fragment implements SearchView.OnQueryTex
         View rootView = inflater.inflate(R.layout.fragment_tab_layout, container, false);
 
         toolbar = (Toolbar) rootView.findViewById(R.id.toolbarwp);
-      // ((MainActivity)getActivity()).setSupportActionBar(toolbar);
-        ((MainActivity) getActivity()).getFragmentManager(toolbar);
-        ((MainActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        ((MainActivity)getActivity()).getSupportActionBar();
+//        ((MainActivity)getActivity()).setSupportActionBar(toolbar);
+
         mTabLayout = (TabLayout) rootView.findViewById(R.id.tab_layout);
         mViewPager = (ViewPager) rootView.findViewById(R.id.viewpager);
         // Preload 1 page to either side of the current page
@@ -122,21 +122,17 @@ public class TabLayoutFragment extends Fragment implements SearchView.OnQueryTex
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-            if (item.getItemId() == android.R.id.home) {
-
-              ;
-            }
-            return true;
-
-
+        if (item.getItemId() == R.id.action_search) {
+            searchView.requestFocus();
+        }
+        return true;
     }
 
     /**
      * Reset the ActionBar to show proper menu and collapse SearchView
      */
     protected void resetActionBar() {
-        ((MainActivity) getActivity()).getFragmentManager(toolbar);
-        ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        ((MainActivity)getActivity()).setSupportActionBar(toolbar);
         searchMenuItem.collapseActionView();
     }
 
@@ -217,12 +213,6 @@ public class TabLayoutFragment extends Fragment implements SearchView.OnQueryTex
     // Interface used to communicate with MainActivity
     public interface TabLayoutListener {
         void onSearchSubmitted(String query);
-
-
-        void onCommentSelected(int id);
     }
 
-
-    public interface TabLayoutBack {
-    }
 }

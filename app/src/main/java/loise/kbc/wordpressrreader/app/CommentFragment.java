@@ -152,6 +152,8 @@ public class CommentFragment extends Fragment {
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface CommentListener {
+        void onCommentSelected(int id);
+
         void onHomePressed();
     }
 }

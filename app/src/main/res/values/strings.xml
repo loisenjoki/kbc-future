@@ -26,6 +26,14 @@
     <string name="sport">Sport</string>
     <string name="tech">Technology</string>
     <string name="lifestlye">Life Style</string>
+    <string name="Listen">Listen</string>
+   <!-- //radios-->
+    <string name="Pwani">Pwani FM</string>
+    <string name="Mayiega">Mayiega FM</string>
+    <string name="Coro">Coro FM</string>
+    <string name="Englishservice">English Service</string>
+    <string name="Iftiin">Iftiin FM</string>
+    <string name="RadioTaifa">Radio Taifa FM</string>
 
     <string name="tv"> Watch LIVE</string>
     <string name="radio">RADIO</string>

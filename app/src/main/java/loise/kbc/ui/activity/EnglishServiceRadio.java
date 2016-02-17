@@ -1,26 +1,35 @@
 package loise.kbc.ui.activity;
 
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import java.lang.reflect.InvocationTargetException;
+
 import loise.kbc.navigationviewpagerliveo.R;
 
-public class EnglishServiceRadio extends AppCompatActivity {
+public class EnglishServiceRadio extends Fragment {
+    WebView webview;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public View onCreateView( LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_english_service_radio);
+
+        View v=inflater.inflate(R.layout.activity_english_service_radio, container,false);
+
 
         //inintializaaing the webiew
 
-        final WebView webview = (WebView)findViewById(R.id.webView);
+        final WebView webview = (WebView)v.findViewById(R.id.webView);
         //http://iframe.dacast.com/b/37017/c/79023
 
-        String Url = "http://iframe.dacast.com/b/37017/c/78898";
+        String Url = "http://iframe.dacast.com/b/57052/c/79191";
         //style=\"color:black;font-family:Helvetica;font-size:12px;\"
 
         String vid = "<html>" +
@@ -49,6 +58,27 @@ public class EnglishServiceRadio extends AppCompatActivity {
         webview.getSettings().setUseWideViewPort(true);
         webview.loadData(vid, "text/html", "UTF-8");
 
+        super.onPause();
+
+        return v;
+
+    }
+
+    public void onPause() {
+        super.onPause();
+
+        try {
+            Class.forName("android.webkit.WebView").getMethod("onPause", (Class[]) null).invoke(webview, (Object[]) null);
+
+        } catch (ClassNotFoundException cnfe) {
+
+        } catch (NoSuchMethodException nsme) {
+
+        } catch (InvocationTargetException ite) {
+
+        } catch (IllegalAccessException iae) {
+
+        }
     }
 }
 

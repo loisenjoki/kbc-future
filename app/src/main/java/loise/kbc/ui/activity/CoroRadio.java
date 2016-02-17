@@ -1,27 +1,34 @@
 package loise.kbc.ui.activity;
 
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import java.lang.reflect.InvocationTargetException;
+
 import loise.kbc.navigationviewpagerliveo.R;
 
-public class CoroRadio extends AppCompatActivity {
+public class CoroRadio extends Fragment {
+    WebView webview;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public View onCreateView( LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_coro_radio);
 
+        View v=inflater.inflate(R.layout.activity_coro_radio,container,false);
 
         //inintializaaing the webiew
 
-        final WebView webview = (WebView)findViewById(R.id.webView2);
+        final WebView webview = (WebView)v.findViewById(R.id.webView2);
         //http://iframe.dacast.com/b/37017/c/79023
 
-        String Url = "http://iframe.dacast.com/b/37017/c/79027";
+        String Url = "http://iframe.dacast.com/b/57052/c/79190";
         //style=\"color:black;font-family:Helvetica;font-size:12px;\"
 
         String vid = "<html>" +
@@ -50,6 +57,27 @@ public class CoroRadio extends AppCompatActivity {
         webview.getSettings().setUseWideViewPort(true);
         webview.loadData(vid, "text/html", "UTF-8");
 
+        super.onPause();
+
+        return v;
+
     }
+    public void onPause() {
+        super.onPause();
+
+        try {
+            Class.forName("android.webkit.WebView").getMethod("onPause", (Class[]) null).invoke(webview, (Object[]) null);
+
+        } catch (ClassNotFoundException cnfe) {
+
+        } catch (NoSuchMethodException nsme) {
+
+        } catch (InvocationTargetException ite) {
+
+        } catch (IllegalAccessException iae) {
+
+        }
+    }
+
 }
 

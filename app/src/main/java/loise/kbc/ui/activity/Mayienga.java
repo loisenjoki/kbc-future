@@ -1,34 +1,43 @@
 package loise.kbc.ui.activity;
 
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import java.lang.reflect.InvocationTargetException;
+
 import loise.kbc.navigationviewpagerliveo.R;
 
-public class Mayienga extends AppCompatActivity {
+public class Mayienga extends Fragment {
+
+    WebView webview;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mayienga);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        final WebView webview = (WebView)findViewById(R.id.webView4);
+        super.onCreate(savedInstanceState);
+        View v = inflater.inflate(R.layout.activity_mayienga, container, false);
+
+        final WebView webview = (WebView) v.findViewById(R.id.webView4);
         //http://iframe.dacast.com/b/37017/c/79023
 
-        String Url = "http://iframe.dacast.com/b/57052/c/79189";
+        String Url = "http://iframe.dacast.com/b/57052/c/79193";
         //style=\"color:black;font-family:Helvetica;font-size:12px;\"
 
         String vid = "<html>" +
                 "<body style=\"margin: 0; padding: 0; font-size:20px;\">" +
-                "<iframe width=\"100%\" height=\"100%\" src=\""+Url+"\" type=\"text/html\" frameborder=\"0\" scrolling=\"yes\">" +
+                "<iframe width=\"100%\" height=\"100%\" src=\"" + Url + "\" type=\"text/html\" frameborder=\"0\" scrolling=\"yes\">" +
                 "</iframe>" +
                 "</body>" +
                 "</html>";
 
-        WebChromeClient mWebChromeClient = new WebChromeClient(){
+        WebChromeClient mWebChromeClient = new WebChromeClient() {
             public void onProgressChanged(WebView view, int newProgress) {
             }
 
@@ -47,5 +56,27 @@ public class Mayienga extends AppCompatActivity {
         webview.getSettings().setLoadWithOverviewMode(true);
         webview.getSettings().setUseWideViewPort(true);
         webview.loadData(vid, "text/html", "UTF-8");
+
+        super.onPause();
+
+        return v;
+
+    }
+
+    public void onPause() {
+        super.onPause();
+
+        try {
+            Class.forName("android.webkit.WebView").getMethod("onPause", (Class[]) null).invoke(webview, (Object[]) null);
+
+        } catch (ClassNotFoundException cnfe) {
+
+        } catch (NoSuchMethodException nsme) {
+
+        } catch (InvocationTargetException ite) {
+
+        } catch (IllegalAccessException iae) {
+
+        }
     }
 }

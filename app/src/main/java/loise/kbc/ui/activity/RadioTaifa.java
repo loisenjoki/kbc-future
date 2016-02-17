@@ -3,63 +3,90 @@ package loise.kbc.ui.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.github.ivbaranov.mli.MaterialLetterIcon;
 
+import java.lang.reflect.InvocationTargetException;
+
 import loise.kbc.adapter.CustomList;
 import loise.kbc.navigationviewpagerliveo.R;
 
-public class RadioTaifa extends AppCompatActivity {
+public class RadioTaifa extends Fragment {
 
-    ListView list;
-    String[] web = {
-            "Listen Live",
-            "Blog",
-            "Presenters Profile",
-            "Item 4"
-    } ;
-    Integer[] imageId = {
-            R.mipmap.listen,
-            R.mipmap.blog,
-            R.drawable.ic_action_stat_reply,
-            R.drawable.ic_action_stat_reply
-
-    };
-
-
+    WebView webview;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_radio_taifa);
+        View v = inflater.inflate(R.layout.activity_english_service_radio, container, false);
 
+        //inintializaaing the webiew
 
+        final WebView webview = (WebView) v.findViewById(R.id.webView);
+        //http://iframe.dacast.com/b/37017/c/79023
 
+        String Url = "http://iframe.dacast.com/b/57052/c/79192";
+        //style=\"color:black;font-family:Helvetica;font-size:12px;\"
 
-            CustomList adapter = new
-                    CustomList(RadioTaifa.this, web, imageId);
-            list=(ListView)findViewById(R.id.list);
-            list.setAdapter(adapter);
-            list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        String vid = "<html>" +
+                "<body style=\"margin: 0; padding: 0; font-size:20px;\">" +
+                "<iframe width=\"100%\" height=\"100%\" src=\"" + Url + "\" type=\"text/html\" frameborder=\"0\" scrolling=\"yes\">" +
+                "</iframe>" +
+                "</body>" +
+                "</html>";
+        WebChromeClient mWebChromeClient = new WebChromeClient() {
+            public void onProgressChanged(WebView view, int newProgress) {
+            }
 
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view,
-                                        int position, long id) {
-                    switch (position){
-                        case 0:
-                            startActivity(new Intent(getApplicationContext(), EnglishServiceRadio.class));
-                            break;
-                    }
-                    Toast.makeText(RadioTaifa.this, "You Clicked at " + web[+position], Toast.LENGTH_SHORT).show();
+            //<iframe src="http://iframe.dacast.com/b/37017/c/78898" scrolling="no" frameborder="0" height="100" width="180"></iframe>
+        };
+        webview.setWebChromeClient(mWebChromeClient);
+        webview.setWebViewClient(new WebViewClient() {
+            public void onPageFinished(WebView view, String url) {
 
-                }
-            });
+                webview.loadUrl("javascript:(function() { document.getElementsByTagName('video')[0].play(); })()");
+            }
+        });
+        webview.getSettings().setJavaScriptEnabled(true);
+        webview.getSettings().setAppCacheEnabled(true);
+        webview.setInitialScale(1);
+        webview.getSettings().setLoadWithOverviewMode(true);
+        webview.getSettings().setUseWideViewPort(true);
+        webview.loadData(vid, "text/html", "UTF-8");
 
-        }
+        super.onPause();
+
+        return v;
 
     }
+
+    public void onPause() {
+        super.onPause();
+
+        try {
+            Class.forName("android.webkit.WebView").getMethod("onPause", (Class[]) null).invoke(webview, (Object[]) null);
+
+        } catch (ClassNotFoundException cnfe) {
+
+        } catch (NoSuchMethodException nsme) {
+
+        } catch (InvocationTargetException ite) {
+
+        } catch (IllegalAccessException iae) {
+
+        }
+    }
+
+
+}
