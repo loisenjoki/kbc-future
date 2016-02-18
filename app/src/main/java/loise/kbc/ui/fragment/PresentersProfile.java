@@ -26,7 +26,7 @@ import loise.kbc.ui.activity.News;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PresentersProfile extends android.support.v4.app.Fragment {
+public class PresentersProfile extends Fragment {
 
 
     private boolean mSearchCheck;

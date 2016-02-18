@@ -18,4 +18,9 @@
         <item name="android:fontFamily">sans_serif_light</item>
 
     </style>
+    <style name="darkTheme" parent="ThemeOverlay.AppCompat.Dark">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/nliveo_red_colorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/nliveo_red_colorPrimaryDark</item>
+    </style>
 </resources>

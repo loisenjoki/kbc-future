@@ -2,10 +2,14 @@
 package loise.kbc.ui.fragment;
 
 
+import android.app.FragmentTransaction;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.app.Fragment;
+
+
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +24,7 @@ import loise.kbc.navigationviewpagerliveo.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ContactsFragment extends android.support.v4.app.Fragment {
+public class ContactsFragment extends Fragment {
   
 
     public ContactsFragment() {
@@ -33,18 +37,12 @@ public class ContactsFragment extends android.support.v4.app.Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
        View v= inflater.inflate(R.layout.fragment_contacts, container, false);
-      /* fab1=(FloatingActionMenu)v.findViewById(R.id.menu_item);
-        fab1.setOnMenuButtonClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(ContactsFragment.this, NewsFragment.class));
-            }
-        });*/
         v.findViewById(R.id.menu_item).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getActivity(), TimelineKbc.class));
+
             }
         });
         v.findViewById(R.id.menu_item2).setOnClickListener(new View.OnClickListener() {
@@ -60,7 +58,18 @@ public class ContactsFragment extends android.support.v4.app.Fragment {
         v.findViewById(R.id.menu_item3).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getActivity(),InstagramFeed.class));
+                Uri uri = Uri.parse("http://instagram.com/_u/kbckenya");
+                Intent Instagram = new Intent(Intent.ACTION_VIEW, uri);
+
+                Instagram.setPackage("com.instagram.android");
+
+                try {
+                    startActivity(Instagram);
+                } catch (ActivityNotFoundException e) {
+                    startActivity(new Intent(Intent.ACTION_VIEW,
+                            Uri.parse("https://www.instagram.com/kbckenya")));
+                }
+               // startActivity(new Intent(getActivity(),InstagramFeed.class));
             }
         });
         return v;
