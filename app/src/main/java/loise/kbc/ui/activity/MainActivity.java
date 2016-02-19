@@ -51,12 +51,12 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
         // mHelpLiveo.add(getString(R.string.lifestlye), R.mipmap.news);
         mHelpLiveo.addSubHeader(getString(R.string.Listen)); //Item subHeader
         // mHelpLiveo.addSeparator(); // Item separator
-        mHelpLiveo.add(getString(R.string.RadioTaifa),R.drawable.radiotaifa);
-        mHelpLiveo.add(getString(R.string.Englishservice),R.mipmap.listen);
-        mHelpLiveo.add(getString(R.string.Iftiin),R.mipmap.listen);
-        mHelpLiveo.add(getString(R.string.Mayiega), R.drawable.maiyengalogo);
-        mHelpLiveo.add(getString(R.string.Pwani), R.mipmap.listen);
-        mHelpLiveo.add(getString(R.string.Coro), R.mipmap.coro);
+        mHelpLiveo.add(getString(R.string.RadioTaifa),R.mipmap.radiotaifalogo);
+        mHelpLiveo.add(getString(R.string.Englishservice),R.mipmap.englishlogo);
+        mHelpLiveo.add(getString(R.string.Iftiin),R.mipmap.ifitiniii);
+        mHelpLiveo.add(getString(R.string.Mayiega), R.mipmap.maiye);
+        mHelpLiveo.add(getString(R.string.Pwani), R.mipmap.pwani);
+        mHelpLiveo.add(getString(R.string.Coro), R.mipmap.coroo);
         mHelpLiveo.addSubHeader(getString(R.string.Connect)); //Item subHeader
 
         mHelpLiveo.add(getString(R.string.drafts), R.mipmap.conta);
@@ -64,7 +64,7 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
 
 
 
-        with(this).startingPosition(0) //Starting position in the list
+        with(this).startingPosition( 1 ) //Starting position in the list
                 .addAllHelpItem(mHelpLiveo.getHelp())
                 .colorNameSubHeader(R.color.nliveo_blue_colorPrimary)
                 .colorItemSelected(R.color.nliveo_blue_colorPrimary)
@@ -84,38 +84,38 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
         FragmentManager mFragmentManager = getSupportFragmentManager();
 
         switch (position) {
-            case 0:
+            case 1:
                 mFragment = new ViewPagerFragment1();
                 break;
-            case 2:
+            case 3:
                 Intent intent = new Intent(getApplicationContext(), loise.kbc.wordpressrreader.app.MainActivity.class);
                 startActivity(intent);
                 break;
             /*case 2:
                 mFragment = new TabLayoutFragment();
                 break;*/
-            case 4:
+            case 5:
                 mFragment = new RadioTaifa();
                 break;
-            case 5:
+            case 6:
                 mFragment = new EnglishServiceRadio();
                 break;
-            case 6:
+            case 7:
                 mFragment = new IftiinRadio();
                 break;
-            case 7:
+            case 8:
                 mFragment = new Mayienga();
                 break;
-            case 8:
+            case 9:
                 mFragment = new PwaniRadio();
                 break;
-            case 9:
+            case 10:
                 mFragment = new CoroRadio();
                 break;
-            case 11:
+            case 12:
                 mFragment =new ContactsFragment();
                 break;
-            case 12:
+            case 13:
                 mFragment=new AdvertismentFragment();
                 break;
 

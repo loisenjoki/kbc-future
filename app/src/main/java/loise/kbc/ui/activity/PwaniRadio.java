@@ -29,7 +29,7 @@ public class PwaniRadio extends Fragment {
 
         //initalization of the values
 
-        final WebView webview = (WebView)v.findViewById(R.id.webView3);
+         webview = (WebView)v.findViewById(R.id.webView3);
         //http://iframe.dacast.com/b/37017/c/79023
 
         String Url = "http://iframe.dacast.com/b/37017/c/79109";
