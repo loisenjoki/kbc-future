@@ -11,6 +11,9 @@
     <string name="techn">Technology</string>
 
     <string name="categories">Updates</string>
+    <string name="News">News</string>
+    <string name="Stream">Stream</string>
+    <string name="Connect">Connect</string>
     <string name="trash">Advertise</string>
     <string name="login">LogIn</string>
     <string name="spam">Terms</string>

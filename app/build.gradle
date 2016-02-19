@@ -33,7 +33,7 @@ dependencies {
 
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
-    compile project(':library')
+    //compile project(':library')
 
 
     compile('com.twitter.sdk.android:twitter:1.8.0@aar') {

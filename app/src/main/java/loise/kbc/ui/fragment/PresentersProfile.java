@@ -19,8 +19,8 @@ import android.widget.Toast;
 
 import loise.kbc.adapter.CustomGrid;
 import loise.kbc.navigationviewpagerliveo.R;
-import loise.kbc.ui.activity.MainActivityRadio;
 import loise.kbc.ui.activity.News;
+import loise.kbc.ui.activity.TimelineKbc;
 
 
 /**
@@ -72,7 +72,7 @@ public class PresentersProfile extends Fragment {
 
                 switch (position){
                     case 0:
-                        startActivity(new Intent(getActivity(), MainActivityRadio.class));
+                        startActivity(new Intent(getActivity(), TimelineKbc.class));
                         break;
                     case 1:
                         startActivity(new Intent(getActivity(), News.class));

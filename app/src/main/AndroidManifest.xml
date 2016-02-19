@@ -43,9 +43,6 @@
                 android:value="loise.kbc.ui.activity.MainActivity" />
         </activity>
         <activity
-            android:name="loise.kbc.ui.activity.MainActivityRadio"
-            android:label="Radio" />
-        <activity
             android:name="loise.kbc.ui.activity.News"
             android:label="@string/title_activity_news"
             android:theme="@style/myTheme.NoActionBar" />

@@ -34,9 +34,9 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
 
         // Creating items navigation
         mHelpLiveo = new HelpLiveo();
-
+        mHelpLiveo.addSubHeader("Stream");
         mHelpLiveo.add(getString(R.string.inbox), R.mipmap.tv);
-        mHelpLiveo.addSubHeader(getString(R.string.categories)); //Item subHeader
+        mHelpLiveo.addSubHeader("News"); //Item subHeader
         // mHelpLiveo.add(getString(R.string.starred), R.mipmap.listen);
         //mHelpLiveo.add(getString(R.string.sent_mail), R.mipmap.news);
         //
@@ -57,7 +57,7 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
         mHelpLiveo.add(getString(R.string.Mayiega), R.drawable.maiyengalogo);
         mHelpLiveo.add(getString(R.string.Pwani), R.mipmap.listen);
         mHelpLiveo.add(getString(R.string.Coro), R.mipmap.coro);
-        mHelpLiveo.addSubHeader(getString(R.string.categories)); //Item subHeader
+        mHelpLiveo.addSubHeader(getString(R.string.Connect)); //Item subHeader
 
         mHelpLiveo.add(getString(R.string.drafts), R.mipmap.conta);
         mHelpLiveo.add(getString(R.string.trash), R.mipmap.ad);
