@@ -36,20 +36,13 @@ public class TimelineKbc extends AppCompatActivity {
         barprogress = ProgressDialog.show(TimelineKbc.this, "", "Loading.Please wait...", true);
 
         listview = (ListView) findViewById(R.id.list);
-
-
         final UserTimeline userTimeline = new UserTimeline.Builder().screenName("KBCChannel1").build();
-
-
         TweetTimelineListAdapter adapter;
         adapter = new TweetTimelineListAdapter(this, userTimeline);
         adapter = new TweetTimelineListAdapter.Builder(this).setTimeline(userTimeline).build();
 
         listview.setAdapter(adapter);
         barprogress.dismiss();
-
-
-
         /*userTimeline.previous(null, new Callback<TimelineResult<Tweet>>() {
 
             @Override
@@ -76,12 +69,7 @@ public class TimelineKbc extends AppCompatActivity {
         });
         materialRefreshLayout.finishRefresh();
         materialRefreshLayout.finishRefreshLoadMore();*/
-
-
     }
-
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

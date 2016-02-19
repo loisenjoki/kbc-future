@@ -20,7 +20,7 @@
         <android.support.design.widget.TabLayout
             android:id="@+id/tabLayout"
             android:layout_gravity="center_horizontal"
-            app:tabIndicatorColor="#D64937"
+            app:tabIndicatorColor="#000"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"

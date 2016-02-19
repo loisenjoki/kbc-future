@@ -23,10 +23,13 @@
         <item name="tabIndicatorHeight">2dp</item>
         <item name="tabBackground">@color/colorPrimary</item>
         <item name="tabTextAppearance">@style/CustomTabTextAppearance</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="CustomTabTextAppearance" parent="TextAppearance.Design.Tab">
         <item name="android:textSize">18sp</item>
         <item name="android:textColor">#FFAB91</item>
     </style>
+
 </resources>
