@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -63,8 +64,8 @@ public class SearchResultFragment extends Fragment {
 
         Toolbar toolbar = (Toolbar) v.findViewById(R.id.toolbarwp);
     //    ((MainActivity) getActivity()).setSupportActionBar(toolbar);
-        ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        ((MainActivity) getActivity()).getSupportActionBar()
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        ((AppCompatActivity) getActivity()).getSupportActionBar()
                 .setTitle(getString(R.string.search_result) + " \"" + mQuery + "\"");
 
         FragmentTransaction ft = getChildFragmentManager().beginTransaction();
