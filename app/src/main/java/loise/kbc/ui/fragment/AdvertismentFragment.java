@@ -76,13 +76,13 @@ public class AdvertismentFragment extends Fragment {
         setHasOptionsMenu(true);
     }
 
-    @Override
+   /* @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         // TODO Auto-generated method stub
         super.onCreateOptionsMenu(menu, inflater);
         inflater.inflate(R.menu.menu, menu);
 
-        SearchView searchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.menu_search));
+       *//* SearchView searchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.menu_search));
         searchView.setQueryHint(this.getString(R.string.search));
 
         ((EditText) searchView.findViewById(android.support.v7.appcompat.R.id.search_src_text))
@@ -98,7 +98,7 @@ public class AdvertismentFragment extends Fragment {
 
         menu.findItem(R.id.menu_search).setVisible(true);
 
-        mSearchCheck = false;
+        mSearchCheck = false;*//*
 
 
     }
@@ -108,7 +108,7 @@ public class AdvertismentFragment extends Fragment {
         // TODO Auto-generated method stub
 
 
-        switch (item.getItemId()) {
+       *//* switch (item.getItemId()) {
             case R.id.menu_add:
                 Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
                 sharingIntent.setType("text/plain");
@@ -124,7 +124,7 @@ public class AdvertismentFragment extends Fragment {
                 mSearchCheck = true;
 
                 break;
-        }
+        }*//*
         return true;
     }
 
@@ -141,7 +141,7 @@ public class AdvertismentFragment extends Fragment {
             }
             return false;
         }
-    };
+    };*/
 }
 
 

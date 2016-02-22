@@ -1,11 +1,14 @@
 package loise.kbc.ui.activity;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.view.Menu;
 import android.view.View;
+import android.widget.Toast;
 
 import br.liveo.Model.HelpLiveo;
 import br.liveo.interfaces.OnItemClickListener;
@@ -14,9 +17,7 @@ import br.liveo.navigationliveo.NavigationLiveo;
 import loise.kbc.navigationviewpagerliveo.R;
 import loise.kbc.ui.fragment.AdvertismentFragment;
 import loise.kbc.ui.fragment.ContactsFragment;
-import loise.kbc.ui.fragment.LogInFragment;
 import loise.kbc.ui.fragment.MainFragment;
-import loise.kbc.ui.fragment.Presenters;
 import loise.kbc.ui.fragment.ViewPagerFragment1;
 
 public class MainActivity extends NavigationLiveo implements OnItemClickListener {
@@ -51,20 +52,26 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
         // mHelpLiveo.add(getString(R.string.lifestlye), R.mipmap.news);
         mHelpLiveo.addSubHeader(getString(R.string.Listen)); //Item subHeader
         // mHelpLiveo.addSeparator(); // Item separator
-        mHelpLiveo.add(getString(R.string.RadioTaifa),R.drawable.chanel1);
-        mHelpLiveo.add(getString(R.string.Englishservice),R.mipmap.listen);
-        mHelpLiveo.add(getString(R.string.Iftiin),R.mipmap.listen);
-        mHelpLiveo.add(getString(R.string.Mayiega), R.drawable.maiyengalogo);
-        mHelpLiveo.add(getString(R.string.Pwani), R.mipmap.listen);
-        mHelpLiveo.add(getString(R.string.Coro), R.mipmap.coro);
-        mHelpLiveo.addSubHeader(getString(R.string.Connect)); //Item subHeader
 
+        mHelpLiveo.add(getString(R.string.RadioTaifa),R.mipmap.radiotaifalogo);
+        mHelpLiveo.add(getString(R.string.Englishservice),R.mipmap.englishlogo);
+        mHelpLiveo.add(getString(R.string.Iftiin),R.mipmap.ifitiniii);
+        mHelpLiveo.add(getString(R.string.Mayienga), R.mipmap.maiye);
+        mHelpLiveo.add(getString(R.string.Pwani), R.mipmap.pwani);
+        mHelpLiveo.add(getString(R.string.Coro), R.mipmap.coroo);
+
+        mHelpLiveo.addSubHeader(getString(R.string.Connect)); //Item subHeader
+        mHelpLiveo.add(getString(R.string.Twitter),R.drawable.twitter);
+        mHelpLiveo.add(getString(R.string.Instagram), R.drawable.instagram);
+        mHelpLiveo.add(getString(R.string.Facebook), R.drawable.facebook);
         mHelpLiveo.add(getString(R.string.drafts), R.mipmap.conta);
         mHelpLiveo.add(getString(R.string.trash), R.mipmap.ad);
+        mHelpLiveo.add(getString(R.string.Rate), R.mipmap.rate);
 
 
 
-        with(this).startingPosition(0) //Starting position in the list
+
+        with(this).startingPosition( 1 ) //Starting position in the list
                 .addAllHelpItem(mHelpLiveo.getHelp())
                 .colorNameSubHeader(R.color.nliveo_blue_colorPrimary)
                 .colorItemSelected(R.color.nliveo_blue_colorPrimary)
@@ -84,40 +91,74 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
         FragmentManager mFragmentManager = getSupportFragmentManager();
 
         switch (position) {
-            case 0:
+            case 1:
                 mFragment = new ViewPagerFragment1();
                 break;
-            case 2:
+            case 3:
                 Intent intent = new Intent(getApplicationContext(), loise.kbc.wordpressrreader.app.MainActivity.class);
                 startActivity(intent);
                 break;
             /*case 2:
                 mFragment = new TabLayoutFragment();
                 break;*/
-            case 4:
+            case 5:
                 mFragment = new RadioTaifa();
                 break;
-            case 5:
+            case 6:
                 mFragment = new EnglishServiceRadio();
                 break;
-            case 6:
+            case 7:
                 mFragment = new IftiinRadio();
                 break;
-            case 7:
+            case 8:
                 mFragment = new Mayienga();
                 break;
-            case 8:
+            case 9:
                 mFragment = new PwaniRadio();
                 break;
-            case 9:
+            case 10:
                 mFragment = new CoroRadio();
                 break;
-            case 11:
+            case 12:
+                Intent intent2=new Intent(getApplicationContext(), TimelineKbc.class);
+                startActivity(intent2);
+                break;
+            case  13:
+                Uri uri1 = Uri.parse("http://instagram.com/_u/kbckenya");
+                Intent Instagram = new Intent(Intent.ACTION_VIEW, uri1);
+
+                Instagram.setPackage("com.instagram.android");
+                try {
+                    startActivity(Instagram);
+                } catch (ActivityNotFoundException e) {
+                    startActivity(new Intent(Intent.ACTION_VIEW,
+                            Uri.parse("https://www.instagram.com/kbckenya")));
+                }
+                break;
+            case 14:
+                Intent intent1 = new Intent();
+                intent1.setAction(Intent.ACTION_VIEW);
+                intent1.addCategory(Intent.CATEGORY_BROWSABLE);
+                intent1.setData(Uri.parse("https://www.facebook.com/kbcchannel1/"));
+                startActivity(intent1);
+            case 15:
                 mFragment =new ContactsFragment();
                 break;
-            case 12:
+            case 16:
                 mFragment=new AdvertismentFragment();
                 break;
+            case 17:
+                Uri uri = Uri.parse("market://details?id=" + getPackageName());
+                Intent myAppLinkToMarket = new Intent(Intent.ACTION_VIEW, uri);
+                     try {
+                    startActivity(myAppLinkToMarket);
+                      } catch (ActivityNotFoundException e) {
+
+                    Toast.makeText(this, "Sorry not able to open!", Toast.LENGTH_SHORT).show();
+
+                     }
+               break;
+
 
             default:
                 mFragment = MainFragment.newInstance(mHelpLiveo.get(position).getName());

@@ -81,7 +81,7 @@ public class TabLayoutFragment extends Fragment implements SearchView.OnQueryTex
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_tab_layout, container, false);
 
-        toolbar = (Toolbar) rootView.findViewById(R.id.toolbarwp);
+       // toolbar = (Toolbar) rootView.findViewById(R.id.toolbarwp);
 //        ((MainActivity)getActivity()).setSupportActionBar(toolbar);
 
         mTabLayout = (TabLayout) rootView.findViewById(R.id.tab_layout);
@@ -123,12 +123,13 @@ public class TabLayoutFragment extends Fragment implements SearchView.OnQueryTex
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.action_search) {
-            searchView.requestFocus();
+        if (item.getItemId() == R.id.home) {
+            mListener.onHomePressed();
+           // searchView.requestFocus();
         }
-        else if(item.getItemId() == R.id.home) {
+       /* else if(item.getItemId() == R.id.home) {
             searchView.requestFocus();
-        }
+        }*/
 
 
        /* toolbar.setNavigationIcon(getResources().getDrawable(R.mipmap.leftarrow));
@@ -226,6 +227,8 @@ public class TabLayoutFragment extends Fragment implements SearchView.OnQueryTex
     // Interface used to communicate with MainActivity
     public interface TabLayoutListener {
         void onSearchSubmitted(String query);
+
+        void onHomePressed();
     }
 
 }

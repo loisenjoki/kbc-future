@@ -116,7 +116,6 @@ public class CommentFragment extends Fragment {
             }
         });
     }
-
     /**
      * Eliminate the chance of showing previous content by clearing the fragment on hidden.
      *
