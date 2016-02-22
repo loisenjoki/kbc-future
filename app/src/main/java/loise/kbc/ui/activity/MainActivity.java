@@ -124,8 +124,7 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
                 mFragment = new CoroRadio();
                 break;
             case 12:
-                Intent intent2=new Intent(getApplicationContext(), TimelineKbc.class);
-                startActivity(intent2);
+               mFragment =new TimelineKbc();
                 break;
             case  13:
                 Uri uri1 = Uri.parse("http://instagram.com/_u/kbckenya");
