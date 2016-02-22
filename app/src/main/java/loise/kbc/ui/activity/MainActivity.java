@@ -51,7 +51,7 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
         // mHelpLiveo.add(getString(R.string.lifestlye), R.mipmap.news);
         mHelpLiveo.addSubHeader(getString(R.string.Listen)); //Item subHeader
         // mHelpLiveo.addSeparator(); // Item separator
-        mHelpLiveo.add(getString(R.string.RadioTaifa),R.drawable.radiotaifa);
+        mHelpLiveo.add(getString(R.string.RadioTaifa),R.drawable.chanel1);
         mHelpLiveo.add(getString(R.string.Englishservice),R.mipmap.listen);
         mHelpLiveo.add(getString(R.string.Iftiin),R.mipmap.listen);
         mHelpLiveo.add(getString(R.string.Mayiega), R.drawable.maiyengalogo);
