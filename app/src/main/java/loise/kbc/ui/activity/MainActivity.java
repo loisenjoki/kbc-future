@@ -1,11 +1,14 @@
 package loise.kbc.ui.activity;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.view.Menu;
 import android.view.View;
+import android.widget.Toast;
 
 import br.liveo.Model.HelpLiveo;
 import br.liveo.interfaces.OnItemClickListener;
@@ -49,17 +52,26 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
         // mHelpLiveo.add(getString(R.string.lifestlye), R.mipmap.news);
         mHelpLiveo.addSubHeader(getString(R.string.Listen)); //Item subHeader
         // mHelpLiveo.addSeparator(); // Item separator
+
         mHelpLiveo.add(getString(R.string.RadioTaifa),R.mipmap.radiotaifalogo);
         mHelpLiveo.add(getString(R.string.Englishservice),R.mipmap.englishlogo);
         mHelpLiveo.add(getString(R.string.Iftiin),R.mipmap.ifitiniii);
-        mHelpLiveo.add(getString(R.string.Mayiega), R.mipmap.maiye);
+        mHelpLiveo.add(getString(R.string.Mayienga), R.mipmap.maiye);
         mHelpLiveo.add(getString(R.string.Pwani), R.mipmap.pwani);
         mHelpLiveo.add(getString(R.string.Coro), R.mipmap.coroo);
-        mHelpLiveo.addSubHeader(getString(R.string.Connect)); //Item subHeader
 
+        mHelpLiveo.addSubHeader(getString(R.string.Connect)); //Item subHeader
+        mHelpLiveo.add(getString(R.string.Twitter),R.drawable.twitter);
+        mHelpLiveo.add(getString(R.string.Instagram), R.drawable.instagram);
+        mHelpLiveo.add(getString(R.string.Facebook), R.drawable.facebook);
         mHelpLiveo.add(getString(R.string.drafts), R.mipmap.conta);
         mHelpLiveo.add(getString(R.string.trash), R.mipmap.ad);
+
         mHelpLiveo.add(getString(R.string.sharing), R.mipmap.sharing);
+
+        mHelpLiveo.add(getString(R.string.Rate), R.mipmap.rate);
+
+
 
 
 
@@ -112,18 +124,55 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
                 mFragment = new CoroRadio();
                 break;
             case 12:
-                mFragment =new ContactsFragment();
+                Intent intent2=new Intent(getApplicationContext(), TimelineKbc.class);
+                startActivity(intent2);
                 break;
-            case 13:
-                mFragment=new AdvertismentFragment();
+            case  13:
+                Uri uri1 = Uri.parse("http://instagram.com/_u/kbckenya");
+                Intent Instagram = new Intent(Intent.ACTION_VIEW, uri1);
+
+                Instagram.setPackage("com.instagram.android");
+                try {
+                    startActivity(Instagram);
+                } catch (ActivityNotFoundException e) {
+                    startActivity(new Intent(Intent.ACTION_VIEW,
+                            Uri.parse("https://www.instagram.com/kbckenya")));
+                }
                 break;
             case 14:
+                Intent intent1 = new Intent();
+                intent1.setAction(Intent.ACTION_VIEW);
+                intent1.addCategory(Intent.CATEGORY_BROWSABLE);
+                intent1.setData(Uri.parse("https://www.facebook.com/kbcchannel1/"));
+                startActivity(intent1);
+            case 15:
+                mFragment =new ContactsFragment();
+                break;
+            case 16:
+                mFragment=new AdvertismentFragment();
+                break;
+
+            case 17:
                 Intent sendIntent = new Intent();
                 sendIntent.setAction(Intent.ACTION_SEND);
                 sendIntent.putExtra(Intent.EXTRA_TEXT, "https://play.google.com/store/search?q=bbc%20news&hl=en");
                 sendIntent.setType("text/plain");
                 startActivity(sendIntent);
                 break;
+
+            case 18:
+                Uri uri = Uri.parse("market://details?id=" + getPackageName());
+                Intent myAppLinkToMarket = new Intent(Intent.ACTION_VIEW, uri);
+                     try {
+                    startActivity(myAppLinkToMarket);
+                      } catch (ActivityNotFoundException e) {
+
+                    Toast.makeText(this, "Sorry not able to open!", Toast.LENGTH_SHORT).show();
+
+                     }
+               break;
+
+
 
             default:
                 mFragment = MainFragment.newInstance(mHelpLiveo.get(position).getName());
