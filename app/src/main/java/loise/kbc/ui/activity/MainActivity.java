@@ -14,9 +14,7 @@ import br.liveo.navigationliveo.NavigationLiveo;
 import loise.kbc.navigationviewpagerliveo.R;
 import loise.kbc.ui.fragment.AdvertismentFragment;
 import loise.kbc.ui.fragment.ContactsFragment;
-import loise.kbc.ui.fragment.LogInFragment;
 import loise.kbc.ui.fragment.MainFragment;
-import loise.kbc.ui.fragment.Presenters;
 import loise.kbc.ui.fragment.ViewPagerFragment1;
 
 public class MainActivity extends NavigationLiveo implements OnItemClickListener {
@@ -61,6 +59,7 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
 
         mHelpLiveo.add(getString(R.string.drafts), R.mipmap.conta);
         mHelpLiveo.add(getString(R.string.trash), R.mipmap.ad);
+        mHelpLiveo.add(getString(R.string.sharing), R.mipmap.sharing);
 
 
 
@@ -117,6 +116,13 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
                 break;
             case 13:
                 mFragment=new AdvertismentFragment();
+                break;
+            case 14:
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, "https://play.google.com/store/search?q=bbc%20news&hl=en");
+                sendIntent.setType("text/plain");
+                startActivity(sendIntent);
                 break;
 
             default:

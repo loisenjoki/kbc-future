@@ -57,7 +57,7 @@ public class RadioFragment extends Fragment {
             R.drawable.english,
             R.drawable.corologo,
             R.drawable.iftiin,
-            R.drawable.pwani,
+            R.drawable.iftiin,
             R.drawable.mayiegalogo,
 
     };

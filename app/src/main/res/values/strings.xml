@@ -32,7 +32,7 @@
     <string name="Listen">Listen</string>
    <!-- //radios-->
     <string name="Pwani">Pwani FM</string>
-    <string name="Mayiega">Mayiega FM</string>
+    <string name="Mayiega">Mayienga FM</string>
     <string name="Coro">Coro FM</string>
     <string name="Englishservice">English Service</string>
     <string name="Iftiin">Iftiin FM</string>
@@ -41,6 +41,8 @@
     <string name="tv"> Watch LIVE</string>
     <string name="radio">RADIO</string>
     <string name="news">NEWS</string>
+    <string name="sharing">Share</string>
+
 
     <!-- Toast -->
     <string name="open_user_profile">Open user profile</string>
@@ -92,7 +94,7 @@
     <string name="loading_articles">Loading articles…</string>
     <string name="action_refresh">Refresh</string>
     <string name="action_send_to_wear">Send to my watch</string>
-    <string name="error_load_categories">Network error. Failed to load categories.</string>
+    <string name="error_load_categories">Check your internet connection,tyr again</string>
     <string name="error_load_posts">Network error. Failed to load articles.</string>
     <string name="action_retry">Retry</string>
     <string name="search_hint">Enter search query here</string>
