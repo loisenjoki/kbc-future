@@ -19,6 +19,8 @@ import loise.kbc.ui.fragment.AdvertismentFragment;
 import loise.kbc.ui.fragment.ContactsFragment;
 import loise.kbc.ui.fragment.MainFragment;
 import loise.kbc.ui.fragment.ViewPagerFragment1;
+import loise.kbc.wordpressrreader.adaptor.ImagesFragment;
+import loise.kbc.wordpressrreader.app.TabLayoutFragment;
 
 public class MainActivity extends NavigationLiveo implements OnItemClickListener {
 
@@ -35,21 +37,13 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
 
         // Creating items navigation
         mHelpLiveo = new HelpLiveo();
+        mHelpLiveo.add(getString(R.string.recent), R.mipmap.news);
         mHelpLiveo.addSubHeader("Stream");
         mHelpLiveo.add(getString(R.string.inbox), R.mipmap.tv);
-        mHelpLiveo.addSubHeader("News"); //Item subHeader
-        // mHelpLiveo.add(getString(R.string.starred), R.mipmap.listen);
-        //mHelpLiveo.add(getString(R.string.sent_mail), R.mipmap.news);
-        //
+        mHelpLiveo.addSubHeader("News");
 
-        //mHelpLiveo.addSubHeader(getString(R.string.categories)); //Item subHeader
 
         mHelpLiveo.add(getString(R.string.local), R.mipmap.news);
-        //mHelpLiveo.add(getString(R.string.inter), R.mipmap.news);
-        //  mHelpLiveo.add(getString(R.string.business), R.mipmap.news);
-        //mHelpLiveo.add(getString(R.string.sports), R.mipmap.news);
-        //mHelpLiveo.add(getString(R.string.tech), R.mipmap.news);
-        // mHelpLiveo.add(getString(R.string.lifestlye), R.mipmap.news);
         mHelpLiveo.addSubHeader(getString(R.string.Listen)); //Item subHeader
         // mHelpLiveo.addSeparator(); // Item separator
 
@@ -61,7 +55,7 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
         mHelpLiveo.add(getString(R.string.Coro), R.mipmap.coroo);
 
         mHelpLiveo.addSubHeader(getString(R.string.Connect)); //Item subHeader
-        mHelpLiveo.add(getString(R.string.Twitter),R.drawable.twitter);
+        mHelpLiveo.add(getString(R.string.Twitter), R.drawable.twitter);
         mHelpLiveo.add(getString(R.string.Instagram), R.drawable.instagram);
         mHelpLiveo.add(getString(R.string.Facebook), R.drawable.facebook);
         mHelpLiveo.add(getString(R.string.drafts), R.mipmap.conta);
@@ -75,7 +69,7 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
 
 
 
-        with(this).startingPosition( 1 ) //Starting position in the list
+        with(this).startingPosition(0) //Starting position in the list
                 .addAllHelpItem(mHelpLiveo.getHelp())
                 .colorNameSubHeader(R.color.nliveo_blue_colorPrimary)
                 .colorItemSelected(R.color.nliveo_blue_colorPrimary)
@@ -95,39 +89,42 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
         FragmentManager mFragmentManager = getSupportFragmentManager();
 
         switch (position) {
-            case 1:
+            case 0:
+                mFragment = new ImagesFragment();
+                break;
+        case 2:
                 mFragment = new ViewPagerFragment1();
                 break;
-            case 3:
+            case 4:
                 Intent intent = new Intent(getApplicationContext(), loise.kbc.wordpressrreader.app.MainActivity.class);
                 startActivity(intent);
                 break;
             /*case 2:
                 mFragment = new TabLayoutFragment();
                 break;*/
-            case 5:
+            case 6:
                 mFragment = new RadioTaifa();
                 break;
-            case 6:
+            case 7:
                 mFragment = new EnglishServiceRadio();
                 break;
-            case 7:
+            case 8:
                 mFragment = new IftiinRadio();
                 break;
-            case 8:
+            case 9:
                 mFragment = new Mayienga();
                 break;
-            case 9:
+            case 10:
                 mFragment = new PwaniRadio();
                 break;
-            case 10:
+            case 12:
                 mFragment = new CoroRadio();
                 break;
-            case 12:
+            case 13:
                 Intent intent2=new Intent(getApplicationContext(), TimelineKbc.class);
                 startActivity(intent2);
                 break;
-            case  13:
+            case  14:
                 Uri uri1 = Uri.parse("http://instagram.com/_u/kbckenya");
                 Intent Instagram = new Intent(Intent.ACTION_VIEW, uri1);
 
@@ -139,20 +136,20 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
                             Uri.parse("https://www.instagram.com/kbckenya")));
                 }
                 break;
-            case 14:
+            case 15:
                 Intent intent1 = new Intent();
                 intent1.setAction(Intent.ACTION_VIEW);
                 intent1.addCategory(Intent.CATEGORY_BROWSABLE);
                 intent1.setData(Uri.parse("https://www.facebook.com/kbcchannel1/"));
                 startActivity(intent1);
-            case 15:
+            case 16:
                 mFragment =new ContactsFragment();
                 break;
-            case 16:
+            case 17:
                 mFragment=new AdvertismentFragment();
                 break;
 
-            case 17:
+            case 18:
                 Intent sendIntent = new Intent();
                 sendIntent.setAction(Intent.ACTION_SEND);
                 sendIntent.putExtra(Intent.EXTRA_TEXT, "https://play.google.com/store/search?q=bbc%20news&hl=en");
@@ -160,7 +157,7 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
                 startActivity(sendIntent);
                 break;
 
-            case 18:
+            case 19:
                 Uri uri = Uri.parse("market://details?id=" + getPackageName());
                 Intent myAppLinkToMarket = new Intent(Intent.ACTION_VIEW, uri);
                      try {

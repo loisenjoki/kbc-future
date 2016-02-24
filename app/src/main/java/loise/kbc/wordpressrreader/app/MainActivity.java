@@ -1,8 +1,10 @@
 package loise.kbc.wordpressrreader.app;
 
 import android.app.ActionBar;
+import android.app.Activity;
 import android.os.Bundle;
 
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -11,12 +13,14 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
 import loise.kbc.navigationviewpagerliveo.R;
+import loise.kbc.wordpressrreader.adaptor.ImageRecordsAdapter;
+import loise.kbc.wordpressrreader.adaptor.ImagesFragment;
 import loise.kbc.wordpressrreader.model.Post;
 
 public class MainActivity extends AppCompatActivity implements
         RecyclerViewFragment.PostListListener, PostFragment.PostListener,
         TabLayoutFragment.TabLayoutListener, SearchResultFragment.SearchResultListener,
-        CommentFragment.CommentListener{
+        CommentFragment.CommentListener,ImagesFragment.PostListListener,ImageRecordsAdapter.PostListListener{
 
     private static final String TAG = MainActivity.class.getSimpleName();
     public static final String TAB_LAYOUT_FRAGMENT_TAG = "TabLayoutFragment";
@@ -51,6 +55,21 @@ public class MainActivity extends AppCompatActivity implements
         ft.hide(cf);
         ft.commit();
     }
+
+   // @Override
+   public void onAttach(Fragment activity) {
+
+           activity.onAttach(this);
+
+           try {
+               ImageRecordsAdapter.PostListListener mListener
+                        = (ImageRecordsAdapter.PostListListener) activity;
+           } catch (ClassCastException e) {
+               throw new ClassCastException(activity.toString() +
+                       "must implement PostListListener");
+           }
+        }
+
 
     /**
      * Invoked when a post in the list is selected
@@ -154,6 +173,21 @@ public class MainActivity extends AppCompatActivity implements
     public void onHomePressed() {
         resetActionBarIfApplicable();
         fm.popBackStack();
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+
+        pf.onAttach(activity);
+
+        try {
+            ImageRecordsAdapter.PostListListener mListener
+                    = (ImageRecordsAdapter.PostListListener) activity;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(activity.toString() +
+                    "must implement PostListListener");
+        }
+
     }
 
     /**

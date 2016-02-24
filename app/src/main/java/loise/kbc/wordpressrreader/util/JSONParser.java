@@ -6,6 +6,15 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.Reader;
+import java.io.Writer;
 import java.util.ArrayList;
 
 import loise.kbc.navigationviewpagerliveo.R;
@@ -37,6 +46,7 @@ public class JSONParser {
             Category all = new Category();
             all.setId(0);
             all.setName(AppController.getInstance().getString(R.string.tab_all));
+
             categoryArrayList.add(all);
 
             // Go through all categories and get their details
@@ -47,6 +57,7 @@ public class JSONParser {
                 Category c = new Category();
                 c.setId(catObj.getInt("id"));
                 c.setName(catObj.getString("title"));
+
                 categoryArrayList.add(c);
             }
         } catch (JSONException e) {
@@ -88,12 +99,13 @@ public class JSONParser {
                 post.setAuthor(postObject.getJSONObject("author").optString("name", "N/A"));
                 post.setId(postObject.optInt("id"));
                 post.setUrl(postObject.optString("url"));
-
+                post.setCharacterEncoding("utf-8");
                 JSONObject featuredImages = postObject.optJSONObject("thumbnail_images");
                 if (featuredImages != null) {
                     post.setFeaturedImageUrl(featuredImages.optJSONObject("full")
                             .optString("url", Config.DEFAULT_THUMBNAIL_URL));
                 }
+
 
                 posts.add(post);
             }
@@ -101,6 +113,29 @@ public class JSONParser {
             Log.d(TAG, "----------------- Json Exception");
             Log.d(TAG, e.getMessage());
             return null;
+        }
+
+        try {
+            Reader reader = new InputStreamReader(
+                    new FileInputStream("UTF-8"));
+            BufferedReader fin = new BufferedReader(reader);
+            Writer writer = new OutputStreamWriter(
+                    new FileOutputStream("UTF-8"));
+            BufferedWriter fout = new BufferedWriter(writer);
+            String s;
+            while ((s=fin.readLine())!=null) {
+                fout.write(s);
+                fout.newLine();
+            }
+
+            //Remember to call close.
+            //calling close on a BufferedReader/BufferedWriter
+            // will automatically call close on its underlying stream
+            fin.close();
+            fout.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
         return posts;

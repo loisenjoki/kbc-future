@@ -33,6 +33,8 @@ import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.SimpleTarget;
 
 import loise.kbc.navigationviewpagerliveo.R;
+import loise.kbc.wordpressrreader.adaptor.ImageRecordsAdapter;
+import loise.kbc.wordpressrreader.model.Post;
 
 
 /**
@@ -139,7 +141,7 @@ public class PostFragment extends Fragment {
                 html += content;
 
                 // Enable JavaScript in order to be able to Play Youtube videos
-                webView.getSettings().setJavaScriptEnabled(true);
+                 webView.getSettings().setJavaScriptEnabled(true);
                 webView.setWebChromeClient(new WebChromeClient());
 
                 // Load and display HTML content
@@ -289,9 +291,15 @@ public class PostFragment extends Fragment {
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
      */
-    public interface PostListener {
+    public interface PostListener extends ImageRecordsAdapter.PostListListener {
        // void onCommentSelected(int id);
         void onHomePressed();
+
+        @Override
+        void onPostSelected(Post post, boolean isSearch);
+
+        @Override
+        void getFragmentManager(Toolbar toolbar);
     }
 
 }
