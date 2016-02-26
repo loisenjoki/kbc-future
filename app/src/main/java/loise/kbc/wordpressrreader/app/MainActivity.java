@@ -11,6 +11,8 @@ import android.support.v7.app.AppCompatActivity;
 
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.View;
 
 import loise.kbc.navigationviewpagerliveo.R;
 import loise.kbc.wordpressrreader.adaptor.ImageRecordsAdapter;
@@ -33,12 +35,14 @@ public class MainActivity extends AppCompatActivity implements
     private CommentFragment cf;
     private SearchResultFragment srf;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         fm = getSupportFragmentManager();
+
 
         // Setup fragments
         tlf = new TabLayoutFragment();
@@ -54,9 +58,23 @@ public class MainActivity extends AppCompatActivity implements
         ft.hide(pf);
         ft.hide(cf);
         ft.commit();
+        //goBack();
+
     }
 
-   // @Override
+   /* private void goBack() {
+        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbarwp);
+
+           toolbar.setNavigationIcon(getResources().getDrawable(R.mipmap.leftarrow));
+      toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //What to do on back clicked
+            }
+        });
+    }*/
+
+    // @Override
    public void onAttach(Fragment activity) {
 
            activity.onAttach(this);
@@ -162,6 +180,14 @@ public class MainActivity extends AppCompatActivity implements
      */
     @Override
     public void onBackPressed() {
+        android.app.FragmentManager fragmentManager = getFragmentManager();
+        int backCount = fragmentManager.getBackStackEntryCount();
+
+        if(backCount > 1) {
+            super.onBackPressed();
+        } else {
+            finish();
+        }
         resetActionBarIfApplicable();
         super.onBackPressed();
     }
@@ -205,12 +231,12 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     // Commented out coz we will let fragments handle their own Options Menus
-    //@Override
-    //public boolean onCreateOptionsMenu(Menu menu) {
-    //    // Inflate the menu; this adds items to the action bar if it is present.
-    //    getMenuInflater().inflate(R.menu.menu_main, menu);
-    //    return true;
-    //}
+  /*  @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+      return true;
+   }*/
 
 
 }

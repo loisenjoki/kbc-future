@@ -61,6 +61,7 @@ public class TabLayoutFragment extends Fragment implements SearchView.OnQueryTex
 
     public TabLayoutFragment() {
         // Required empty public constructor
+
     }
 
     @Override
@@ -80,7 +81,7 @@ public class TabLayoutFragment extends Fragment implements SearchView.OnQueryTex
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_tab_layout, container, false);
 
-       // toolbar = (Toolbar) rootView.findViewById(R.id.toolbarwp);
+         toolbar = (Toolbar) rootView.findViewById(R.id.toolbarwp);
 //        ((MainActivity)getActivity()).setSupportActionBar(toolbar);
 
         mTabLayout = (TabLayout) rootView.findViewById(R.id.tab_layout);
@@ -116,37 +117,32 @@ public class TabLayoutFragment extends Fragment implements SearchView.OnQueryTex
         //searchView.requestFocus();
         searchView.setQueryHint(getString(R.string.search_hint));
         searchView.setOnQueryTextListener(this);
+        getActivity().invalidateOptionsMenu();
 
         super.onCreateOptionsMenu(menu, inflater);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.home) {
-            mListener.onHomePressed();
-           // searchView.requestFocus();
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                // this takes the user 'back', as if they pressed the left-facing triangle icon on the main android toolbar.
+                // if this doesn't work as desired, another possibility is to call `finish()` here.
+                getActivity().onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-       /* else if(item.getItemId() == R.id.home) {
-            searchView.requestFocus();
-        }*/
-
-
-       /* toolbar.setNavigationIcon(getResources().getDrawable(R.mipmap.leftarrow));
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //What to do on back clicked
-            }
-        });*/
-        return true;
     }
+
+
 
     /**
      * Reset the ActionBar to show proper menu and collapse SearchView
      */
     protected void resetActionBar() {
         ((MainActivity)getActivity()).setSupportActionBar(toolbar);
-        //searchMenuItem.collapseActionView();
+        searchMenuItem.collapseActionView();
     }
 
     /**
@@ -217,6 +213,7 @@ public class TabLayoutFragment extends Fragment implements SearchView.OnQueryTex
 
     @Override
     public void onAttach(Activity activity) {
+        setHasOptionsMenu(false);
         super.onAttach(activity);
 
         try {
