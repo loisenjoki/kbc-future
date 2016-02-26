@@ -44,6 +44,7 @@ public class RecyclerViewFragment extends Fragment implements SwipeRefreshLayout
     private static final String TAG = "RecyclerViewFragment";
     protected static final String CAT_ID = "id";
     protected static final String QUERY = "query";
+    TextView tv;
 
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private RecyclerView mRecyclerView;
