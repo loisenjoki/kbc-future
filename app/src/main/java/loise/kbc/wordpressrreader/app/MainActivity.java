@@ -17,6 +17,7 @@ import android.view.View;
 import loise.kbc.navigationviewpagerliveo.R;
 import loise.kbc.wordpressrreader.adaptor.ImageRecordsAdapter;
 import loise.kbc.wordpressrreader.adaptor.ImagesFragment;
+import loise.kbc.wordpressrreader.adaptor.PostFragmetntAll;
 import loise.kbc.wordpressrreader.model.Post;
 
 public class MainActivity extends AppCompatActivity implements
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements
     private FragmentManager fm = null;
     private TabLayoutFragment tlf;
     private PostFragment pf;
+    private PostFragmetntAll pf1;
     private CommentFragment cf;
     private SearchResultFragment srf;
 
@@ -49,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements
         pf = new PostFragment();
         cf = new CommentFragment();
         srf = new SearchResultFragment();
+
 
         FragmentTransaction ft = fm.beginTransaction();
         ft.add(android.R.id.content, pf, POST_FRAGMENT_TAG);

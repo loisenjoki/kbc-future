@@ -65,9 +65,11 @@
         <activity android:name="loise.kbc.ui.activity.IftiinRadio" />
         <activity android:name="loise.kbc.ui.activity.LiveTv" />
         <activity android:name="loise.kbc.ui.activity.InstagramFeed" />
-        <activity android:name="loise.kbc.ui.activity.Mayienga"></activity>
-        <activity android:name="loise.kbc.wordpressrreader.app.MainActivity"
-                  android:theme="@style/myTheme"/>
+        <activity android:name="loise.kbc.ui.activity.Mayienga" />
+        <activity
+            android:name="loise.kbc.wordpressrreader.app.MainActivity"
+            android:theme="@style/myTheme" />
+        <activity android:name="loise.kbc.wordpressrreader.adaptor.PostFragmetntAll"></activity>
     </application>
 
 </manifest>
