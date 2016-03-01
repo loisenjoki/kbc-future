@@ -23,7 +23,7 @@ import loise.kbc.wordpressrreader.model.Post;
 public class MainActivity extends AppCompatActivity implements
         RecyclerViewFragment.PostListListener, PostFragment.PostListener,
         TabLayoutFragment.TabLayoutListener, SearchResultFragment.SearchResultListener,
-        CommentFragment.CommentListener,ImagesFragment.PostListListener,ImageRecordsAdapter.PostListListener{
+        CommentFragment.CommentListener,ImagesFragment.PostListListener,ImageRecordsAdapter.PostListListener,PostFragmetntAll.PostListener{
 
     private static final String TAG = MainActivity.class.getSimpleName();
     public static final String TAB_LAYOUT_FRAGMENT_TAG = "TabLayoutFragment";
@@ -64,18 +64,6 @@ public class MainActivity extends AppCompatActivity implements
         //goBack();
 
     }
-
-   /* private void goBack() {
-        Toolbar toolbar = (Toolbar)findViewById(R.id.toolbarwp);
-
-           toolbar.setNavigationIcon(getResources().getDrawable(R.mipmap.leftarrow));
-      toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //What to do on back clicked
-            }
-        });
-    }*/
 
     // @Override
    public void onAttach(Fragment activity) {

@@ -30,9 +30,7 @@ import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.SimpleTarget;
 
 import loise.kbc.navigationviewpagerliveo.R;
-import loise.kbc.ui.fragment.MainFragment;
 import loise.kbc.wordpressrreader.app.MainActivity;
-import loise.kbc.wordpressrreader.app.PostFragment;
 import loise.kbc.wordpressrreader.model.Post;
 
 public class PostFragmetntAll extends AppCompatActivity {
@@ -54,7 +52,7 @@ public class PostFragmetntAll extends AppCompatActivity {
     private AppBarLayout appBarLayout;
     private CoordinatorLayout coordinatorLayout;
 
-    private PostFragment.PostListener mListener;
+    private PostListener mListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,7 +93,6 @@ public class PostFragmetntAll extends AppCompatActivity {
                content = args.getString("content");
                url = args.getString("url");
                featuredImageUrl = args.getString("featuredImage");
-
                // Download featured image
                Glide.with(PostFragmetntAll.this)
                        .load(featuredImageUrl)
@@ -242,7 +239,7 @@ public class PostFragmetntAll extends AppCompatActivity {
     public void onAttach(Activity activity) {
         mListener.onAttach(activity);
         try {
-            mListener = (PostFragment.PostListener) activity;
+            mListener = (PostFragmetntAll.PostListener) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
                     + " must implement PostListener");

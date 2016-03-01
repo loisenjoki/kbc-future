@@ -355,4 +355,8 @@ public class ImageRecordsAdapter extends Fragment implements SwipeRefreshLayout.
         void getFragmentManager(Toolbar toolbar);
     }
 
+     void addFragmentToStack(){
+
+     }
+
 }
