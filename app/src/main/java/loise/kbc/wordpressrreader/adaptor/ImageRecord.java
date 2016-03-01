@@ -24,18 +24,17 @@ public class ImageRecord extends RecyclerView.Adapter<ImageRecord.ViewHolder> {
 private List<Post> posts;
 private Context mContext;
 
-private OnItemClickListener mListener;
-
-
+    private OnItemClickListener mListener;
 
     public interface OnItemClickListener {
-    void onItemClick(Post post);
-}
-
+        void onItemClick(Post post);
+    }
     public ImageRecord(ArrayList<Post> posts, OnItemClickListener listener) {
         this.posts = posts;
         mListener = listener;
+
     }
+
 
     @Override
     public ViewHolder onCreateViewHolder(final ViewGroup viewGroup, final int i) {

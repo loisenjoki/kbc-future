@@ -23,7 +23,7 @@ import loise.kbc.wordpressrreader.model.Post;
 public class MainActivity extends AppCompatActivity implements
         RecyclerViewFragment.PostListListener, PostFragment.PostListener,
         TabLayoutFragment.TabLayoutListener, SearchResultFragment.SearchResultListener,
-        CommentFragment.CommentListener,ImagesFragment.PostListListener,ImageRecordsAdapter.PostListListener,PostFragmetntAll.PostListener{
+        CommentFragment.CommentListener,ImageRecordsAdapter.PostListListener,PostFragmetntAll.PostListener{
 
     private static final String TAG = MainActivity.class.getSimpleName();
     public static final String TAB_LAYOUT_FRAGMENT_TAG = "TabLayoutFragment";
@@ -79,6 +79,42 @@ public class MainActivity extends AppCompatActivity implements
            }
         }
 
+    @Override
+    public void onPostSelectednew(Post post, boolean isSearch) {
+        // Find the fragment in order to set it up later
+        pf = (PostFragment) getSupportFragmentManager().findFragmentByTag(POST_FRAGMENT_TAG);
+
+        // Set necessary arguments
+        Bundle args = new Bundle();
+        args.putInt("id", post.getId());
+        args.putString("title", post.getTitle());
+        args.putString("date", post.getDate());
+        args.putString("author", post.getAuthor());
+        args.putString("content", post.getContent());
+        args.putString("url", post.getUrl());
+        //args.putString("thumbnailUrl", post.getThumbnailUrl());
+        args.putString("featuredImage", post.getFeaturedImageUrl());
+
+        // Configure PostFragment to display the right post
+        pf.setUIArguments(args);
+//        pf1.setUIArguments(args);
+        // Show the fragment
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right,
+                android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+        if (!isSearch) { // Hide TabLayoutFragment if this is not search result
+            ft.hide(tlf);
+        } else if(isSearch) { // Otherwise, hide the search result, ie. SearchResultFragment.
+            ft.hide(srf);
+        }
+        else{ ft.show(pf);}
+        ft.show(pf);
+
+
+        ft.addToBackStack(null);
+        ft.commit();
+    }
+
 
     /**
      * Invoked when a post in the list is selected
@@ -103,22 +139,23 @@ public class MainActivity extends AppCompatActivity implements
 
         // Configure PostFragment to display the right post
         pf.setUIArguments(args);
-        pf1.setUIArguments(args);
+//        pf1.setUIArguments(args);
         // Show the fragment
         FragmentTransaction ft = fm.beginTransaction();
-        ft.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right,
-                android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+       /* ft.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right,
+                android.R.anim.slide_in_left, android.R.anim.slide_out_right);*/
         if (!isSearch) { // Hide TabLayoutFragment if this is not search result
             ft.hide(tlf);
-        } else { // Otherwise, hide the search result, ie. SearchResultFragment.
+        } else if(isSearch) { // Otherwise, hide the search result, ie. SearchResultFragment.
             ft.hide(srf);
         }
+        else{ ft.show(pf);}
         ft.show(pf);
+
+
         ft.addToBackStack(null);
         ft.commit();
     }
-
-
 
     @Override
     public void getFragmentManager(Toolbar toolbar) {
@@ -192,20 +229,6 @@ public class MainActivity extends AppCompatActivity implements
         fm.popBackStack();
     }
 
-    @Override
-    public void onAttach(Activity activity) {
-
-        pf.onAttach(activity);
-
-        try {
-            ImageRecordsAdapter.PostListListener mListener
-                    = (ImageRecordsAdapter.PostListListener) activity;
-        } catch (ClassCastException e) {
-            throw new ClassCastException(activity.toString() +
-                    "must implement PostListListener");
-        }
-
-    }
 
     /**
      * Reset TabLayoutFragment's ActionBar if necessary

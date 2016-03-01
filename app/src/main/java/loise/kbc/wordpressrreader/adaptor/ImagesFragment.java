@@ -45,7 +45,7 @@ import loise.kbc.wordpressrreader.util.JsonParserNews;
 /**
  * Created by homeboyz on 2/23/16.
  */
-public class ImagesFragment extends Fragment implements PostFragment.PostListener {
+public class ImagesFragment extends Fragment {
     //private static final String TAG = "TabLayoutFragment";
     private ProgressDialog mProgressDialog;
     private TabLayout mTabLayout;
@@ -162,38 +162,9 @@ public class ImagesFragment extends Fragment implements PostFragment.PostListene
 
 
 
-    @Override
-    public void onHomePressed() {
 
     }
 
-    @Override
-    public void onPostSelected(Post post, boolean isSearch) {
-
-    }
-
-    @Override
-    public void getFragmentManager(Toolbar toolbar) {
-
-    }
-
-
-
-   /* @Override
-    public void onSearchSubmitted(String query) {
-
-    }*/
-
-    // Interface used to communicate with MainActivity
-    public interface TabLayoutListener {
-        void onSearchSubmitted(String query);
-
-        void onHomePressed();
-    }
-
-    public interface PostListListener {
-    }
-}
 
 
 

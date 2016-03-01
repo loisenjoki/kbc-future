@@ -53,11 +53,10 @@ public class ImageRecordsAdapter extends Fragment implements SwipeRefreshLayout.
 
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private RecyclerView mRecyclerView;
-    private ImageRecord mAdaptor;
     private LinearLayoutManager mLayoutManager;
     // Widget to show user a loading message
     private TextView mLoadingView;
-
+    private ImageRecord mAdaptor;
     // List of all posts in the ListView
     private ArrayList<Post> postList = new ArrayList<>();
     // A flag to keep track if the app is currently loading new posts
@@ -70,12 +69,10 @@ public class ImageRecordsAdapter extends Fragment implements SwipeRefreshLayout.
     private String mQuery = ""; // Query string used for search result
     // Flag to determine if current fragment is used to show search result
     private boolean isSearch = false;
-
+    private PostListListener mListener;
     // Keep track of the list items
     private int mPastVisibleItems;
     private int mVisibleItemCount;
-
-    private RecyclerViewFragment.PostListListener mListener;
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
@@ -140,11 +137,8 @@ public class ImageRecordsAdapter extends Fragment implements SwipeRefreshLayout.
         mAdaptor = new ImageRecord(postList, new ImageRecord.OnItemClickListener() {
             @Override
             public void onItemClick(Post post) {
-          startActivity(new Intent(getActivity(),PostFragmetntAll.class));
-
+                mListener.onPostSelectednew(post, isSearch);
             }
-
-
         });
 
         mRecyclerView.setHasFixedSize(true); // Every row in the list has the same size
@@ -340,23 +334,22 @@ public class ImageRecordsAdapter extends Fragment implements SwipeRefreshLayout.
         super.onAttach(getActivity());
 
         try {
-            mListener = (RecyclerViewFragment.PostListListener) activity;
+            mListener = (PostListListener) activity;
         } catch (ClassCastException e) {
            throw new ClassCastException(activity.toString() +
                    "must implement PostListListener");
         }
     }
+
     // Interface used to communicate with MainActivity
     public interface PostListListener {
-        void onAttach(Activity activity);
+        void onHomePressed();
+
+        void onPostSelectednew(Post post, boolean isSearch);
 
         void onPostSelected(Post post, boolean isSearch);
 
         void getFragmentManager(Toolbar toolbar);
     }
-
-     void addFragmentToStack(){
-
-     }
 
 }

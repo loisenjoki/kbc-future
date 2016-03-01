@@ -236,7 +236,7 @@ public class PostFragmetntAll extends AppCompatActivity {
     }
 
    // @Override
-    public void onAttach(Activity activity) {
+   /* public void onAttach(Activity activity) {
         mListener.onAttach(activity);
         try {
             mListener = (PostFragmetntAll.PostListener) activity;
@@ -244,7 +244,7 @@ public class PostFragmetntAll extends AppCompatActivity {
             throw new ClassCastException(activity.toString()
                     + " must implement PostListener");
         }
-    }
+    }*/
 
 
 
