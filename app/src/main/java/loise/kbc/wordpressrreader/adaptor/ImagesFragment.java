@@ -40,6 +40,7 @@ import loise.kbc.wordpressrreader.model.Category;
 import loise.kbc.wordpressrreader.model.Post;
 import loise.kbc.wordpressrreader.util.Config;
 import loise.kbc.wordpressrreader.util.JSONParser;
+import loise.kbc.wordpressrreader.util.JsonParserNews;
 
 /**
  * Created by homeboyz on 2/23/16.
@@ -93,15 +94,6 @@ public class ImagesFragment extends Fragment implements PostFragment.PostListene
         // Create expandable & collapsible SearchView
         SearchManager searchManager = (SearchManager)
                 getActivity().getSystemService(Context.SEARCH_SERVICE);
-       // searchMenuItem = menu.findItem(R.id.action_search);
-       // searchView = (SearchView) searchMenuItem.getActionView();
-
-       // searchView.setSearchableInfo(searchManager.getSearchableInfo(getActivity().getComponentName()));
-       // searchView.setIconifiedByDefault(false); // Expanded by default
-        //searchView.requestFocus();
-       /// searchView.setQueryHint(getString(R.string.search_hint));
-        //searchView.setOnQueryTextListener((SearchView.OnQueryTextListener) getActivity());
-
         super.onCreateOptionsMenu(menu, inflater);
     }
 
@@ -123,7 +115,7 @@ public class ImagesFragment extends Fragment implements PostFragment.PostListene
                         mProgressDialog.dismiss();
 
                         // Get categories from JSON data
-                        categories = JSONParser.parseCategories(jsonObject);
+                        categories = JsonParserNews.parseCategories(jsonObject);
 
                         ImagePageAdaptor adaptor = new
                                 ImagePageAdaptor(getChildFragmentManager(), categories);

@@ -39,6 +39,7 @@ import loise.kbc.wordpressrreader.model.Category;
 import loise.kbc.wordpressrreader.model.Post;
 import loise.kbc.wordpressrreader.util.Config;
 import loise.kbc.wordpressrreader.util.JSONParser;
+import loise.kbc.wordpressrreader.util.JsonParserNews;
 
 /**
  * Created by homeboyz on 2/23/16.
@@ -139,7 +140,7 @@ public class ImageRecordsAdapter extends Fragment implements SwipeRefreshLayout.
         mAdaptor = new ImageRecord(postList, new ImageRecord.OnItemClickListener() {
             @Override
             public void onItemClick(Post post) {
-          startActivity(new Intent(getActivity(),MainActivity.class));
+          startActivity(new Intent(getActivity(),PostFragmetntAll.class));
 
             }
 
@@ -252,7 +253,7 @@ public class ImageRecordsAdapter extends Fragment implements SwipeRefreshLayout.
                         mSwipeRefreshLayout.setRefreshing(false); // Stop when done
 
                         // Parse JSON data
-                        postList.addAll(JSONParser.parsePosts(jsonObject));
+                        postList.addAll(JsonParserNews.parsePosts(jsonObject));
 
                         // A temporary workaround to avoid downloading duplicate posts in some
                         // rare circumstances by converting ArrayList to a LinkedHashSet without

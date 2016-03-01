@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity implements
 
         // Configure PostFragment to display the right post
         pf.setUIArguments(args);
-
+        pf1.setUIArguments(args);
         // Show the fragment
         FragmentTransaction ft = fm.beginTransaction();
         ft.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right,
