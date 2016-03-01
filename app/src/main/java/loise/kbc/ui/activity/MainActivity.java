@@ -4,6 +4,7 @@ import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.view.Menu;
@@ -19,6 +20,7 @@ import loise.kbc.ui.fragment.AdvertismentFragment;
 import loise.kbc.ui.fragment.ContactsFragment;
 import loise.kbc.ui.fragment.MainFragment;
 import loise.kbc.ui.fragment.ViewPagerFragment1;
+import loise.kbc.wordpressrreader.app.TabLayoutFragment;
 
 public class MainActivity extends NavigationLiveo implements OnItemClickListener {
 
@@ -102,7 +104,7 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
                 Intent intent = new Intent(getApplicationContext(), loise.kbc.wordpressrreader.app.MainActivity.class);
                 startActivity(intent);
                 break;
-            /*case 2:
+           /* case 3:
                 mFragment = new TabLayoutFragment();
                 break;*/
             case 5:
@@ -205,5 +207,25 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
             closeDrawer();
         }
     };
+    boolean doubleBackToExitPressedOnce = false;
+
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            return;
+        }
+
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce=true;
+            }
+        }, 3000);
+    }
 }
 

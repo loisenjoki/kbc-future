@@ -6,6 +6,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.UTFDataFormatException;
 import java.util.ArrayList;
 
 import loise.kbc.navigationviewpagerliveo.R;
@@ -19,6 +22,8 @@ import loise.kbc.wordpressrreader.model.Post;
  */
 public class JSONParser {
     private static final String	TAG	= "JSONParser";
+   // BufferedReader reader = new BufferedReader(new InputStreamReader(new  "ISO-8859-1"), 8);
+
 
     /**
      * Parse JSON data and return an ArrayList of Category objects
@@ -31,22 +36,25 @@ public class JSONParser {
 
         try {
             // Get "categories" Json array
+
             JSONArray categories = jsonObject.getJSONArray("categories");
 
             // Create "All" category
             Category all = new Category();
-            all.setId(0);
+            all.setId(6);
             all.setName(AppController.getInstance().getString(R.string.tab_all));
+            all.setCharacterEncoding("UTF-8");
             categoryArrayList.add(all);
 
             // Go through all categories and get their details
-            for (int i=0; i<categories.length(); i++) {
+            for (int i=5; i<categories.optInt(7); i++) {
                 // Get individual category Json object
                 JSONObject catObj = categories.getJSONObject(i);
-                Log.d(TAG, "Parsing " + catObj.getString("title") + ", ID " + catObj.getInt("id"));
+                Log.d(TAG, "Parsing " + catObj.getString("title").getBytes()  + ", ID " + catObj.getInt("id"));
                 Category c = new Category();
-                c.setId(catObj.getInt("id"));
+                c.setId(catObj.optInt("id", 6));
                 c.setName(catObj.getString("title"));
+                //c.setCharacterEncoding("UTF-8");
                 categoryArrayList.add(c);
             }
         } catch (JSONException e) {
