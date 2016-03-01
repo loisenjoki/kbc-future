@@ -1,22 +1,29 @@
 package loise.kbc.wordpressrreader.app;
 
 import android.app.ActionBar;
+import android.app.Activity;
 import android.os.Bundle;
 
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.View;
 
 import loise.kbc.navigationviewpagerliveo.R;
+import loise.kbc.wordpressrreader.adaptor.ImageRecordsAdapter;
+import loise.kbc.wordpressrreader.adaptor.ImagesFragment;
+import loise.kbc.wordpressrreader.adaptor.PostFragmetntAll;
 import loise.kbc.wordpressrreader.model.Post;
 
 public class MainActivity extends AppCompatActivity implements
         RecyclerViewFragment.PostListListener, PostFragment.PostListener,
         TabLayoutFragment.TabLayoutListener, SearchResultFragment.SearchResultListener,
-        CommentFragment.CommentListener{
+        CommentFragment.CommentListener,ImagesFragment.PostListListener,ImageRecordsAdapter.PostListListener,PostFragmetntAll.PostListener{
 
     private static final String TAG = MainActivity.class.getSimpleName();
     public static final String TAB_LAYOUT_FRAGMENT_TAG = "TabLayoutFragment";
@@ -26,8 +33,10 @@ public class MainActivity extends AppCompatActivity implements
     private FragmentManager fm = null;
     private TabLayoutFragment tlf;
     private PostFragment pf;
+    private PostFragmetntAll pf1;
     private CommentFragment cf;
     private SearchResultFragment srf;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,11 +45,13 @@ public class MainActivity extends AppCompatActivity implements
 
         fm = getSupportFragmentManager();
 
+
         // Setup fragments
         tlf = new TabLayoutFragment();
         pf = new PostFragment();
         cf = new CommentFragment();
         srf = new SearchResultFragment();
+
 
         FragmentTransaction ft = fm.beginTransaction();
         ft.add(android.R.id.content, pf, POST_FRAGMENT_TAG);
@@ -50,7 +61,24 @@ public class MainActivity extends AppCompatActivity implements
         ft.hide(pf);
         ft.hide(cf);
         ft.commit();
+        //goBack();
+
     }
+
+    // @Override
+   public void onAttach(Fragment activity) {
+
+           activity.onAttach(this);
+
+           try {
+               ImageRecordsAdapter.PostListListener mListener
+                        = (ImageRecordsAdapter.PostListListener) activity;
+           } catch (ClassCastException e) {
+               throw new ClassCastException(activity.toString() +
+                       "must implement PostListListener");
+           }
+        }
+
 
     /**
      * Invoked when a post in the list is selected
@@ -75,7 +103,7 @@ public class MainActivity extends AppCompatActivity implements
 
         // Configure PostFragment to display the right post
         pf.setUIArguments(args);
-
+        pf1.setUIArguments(args);
         // Show the fragment
         FragmentTransaction ft = fm.beginTransaction();
         ft.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right,
@@ -143,6 +171,14 @@ public class MainActivity extends AppCompatActivity implements
      */
     @Override
     public void onBackPressed() {
+        android.app.FragmentManager fragmentManager = getFragmentManager();
+        int backCount = fragmentManager.getBackStackEntryCount();
+
+        if(backCount > 1) {
+            super.onBackPressed();
+        } else {
+            finish();
+        }
         resetActionBarIfApplicable();
         super.onBackPressed();
     }
@@ -154,6 +190,21 @@ public class MainActivity extends AppCompatActivity implements
     public void onHomePressed() {
         resetActionBarIfApplicable();
         fm.popBackStack();
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+
+        pf.onAttach(activity);
+
+        try {
+            ImageRecordsAdapter.PostListListener mListener
+                    = (ImageRecordsAdapter.PostListListener) activity;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(activity.toString() +
+                    "must implement PostListListener");
+        }
+
     }
 
     /**
@@ -171,12 +222,12 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     // Commented out coz we will let fragments handle their own Options Menus
-    //@Override
-    //public boolean onCreateOptionsMenu(Menu menu) {
-    //    // Inflate the menu; this adds items to the action bar if it is present.
-    //    getMenuInflater().inflate(R.menu.menu_main, menu);
-    //    return true;
-    //}
+  /*  @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+      return true;
+   }*/
 
 
 }

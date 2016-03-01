@@ -16,22 +16,23 @@ import java.util.List;
 import loise.kbc.navigationviewpagerliveo.R;
 import loise.kbc.wordpressrreader.model.Post;
 
-
 /**
- * RecyclerView Adaptor
+ * Created by homeboyz on 2/23/16.
  */
-public class MyRecyclerViewAdaptor extends RecyclerView.Adapter<MyRecyclerViewAdaptor.ViewHolder> {
-    // A list of posts
-    private List<Post> posts;
-    private Context mContext;
+public class ImageRecord extends RecyclerView.Adapter<ImageRecord.ViewHolder> {
+// A list of posts
+private List<Post> posts;
+private Context mContext;
 
-    private OnItemClickListener mListener;
+private OnItemClickListener mListener;
+
+
 
     public interface OnItemClickListener {
-        void onItemClick(Post post);
-    }
+    void onItemClick(Post post);
+}
 
-    public MyRecyclerViewAdaptor(ArrayList<Post> posts, OnItemClickListener listener) {
+    public ImageRecord(ArrayList<Post> posts, OnItemClickListener listener) {
         this.posts = posts;
         mListener = listener;
     }
@@ -39,10 +40,12 @@ public class MyRecyclerViewAdaptor extends RecyclerView.Adapter<MyRecyclerViewAd
     @Override
     public ViewHolder onCreateViewHolder(final ViewGroup viewGroup, final int i) {
         View v = LayoutInflater.from(viewGroup.getContext())
-                .inflate(R.layout.card_view_item, viewGroup, false);
+                .inflate(R.layout.card_item_all_news, viewGroup, false);
         mContext = viewGroup.getContext();
         return new ViewHolder(v);
     }
+
+
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int i) {
@@ -60,7 +63,7 @@ public class MyRecyclerViewAdaptor extends RecyclerView.Adapter<MyRecyclerViewAd
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mListener.onItemClick(posts.get(i ));
+           mListener.onItemClick(posts.get(i ));
             }
         });
     }
@@ -70,28 +73,28 @@ public class MyRecyclerViewAdaptor extends RecyclerView.Adapter<MyRecyclerViewAd
         return posts.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView thumbnailImageView;
-        TextView title;
-        TextView commentCount;
+public static class ViewHolder extends RecyclerView.ViewHolder {
+    ImageView thumbnailImageView;
+    TextView title;
+    TextView commentCount;
 
-        public ViewHolder(View itemView) {
-            super(itemView);
+    public ViewHolder(View itemView) {
+        super(itemView);
 
-            thumbnailImageView = (ImageView) itemView.findViewById(R.id.thumbnail);
-            String unedited= "....&#8217;...";
+        thumbnailImageView = (ImageView) itemView.findViewById(R.id.thumbnail);
+        String unedited= "....&#8217;...";
 
-           // String editedText = unedited.replace("&#8217;", ",");
-
-
-            title = (TextView) itemView.findViewById(R.id.title);
+        String editedText = unedited.replace("&#8217;", ",");
 
 
-            title.setText(unedited.replace("&#8217;", ","));
+        title = (TextView) itemView.findViewById(R.id.title);
+        //String editedText = new String(b, "US-ASCII");
 
-            commentCount = (TextView) itemView.findViewById(R.id.comment_count);
+        title.setText(unedited.replace("&#8217;", ","));
 
-        }
+        commentCount = (TextView) itemView.findViewById(R.id.comment_count);
 
     }
+
+}
 }

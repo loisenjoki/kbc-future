@@ -17,6 +17,7 @@ public class Post {
     private int commentCount;
     private int id;
     private ArrayList<String> categories;
+    private String characterEncoding;
 
     public Post() {
 
@@ -127,5 +128,13 @@ public class Post {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public void setCharacterEncoding(String characterEncoding) {
+        this.characterEncoding = characterEncoding;
+    }
+
+    public String getCharacterEncoding() {
+        return characterEncoding;
     }
 }
