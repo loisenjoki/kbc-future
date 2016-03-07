@@ -58,9 +58,9 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
         mHelpLiveo.add(getString(R.string.Coro), R.mipmap.coroo);
 
         mHelpLiveo.addSubHeader(getString(R.string.Connect)); //Item subHeader
-        mHelpLiveo.add(getString(R.string.Twitter), R.drawable.twitter);
-        mHelpLiveo.add(getString(R.string.Instagram), R.drawable.instagram);
-        mHelpLiveo.add(getString(R.string.Facebook), R.drawable.facebook);
+        mHelpLiveo.add(getString(R.string.Twitter), R.drawable.twitter48);
+        mHelpLiveo.add(getString(R.string.Instagram), R.drawable.instagram48);
+        mHelpLiveo.add(getString(R.string.Facebook), R.drawable.facebook48);
         mHelpLiveo.add(getString(R.string.drafts), R.mipmap.conta);
         mHelpLiveo.add(getString(R.string.trash), R.mipmap.ad);
 
@@ -120,18 +120,18 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
             case 10:
                 mFragment = new PwaniRadio();
                 break;
-            /*case 12:
+            case 11:
                 mFragment = new CoroRadio();
-                break;*/
-
-            case 12:
-               mFragment =new TimelineKbc();
+                break;
 
             case 13:
+               mFragment =new TimelineKbc();
+                break;
+
+           /* case 13:
                 Intent intent2=new Intent(getApplicationContext(), TimelineKbc.class);
                 startActivity(intent2);
-
-                break;
+                break;*/
             case  14:
                 Uri uri1 = Uri.parse("http://instagram.com/_u/kbckenya");
                 Intent Instagram = new Intent(Intent.ACTION_VIEW, uri1);
