@@ -1,12 +1,10 @@
 package loise.kbc.wordpressrreader.adaptor;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -32,13 +30,8 @@ import java.util.Set;
 
 import loise.kbc.navigationviewpagerliveo.R;
 import loise.kbc.wordpressrreader.app.AppController;
-import loise.kbc.wordpressrreader.app.MainActivity;
-import loise.kbc.wordpressrreader.app.PostFragment;
-import loise.kbc.wordpressrreader.app.RecyclerViewFragment;
-import loise.kbc.wordpressrreader.model.Category;
 import loise.kbc.wordpressrreader.model.Post;
 import loise.kbc.wordpressrreader.util.Config;
-import loise.kbc.wordpressrreader.util.JSONParser;
 import loise.kbc.wordpressrreader.util.JsonParserNews;
 
 /**
@@ -81,7 +74,7 @@ public class ImageRecordsAdapter extends Fragment implements SwipeRefreshLayout.
      * @return A new instance of RecyclerViewFragment.
      */
     public static ImageRecordsAdapter newInstance(int id) {
-        ImageRecordsAdapter fragment = new ImageRecordsAdapter(posts);
+        ImageRecordsAdapter fragment = new ImageRecordsAdapter();
         Bundle args = new Bundle();
         args.putInt(CAT_ID, id);
         fragment.setArguments(args);
@@ -95,19 +88,17 @@ public class ImageRecordsAdapter extends Fragment implements SwipeRefreshLayout.
      * @param query search query.
      * @return A new instance of RecyclerViewFragment.
      */
-    public ImageRecordsAdapter newInstance(String query) {
-        ImageRecordsAdapter fragment = new ImageRecordsAdapter(posts);
+    public static ImageRecordsAdapter newInstance(String query) {
+        ImageRecordsAdapter fragment = new ImageRecordsAdapter();
         Bundle args = new Bundle();
         args.putString(QUERY, query);
         fragment.setArguments(args);
         return fragment;
     }
 
-    public ImageRecordsAdapter(FragmentManager posts) {
+    public ImageRecordsAdapter() {
         // Required empty public constructor
-        this.posts = posts;
     }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -137,7 +128,7 @@ public class ImageRecordsAdapter extends Fragment implements SwipeRefreshLayout.
         mAdaptor = new ImageRecord(postList, new ImageRecord.OnItemClickListener() {
             @Override
             public void onItemClick(Post post) {
-                mListener.onPostSelectednew(post, isSearch);
+               startActivity(new Intent(getActivity(), loise.kbc.wordpressrreader.app.MainActivity.class));
             }
         });
 

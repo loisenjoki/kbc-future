@@ -3,20 +3,20 @@ package loise.kbc.ui.activity;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ListView;
-
-import com.cjj.MaterialRefreshLayout;
-import com.cjj.MaterialRefreshListener;
 import com.twitter.sdk.android.tweetui.TweetTimelineListAdapter;
 import com.twitter.sdk.android.tweetui.UserTimeline;
 
 import loise.kbc.navigationviewpagerliveo.R;
 
-public class TimelineKbc extends AppCompatActivity {
+public class TimelineKbc extends Fragment {
   //  private static final String TWITTER_KEY = "CtXW8KLLGFfQTqWlrdoK7oUbR";
    // private static final String TWITTER_SECRET = "xq0mHEOlOpBVfr1uyvehFF1dt05YIAPxCHav0diBfr99QuBXrL";
     private Toolbar toolbar;
@@ -25,21 +25,19 @@ public class TimelineKbc extends AppCompatActivity {
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        // TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
-        // Fabric.with(this, new Twitter(authConfig));
-        setContentView(R.layout.activity_timeline_kbc);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View v= inflater.inflate(R.layout.activity_timeline_kbc, container, false);
 
 
-        barprogress = ProgressDialog.show(TimelineKbc.this, "", "Loading.Please wait...", true);
+        barprogress = ProgressDialog.show(getActivity(), "", "Loading.Please wait...", true);
 
-        listview = (ListView) findViewById(R.id.list);
+        listview = (ListView)v. findViewById(R.id.list);
         final UserTimeline userTimeline = new UserTimeline.Builder().screenName("KBCChannel1").build();
         TweetTimelineListAdapter adapter;
-        adapter = new TweetTimelineListAdapter(this, userTimeline);
-        adapter = new TweetTimelineListAdapter.Builder(this).setTimeline(userTimeline).build();
+        adapter = new TweetTimelineListAdapter(getActivity(), userTimeline);
+        adapter = new TweetTimelineListAdapter.Builder(getActivity()).setTimeline(userTimeline).build();
 
         listview.setAdapter(adapter);
         barprogress.dismiss();
@@ -69,13 +67,14 @@ public class TimelineKbc extends AppCompatActivity {
         });
         materialRefreshLayout.finishRefresh();
         materialRefreshLayout.finishRefreshLoadMore();*/
+        return v;
     }
-    @Override
+   /* @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_timeline_kbc, menu);
+        //getMenuInflater().inflate(R.menu.menu_timeline_kbc, menu);
         return true;
-    }
+    }*/
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

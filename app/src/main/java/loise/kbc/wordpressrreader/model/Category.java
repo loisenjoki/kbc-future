@@ -6,6 +6,7 @@ package loise.kbc.wordpressrreader.model;
 public class Category {
     private String name;
     private int id;
+    private String characterEncoding;
 
     public String getName() {
         return name;
@@ -23,7 +24,13 @@ public class Category {
         this.id = id;
     }
 
-    public void setCharacterEncoding(String s) {
-
+    public String getCharacterEncoding() {
+        return characterEncoding;
     }
+
+    public void setCharacterEncoding(String characterEncoding) {
+        this.characterEncoding = characterEncoding;
+    }
+
+
 }

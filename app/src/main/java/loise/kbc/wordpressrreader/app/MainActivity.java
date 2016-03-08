@@ -65,19 +65,6 @@ public class MainActivity extends AppCompatActivity implements
 
     }
 
-    // @Override
-   public void onAttach(Fragment activity) {
-
-           activity.onAttach(this);
-
-           try {
-               ImageRecordsAdapter.PostListListener mListener
-                        = (ImageRecordsAdapter.PostListListener) activity;
-           } catch (ClassCastException e) {
-               throw new ClassCastException(activity.toString() +
-                       "must implement PostListListener");
-           }
-        }
 
     @Override
     public void onPostSelectednew(Post post, boolean isSearch) {

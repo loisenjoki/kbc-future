@@ -22,6 +22,7 @@ import android.view.ViewGroup;
 import android.widget.SearchView;
 
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -30,6 +31,8 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import loise.kbc.navigationviewpagerliveo.R;
 import loise.kbc.wordpressrreader.adaptor.RecyclerViewFragmentPagerAdaptor;
@@ -157,8 +160,7 @@ public class TabLayoutFragment extends Fragment implements SearchView.OnQueryTex
         mProgressDialog.show();
 
         // Make a request to get categories
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, Config.CATEGORY_URL,
-                null,
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, Config.CATEGORY_URL, null,
                 new Response.Listener<JSONObject>() {
                     // Request succeeded
                     @Override
@@ -168,10 +170,16 @@ public class TabLayoutFragment extends Fragment implements SearchView.OnQueryTex
                         // Get categories from JSON data
                         categories = JSONParser.parseCategories(jsonObject);
 
-                        RecyclerViewFragmentPagerAdaptor adaptor = new
-                                RecyclerViewFragmentPagerAdaptor(getChildFragmentManager(), categories);
+                        RecyclerViewFragmentPagerAdaptor adaptor = new RecyclerViewFragmentPagerAdaptor(getChildFragmentManager(), categories);
                         mViewPager.setAdapter(adaptor);
                         mTabLayout.setupWithViewPager(mViewPager);
+                    }
+
+                    public Map<String, String> getHeaders() throws AuthFailureError {
+                        HashMap<String, String> headers = new HashMap<String, String>();
+                        headers.put("Content-Type", "application/json; charset=utf-8");
+                        headers.put("User-agent", System.getProperty("http.agent"));
+                        return headers;
                     }
                 },
                 // Request failed
@@ -205,6 +213,7 @@ public class TabLayoutFragment extends Fragment implements SearchView.OnQueryTex
         mListener.onSearchSubmitted(query); // Deal with fragment transaction on MainActivity
         return false;
     }
+
 
     @Override
     public boolean onQueryTextChange(String newText) {
