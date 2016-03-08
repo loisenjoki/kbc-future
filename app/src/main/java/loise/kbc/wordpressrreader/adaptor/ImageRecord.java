@@ -56,8 +56,8 @@ private Context mContext;
         viewHolder.title.setText(posts.get(i).getTitle());
 
         int count = posts.get(i).getCommentCount();
-        String countText = (count == 1 || count == 0) ? count + " read more" : count + " read more";
-        viewHolder.commentCount.setText(countText);
+     //   String countText = (count == 1 || count == 0) ? count + " read more" : count + " read more";
+      //  viewHolder.commentCount.setText(countText);
 
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

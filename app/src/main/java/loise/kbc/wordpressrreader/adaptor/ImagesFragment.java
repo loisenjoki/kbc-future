@@ -46,7 +46,7 @@ import loise.kbc.wordpressrreader.util.JsonParserNews;
  * Created by homeboyz on 2/23/16.
  */
 public class ImagesFragment extends Fragment {
-    //private static final String TAG = "TabLayoutFragment";
+private static final String TAG = "ImagesFragment";
     private ProgressDialog mProgressDialog;
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
@@ -68,8 +68,9 @@ public class ImagesFragment extends Fragment {
 
        // mAdapter = new ImageRecordsAdapter(getActivity());
         mViewPager = (ViewPager) v.findViewById(R.id.viewpager);
+        mTabLayout = (TabLayout) v.findViewById(R.id.tab_layout);
         // Preload 1 page to either side of the current page
-       // mViewPager.setOffscreenPageLimit(1);
+       mViewPager.setOffscreenPageLimit(1);
 
 
        // //listView = (ListView)v.findViewById(R.id.list1);
@@ -119,18 +120,18 @@ public class ImagesFragment extends Fragment {
 
                         ImagePageAdaptor adaptor = new
                                 ImagePageAdaptor(getChildFragmentManager(), categories);
-                    mViewPager.setAdapter(adaptor);
-
+                        mViewPager.setAdapter(adaptor);
+//                        mTabLayout.setupWithViewPager(mViewPager);
                     }
                 },
                 // Request failed
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError volleyError) {
-                      //  Log.d(TAG, "----- Volley Error -----");
+                        Log.d(TAG, "----- Volley Error -----");
                         mProgressDialog.dismiss();
                         // Show an INDEFINITE Snackbar. New in design support lib v22.2.1.
-                        Snackbar.make(mTabLayout, R.string.error_load_categories,
+                        Snackbar.make(mViewPager, R.string.error_load_categories,
                                 Snackbar.LENGTH_INDEFINITE).setAction(R.string.action_retry,
                                 new View.OnClickListener() {
                                     @Override
@@ -141,10 +142,6 @@ public class ImagesFragment extends Fragment {
                     }
                 });
         // Add the request to request queue
-        request.setShouldCache(true);
-        request.getCacheEntry();
-
-
         AppController.getInstance().addToRequestQueue(request);
     }
 
@@ -162,10 +159,7 @@ public class ImagesFragment extends Fragment {
 
 
 
-
     }
-
-
 
 
 

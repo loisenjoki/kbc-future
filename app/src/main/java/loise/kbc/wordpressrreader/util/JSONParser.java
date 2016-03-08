@@ -52,7 +52,7 @@ public class JSONParser {
 
             // Create "All" category
             Category all = new Category();
-            all.setId(0);
+            all.setId(6);
             all.setName(AppController.getInstance().getString(R.string.tab_all));
             all.setCharacterEncoding("UTF-8");
             categoryArrayList.add(all);
@@ -96,6 +96,8 @@ public class JSONParser {
                 Post post = new Post();
                 // Configure the Post object
                 post.setTitle(postObject.optString("title", "N/A"));
+                String unedited= "....&#8217;...";
+                String editedText = unedited.replace("&#8217;", "'");
                 // Use a default thumbnail if one doesn't exist
                 post.setThumbnailUrl(postObject.optString("thumbnail",
                         Config.DEFAULT_THUMBNAIL_URL));
