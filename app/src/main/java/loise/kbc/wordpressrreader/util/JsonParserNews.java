@@ -68,6 +68,18 @@ public class JsonParserNews {
         return categoryArrayList;
     }
 
+    public static String formatString(String s){
+        String myString = s;
+        //apostrophe
+        myString = myString.replace("&#8217;","\'");
+        //double quotes
+        myString = myString.replace("&#8216;","\'");
+        myString = myString.replace("&#34;","\"");
+        myString = myString.replace("&#x22;","\"");
+
+        return myString;
+    }
+
     /**
      * Parse JSON data and return an ArrayList of Post objects
      *
@@ -85,7 +97,8 @@ public class JsonParserNews {
 
                 Post post = new Post();
                 // Configure the Post object
-                post.setTitle(postObject.optString("title", "N/A"));
+                String article = post.setTitle(postObject.optString("title", "N/A"));
+               // post.setTitle(postObject.optString("title", "N/A"));
                 // Use a default thumbnail if one doesn't exist
                 post.setThumbnailUrl(postObject.optString("thumbnail",
                         Config.DEFAULT_THUMBNAIL_URL));
@@ -93,6 +106,8 @@ public class JsonParserNews {
                 //post.setViewCount(postObject.getJSONObject("custom_fields")
                 //        .getJSONArray("post_views_count").getString(0));
 
+                article = formatString(article);
+                post.setTitle(article);
                 post.setDate(postObject.optString("date", "N/A"));
                 post.setContent(postObject.optString("content", "N/A"));
                 post.setAuthor(postObject.getJSONObject("author").optString("name", "N/A"));

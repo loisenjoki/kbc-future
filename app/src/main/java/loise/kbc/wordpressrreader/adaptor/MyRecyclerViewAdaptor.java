@@ -12,7 +12,6 @@ import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.json.JSONObject;
 import loise.kbc.navigationviewpagerliveo.R;
 import loise.kbc.wordpressrreader.model.Post;
 
