@@ -54,10 +54,7 @@ public class ImagesFragment extends Fragment implements PostFragment.PostListene
    // private SearchView searchView;
     //private MenuItem searchMenuItem;
     protected static ArrayList<Category> categories = null;
-
     private ImageRecordsAdapter.PostListListener mListener;
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -132,6 +129,7 @@ public class ImagesFragment extends Fragment implements PostFragment.PostListene
                         // Show an INDEFINITE Snackbar. New in design support lib v22.2.1.
                         Snackbar.make(mTabLayout, R.string.error_load_categories,
                                 Snackbar.LENGTH_INDEFINITE).setAction(R.string.action_retry,
+
                                 new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
@@ -156,11 +154,10 @@ public class ImagesFragment extends Fragment implements PostFragment.PostListene
     }
 
   //  @Override
-    public boolean onQueryTextChange(String newText) {
+    public boolean onQueryTextChange(String newText)
+    {
         return false;
     }
-
-
 
     @Override
     public void onHomePressed() {

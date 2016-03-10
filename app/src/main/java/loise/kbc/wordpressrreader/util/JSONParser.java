@@ -18,6 +18,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.Reader;
+import java.io.UnsupportedEncodingException;
 import java.io.Writer;
 
 import java.util.ArrayList;
@@ -61,19 +62,42 @@ public class JSONParser {
             for (int i=5; i<categories.optInt(7); i++) {
                 // Get individual category Json object
                 JSONObject catObj = categories.getJSONObject(i);
-                Log.d(TAG, "Parsing " + catObj.getString("title").getBytes()  + ", ID " + catObj.getInt("id"));
+                Log.d(TAG, "Parsing " + catObj.getString("title") + ", ID " + catObj.getInt("id"));
                 Category c = new Category();
                 c.setId(catObj.optInt("id", 6));
                 c.setName(catObj.getString("title"));
 
-                //c.setCharacterEncoding("UTF-8");
+                c.setCharacterEncoding("UTF-8");
                 categoryArrayList.add(c);
             }
+
         } catch (JSONException e) {
             Log.d(TAG, "----------------- Json Exception");
             e.printStackTrace();
             return null;
         }
+        try {
+            Reader reader1 = new InputStreamReader(
+                    new FileInputStream("UTF-8"));
+            BufferedReader fin1 = new BufferedReader(reader1);
+            Writer writer1 = new OutputStreamWriter(
+                    new FileOutputStream("UTF-8"));
+            BufferedWriter fout1 = new BufferedWriter(writer1);
+            String s;
+            while ((s=fin1.readLine())!=null) {
+                fout1.write(s);
+                fout1.newLine();
+            }
+            //Remember to call close.
+            //calling close on a BufferedReader/BufferedWriter
+            // will automatically call close on its underlying stream
+            fin1.close();
+            fout1.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
 
         return categoryArrayList;
     }
