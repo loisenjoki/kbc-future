@@ -128,7 +128,7 @@ public class ImageRecordsAdapter extends Fragment implements SwipeRefreshLayout.
         mAdaptor = new ImageRecord(postList, new ImageRecord.OnItemClickListener() {
             @Override
             public void onItemClick(Post post) {
-               startActivity(new Intent(getActivity(), loise.kbc.wordpressrreader.app.MainActivity.class));
+               startActivity(new Intent(getActivity(), PostFragmetntAll.class));
             }
         });
 
