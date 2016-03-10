@@ -1,12 +1,10 @@
 package loise.kbc.wordpressrreader.adaptor;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -32,13 +30,8 @@ import java.util.Set;
 
 import loise.kbc.navigationviewpagerliveo.R;
 import loise.kbc.wordpressrreader.app.AppController;
-import loise.kbc.wordpressrreader.app.MainActivity;
-import loise.kbc.wordpressrreader.app.PostFragment;
-import loise.kbc.wordpressrreader.app.RecyclerViewFragment;
-import loise.kbc.wordpressrreader.model.Category;
 import loise.kbc.wordpressrreader.model.Post;
 import loise.kbc.wordpressrreader.util.Config;
-import loise.kbc.wordpressrreader.util.JSONParser;
 import loise.kbc.wordpressrreader.util.JsonParserNews;
 
 /**
@@ -53,11 +46,10 @@ public class ImageRecordsAdapter extends Fragment implements SwipeRefreshLayout.
 
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private RecyclerView mRecyclerView;
-    private ImageRecord mAdaptor;
     private LinearLayoutManager mLayoutManager;
     // Widget to show user a loading message
     private TextView mLoadingView;
-
+    private ImageRecord mAdaptor;
     // List of all posts in the ListView
     private ArrayList<Post> postList = new ArrayList<>();
     // A flag to keep track if the app is currently loading new posts
@@ -70,12 +62,10 @@ public class ImageRecordsAdapter extends Fragment implements SwipeRefreshLayout.
     private String mQuery = ""; // Query string used for search result
     // Flag to determine if current fragment is used to show search result
     private boolean isSearch = false;
-
+    private PostListListener mListener;
     // Keep track of the list items
     private int mPastVisibleItems;
     private int mVisibleItemCount;
-
-    private RecyclerViewFragment.PostListListener mListener;
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
@@ -84,7 +74,7 @@ public class ImageRecordsAdapter extends Fragment implements SwipeRefreshLayout.
      * @return A new instance of RecyclerViewFragment.
      */
     public static ImageRecordsAdapter newInstance(int id) {
-        ImageRecordsAdapter fragment = new ImageRecordsAdapter(posts);
+        ImageRecordsAdapter fragment = new ImageRecordsAdapter();
         Bundle args = new Bundle();
         args.putInt(CAT_ID, id);
         fragment.setArguments(args);
@@ -98,19 +88,17 @@ public class ImageRecordsAdapter extends Fragment implements SwipeRefreshLayout.
      * @param query search query.
      * @return A new instance of RecyclerViewFragment.
      */
-    public ImageRecordsAdapter newInstance(String query) {
-        ImageRecordsAdapter fragment = new ImageRecordsAdapter(posts);
+    public static ImageRecordsAdapter newInstance(String query) {
+        ImageRecordsAdapter fragment = new ImageRecordsAdapter();
         Bundle args = new Bundle();
         args.putString(QUERY, query);
         fragment.setArguments(args);
         return fragment;
     }
 
-    public ImageRecordsAdapter(FragmentManager posts) {
+    public ImageRecordsAdapter() {
         // Required empty public constructor
-        this.posts = posts;
     }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -140,11 +128,8 @@ public class ImageRecordsAdapter extends Fragment implements SwipeRefreshLayout.
         mAdaptor = new ImageRecord(postList, new ImageRecord.OnItemClickListener() {
             @Override
             public void onItemClick(Post post) {
-          startActivity(new Intent(getActivity(),PostFragmetntAll.class));
-
+               startActivity(new Intent(getActivity(), loise.kbc.wordpressrreader.app.MainActivity.class));
             }
-
-
         });
 
         mRecyclerView.setHasFixedSize(true); // Every row in the list has the same size
@@ -340,23 +325,22 @@ public class ImageRecordsAdapter extends Fragment implements SwipeRefreshLayout.
         super.onAttach(getActivity());
 
         try {
-            mListener = (RecyclerViewFragment.PostListListener) activity;
+            mListener = (PostListListener) activity;
         } catch (ClassCastException e) {
            throw new ClassCastException(activity.toString() +
                    "must implement PostListListener");
         }
     }
+
     // Interface used to communicate with MainActivity
     public interface PostListListener {
-        void onAttach(Activity activity);
+        void onHomePressed();
+
+        void onPostSelectednew(Post post, boolean isSearch);
 
         void onPostSelected(Post post, boolean isSearch);
 
         void getFragmentManager(Toolbar toolbar);
     }
-
-     void addFragmentToStack(){
-
-     }
 
 }

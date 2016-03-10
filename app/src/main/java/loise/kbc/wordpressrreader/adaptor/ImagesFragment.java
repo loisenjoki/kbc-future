@@ -45,13 +45,13 @@ import loise.kbc.wordpressrreader.util.JsonParserNews;
 /**
  * Created by homeboyz on 2/23/16.
  */
-public class ImagesFragment extends Fragment implements PostFragment.PostListener {
-    //private static final String TAG = "TabLayoutFragment";
+public class ImagesFragment extends Fragment {
+    private static final String TAG = "ImagesFragment";
     private ProgressDialog mProgressDialog;
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
-   // private Toolbar toolbar;
-   // private SearchView searchView;
+    // private Toolbar toolbar;
+    // private SearchView searchView;
     //private MenuItem searchMenuItem;
     protected static ArrayList<Category> categories = null;
     private ImageRecordsAdapter.PostListListener mListener;
@@ -63,13 +63,14 @@ public class ImagesFragment extends Fragment implements PostFragment.PostListene
         View v = inflater.inflate(R.layout.fragment_images, container, false);
 
 
-       // mAdapter = new ImageRecordsAdapter(getActivity());
+        // mAdapter = new ImageRecordsAdapter(getActivity());
         mViewPager = (ViewPager) v.findViewById(R.id.viewpager);
+        mTabLayout = (TabLayout) v.findViewById(R.id.tab_layout);
         // Preload 1 page to either side of the current page
-       // mViewPager.setOffscreenPageLimit(1);
+        mViewPager.setOffscreenPageLimit(1);
 
 
-       // //listView = (ListView)v.findViewById(R.id.list1);
+        // //listView = (ListView)v.findViewById(R.id.list1);
         //listView.setAdapter(mAdapter);
 
         return v;
@@ -84,7 +85,7 @@ public class ImagesFragment extends Fragment implements PostFragment.PostListene
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-       // Log.d(TAG, "onCreateOptionsMenu()");
+        // Log.d(TAG, "onCreateOptionsMenu()");
 
         inflater.inflate(R.menu.menu_main, menu);
 
@@ -116,18 +117,18 @@ public class ImagesFragment extends Fragment implements PostFragment.PostListene
 
                         ImagePageAdaptor adaptor = new
                                 ImagePageAdaptor(getChildFragmentManager(), categories);
-                    mViewPager.setAdapter(adaptor);
-
+                        mViewPager.setAdapter(adaptor);
+//                        mTabLayout.setupWithViewPager(mViewPager);
                     }
                 },
                 // Request failed
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError volleyError) {
-                      //  Log.d(TAG, "----- Volley Error -----");
+                        Log.d(TAG, "----- Volley Error -----");
                         mProgressDialog.dismiss();
                         // Show an INDEFINITE Snackbar. New in design support lib v22.2.1.
-                        Snackbar.make(mTabLayout, R.string.error_load_categories,
+                        Snackbar.make(mViewPager, R.string.error_load_categories,
                                 Snackbar.LENGTH_INDEFINITE).setAction(R.string.action_retry,
 
                                 new View.OnClickListener() {
@@ -139,57 +140,21 @@ public class ImagesFragment extends Fragment implements PostFragment.PostListene
                     }
                 });
         // Add the request to request queue
-        request.setShouldCache(true);
-        request.getCacheEntry();
-
-
         AppController.getInstance().addToRequestQueue(request);
     }
 
-//@Override
+    //@Override
     public boolean onQueryTextSubmit(String query) {
-     //   searchView.clearFocus(); // Hide soft keyboard
-      //  mListener.onSearchSubmitted(query); // Deal with fragment transaction on MainActivity
+        //   searchView.clearFocus(); // Hide soft keyboard
+        //  mListener.onSearchSubmitted(query); // Deal with fragment transaction on MainActivity
         return false;
     }
 
-  //  @Override
-    public boolean onQueryTextChange(String newText)
-    {
+    //  @Override
+    public boolean onQueryTextChange(String newText) {
         return false;
     }
 
-    @Override
-    public void onHomePressed() {
-
-    }
-
-    @Override
-    public void onPostSelected(Post post, boolean isSearch) {
-
-    }
-
-    @Override
-    public void getFragmentManager(Toolbar toolbar) {
-
-    }
-
-
-
-   /* @Override
-    public void onSearchSubmitted(String query) {
-
-    }*/
-
-    // Interface used to communicate with MainActivity
-    public interface TabLayoutListener {
-        void onSearchSubmitted(String query);
-
-        void onHomePressed();
-    }
-
-    public interface PostListListener {
-    }
 }
 
 

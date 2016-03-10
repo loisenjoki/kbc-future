@@ -59,7 +59,7 @@ public class JSONParser {
             categoryArrayList.add(all);
 
             // Go through all categories and get their details
-            for (int i=5; i<categories.optInt(7); i++) {
+            for (int i=0; i<categories.length(); i++) {
                 // Get individual category Json object
                 JSONObject catObj = categories.getJSONObject(i);
                 Log.d(TAG, "Parsing " + catObj.getString("title") + ", ID " + catObj.getInt("id"));
@@ -120,6 +120,8 @@ public class JSONParser {
                 Post post = new Post();
                 // Configure the Post object
                 post.setTitle(postObject.optString("title", "N/A"));
+                String unedited= "....&#8217;...";
+                String editedText = unedited.replace("&#8217;", "'");
                 // Use a default thumbnail if one doesn't exist
                 post.setThumbnailUrl(postObject.optString("thumbnail",
                         Config.DEFAULT_THUMBNAIL_URL));

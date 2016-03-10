@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
 import android.support.v4.view.MenuItemCompat;
@@ -33,7 +34,7 @@ import loise.kbc.navigationviewpagerliveo.R;
 import loise.kbc.wordpressrreader.app.MainActivity;
 import loise.kbc.wordpressrreader.model.Post;
 
-public class PostFragmetntAll extends AppCompatActivity {
+public class PostFragmetntAll extends FragmentActivity {
 
     private static final String TAG = "PostFragment";
 
@@ -236,7 +237,7 @@ public class PostFragmetntAll extends AppCompatActivity {
     }
 
    // @Override
-    public void onAttach(Activity activity) {
+   /* public void onAttach(Activity activity) {
         mListener.onAttach(activity);
         try {
             mListener = (PostFragmetntAll.PostListener) activity;
@@ -244,7 +245,7 @@ public class PostFragmetntAll extends AppCompatActivity {
             throw new ClassCastException(activity.toString()
                     + " must implement PostListener");
         }
-    }
+    }*/
 
 
 

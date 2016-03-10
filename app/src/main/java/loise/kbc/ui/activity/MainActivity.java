@@ -119,10 +119,14 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
                 break;
             case 10:
                 mFragment = new PwaniRadio();
-                break;
+
+            /*case 12:
+               mFragment =new TimelineKbc();*/
+
             case 11:
                 mFragment = new CoroRadio();
                 break;
+
 
             case 13:
                mFragment =new TimelineKbc();
@@ -132,6 +136,7 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
                 Intent intent2=new Intent(getApplicationContext(), TimelineKbc.class);
                 startActivity(intent2);
                 break;*/
+
             case  14:
                 Uri uri1 = Uri.parse("http://instagram.com/_u/kbckenya");
                 Intent Instagram = new Intent(Intent.ACTION_VIEW, uri1);
@@ -140,7 +145,7 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
                 try {
                     startActivity(Instagram);
                 } catch (ActivityNotFoundException e) {
-                    startActivity(new Intent(Intent.ACTION_VIEW,
+                                                            startActivity(new Intent(Intent.ACTION_VIEW,
                             Uri.parse("https://www.instagram.com/kbckenya")));
                 }
                 break;

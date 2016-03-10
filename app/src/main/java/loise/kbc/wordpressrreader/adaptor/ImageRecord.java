@@ -24,18 +24,17 @@ public class ImageRecord extends RecyclerView.Adapter<ImageRecord.ViewHolder> {
 private List<Post> posts;
 private Context mContext;
 
-private OnItemClickListener mListener;
-
-
+    private OnItemClickListener mListener;
 
     public interface OnItemClickListener {
-    void onItemClick(Post post);
-}
-
+        void onItemClick(Post post);
+    }
     public ImageRecord(ArrayList<Post> posts, OnItemClickListener listener) {
         this.posts = posts;
         mListener = listener;
+
     }
+
 
     @Override
     public ViewHolder onCreateViewHolder(final ViewGroup viewGroup, final int i) {
@@ -57,8 +56,8 @@ private OnItemClickListener mListener;
         viewHolder.title.setText(posts.get(i).getTitle());
 
         int count = posts.get(i).getCommentCount();
-        String countText = (count == 1 || count == 0) ? count + " read more" : count + " read more";
-        viewHolder.commentCount.setText(countText);
+     //   String countText = (count == 1 || count == 0) ? count + " read more" : count + " read more";
+      //  viewHolder.commentCount.setText(countText);
 
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
