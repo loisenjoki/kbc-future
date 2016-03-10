@@ -9,13 +9,10 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 
 import java.io.InputStreamReader;
-import java.io.UTFDataFormatException;
-
 import java.io.BufferedWriter;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.Reader;
 import java.io.UnsupportedEncodingException;
@@ -43,6 +40,8 @@ public class JSONParser {
      * @param jsonObject JSON data
      * @return A list of Category objects
      */
+
+
     public static ArrayList<Category> parseCategories(JSONObject jsonObject) {
         ArrayList<Category> categoryArrayList = new ArrayList<>();
 
@@ -50,10 +49,12 @@ public class JSONParser {
             // Get "categories" Json array
 
             JSONArray categories = jsonObject.getJSONArray("categories");
-
+            java.net.URLDecoder.decode( "UTF-8");
+            //  myJsonString = myJsonString.replaceAll("\\","");`
             // Create "All" category
             Category all = new Category();
             all.setId(6);
+           // final String categories = all.toString();
             all.setName(AppController.getInstance().getString(R.string.tab_all));
             all.setCharacterEncoding("UTF-8");
             categoryArrayList.add(all);
@@ -62,10 +63,14 @@ public class JSONParser {
             for (int i=0; i<categories.length(); i++) {
                 // Get individual category Json object
                 JSONObject catObj = categories.getJSONObject(i);
-                Log.d(TAG, "Parsing " + catObj.getString("title") + ", ID " + catObj.getInt("id"));
+
+                Log.d(TAG, "Parsing " + catObj.getString("title").getBytes().toString() + ", ID " + catObj.getInt("id"));
+                catObj.toString();
+
                 Category c = new Category();
                 c.setId(catObj.optInt("id", 6));
-                c.setName(catObj.getString("title"));
+                c.setName(catObj.getString("title").replaceAll("&#8217;", "\\u0027"));
+
 
                 c.setCharacterEncoding("UTF-8");
                 categoryArrayList.add(c);
@@ -102,6 +107,18 @@ public class JSONParser {
         return categoryArrayList;
     }
 
+    public static String formatString(String s){
+        String myString = s;
+        //apostrophe
+        myString = myString.replace("&#8217;","\'");
+        //double quotes
+        myString = myString.replace("&#8216;","\'");
+        myString = myString.replace("&#34;","\"");
+        myString = myString.replace("&#x22;","\"");
+
+        return myString;
+    }
+
     /**
      * Parse JSON data and return an ArrayList of Post objects
      *
@@ -119,22 +136,23 @@ public class JSONParser {
 
                 Post post = new Post();
                 // Configure the Post object
-                post.setTitle(postObject.optString("title", "N/A"));
-                String unedited= "....&#8217;...";
-                String editedText = unedited.replace("&#8217;", "'");
+                String article = post.setTitle(postObject.optString("title", "N/A"));
+
                 // Use a default thumbnail if one doesn't exist
                 post.setThumbnailUrl(postObject.optString("thumbnail",
                         Config.DEFAULT_THUMBNAIL_URL));
                 post.setCommentCount(postObject.optInt("comment_count", 0));
                 //post.setViewCount(postObject.getJSONObject("custom_fields")
                 //        .getJSONArray("post_views_count").getString(0));
-
+                article = formatString(article);
+                post.setTitle(article);
                 post.setDate(postObject.optString("date", "N/A"));
                 post.setContent(postObject.optString("content", "N/A"));
                 post.setAuthor(postObject.getJSONObject("author").optString("name", "N/A"));
                 post.setId(postObject.optInt("id"));
                 post.setUrl(postObject.optString("url"));
                 post.setCharacterEncoding("utf-8");
+
                 JSONObject featuredImages = postObject.optJSONObject("thumbnail_images");
                 if (featuredImages != null) {
                     post.setFeaturedImageUrl(featuredImages.optJSONObject("full")

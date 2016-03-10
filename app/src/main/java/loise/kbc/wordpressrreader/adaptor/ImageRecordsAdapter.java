@@ -15,19 +15,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.Set;
-
 import loise.kbc.navigationviewpagerliveo.R;
 import loise.kbc.wordpressrreader.app.AppController;
 import loise.kbc.wordpressrreader.model.Post;
@@ -51,7 +47,7 @@ public class ImageRecordsAdapter extends Fragment implements SwipeRefreshLayout.
     private TextView mLoadingView;
     private ImageRecord mAdaptor;
     // List of all posts in the ListView
-    private ArrayList<Post> postList = new ArrayList<>();
+    private ArrayList postList = new ArrayList<>();
     // A flag to keep track if the app is currently loading new posts
     private boolean isLoading = false;
 
@@ -193,6 +189,18 @@ public class ImageRecordsAdapter extends Fragment implements SwipeRefreshLayout.
         loadPosts(mPage, true);
     }
 
+    public String formatString(String s){
+        String myString = s;
+        //apostrophe
+        myString = myString.replace("...&#8217;...","\'");
+        //double quotes
+        myString = myString.replace("&#8216;","\"");
+        myString = myString.replace("&#34;","\"");
+        myString = myString.replace("&#x22;","\"");
+
+        return myString;
+    }
+
     /**
      * Load posts from a specific page number
      *
@@ -250,6 +258,9 @@ public class ImageRecordsAdapter extends Fragment implements SwipeRefreshLayout.
                         mPostNum = postList.size(); // The newest post number
                         Log.d(TAG, "Number of posts: " + mPostNum);
                         mAdaptor.notifyDataSetChanged(); // Display the list
+                        String article = "...&#8217;..";
+                        article = formatString(article);
+                      // postList.get(Stringarticle));
 
                         // Set ListView position
                         if (ImageRecordsAdapter.this.mPage != 1) {

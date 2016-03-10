@@ -46,8 +46,9 @@ public class Post {
         return title;
     }
 
-    public void setTitle(String title) {
+    public String setTitle(String title) {
         this.title = title;
+        return title;
     }
 
     public String getContent() {
