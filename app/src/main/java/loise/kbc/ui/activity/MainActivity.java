@@ -19,6 +19,7 @@ import loise.kbc.navigationviewpagerliveo.R;
 import loise.kbc.ui.fragment.AdvertismentFragment;
 import loise.kbc.ui.fragment.ContactsFragment;
 import loise.kbc.ui.fragment.MainFragment;
+import loise.kbc.ui.fragment.TvFragment;
 import loise.kbc.ui.fragment.ViewPagerFragment1;
 
 import loise.kbc.wordpressrreader.adaptor.ImagesFragment;
@@ -96,7 +97,7 @@ public class MainActivity extends NavigationLiveo implements OnItemClickListener
                 mFragment = new ImagesFragment();
                 break;
         case 2:
-                mFragment = new ViewPagerFragment1();
+                mFragment = new TvFragment();
                 break;
             case 4:
                 Intent intent = new Intent(getApplicationContext(), loise.kbc.wordpressrreader.app.MainActivity.class);

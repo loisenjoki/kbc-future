@@ -64,7 +64,7 @@ public class TvFragment extends Fragment {
         String html =
                 "<iframe class=\"youtube-player\" "
                         + "style=\"border: 0; width: 100%; height: 100%;"
-                        + "padding:0px; margin:5px\" "
+                        + "padding:0px; \" "
                         + "src=\"http://iframe.dacast.com/b/57052/c/75409"
                         + "frameborder=\"0\" " + "allowfullscreen autobuffer "
                         + "controls onclick=\"this.play()\">\n" + "</iframe>\n";
