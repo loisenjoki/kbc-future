@@ -4,17 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="10sp"
-    android:paddingRight="10sp"
-    android:paddingTop="10sp"
-    android:paddingBottom="10sp"
+
     tools:context=".VideoPlayerActivity">
 
     <WebView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:id="@+id/videoView1"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentTop="true" />
+         />
 </RelativeLayout>
 
