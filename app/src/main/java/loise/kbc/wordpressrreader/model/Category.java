@@ -8,7 +8,7 @@ public class Category {
     private int id;
     private String characterEncoding;
 
-    public String getName() {
+    public String getName(String business) {
         return name;
     }
 

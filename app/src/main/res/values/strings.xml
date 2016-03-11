@@ -99,7 +99,7 @@
     <string name="loading_categories">Loading categories…</string>
     <string name="loading_articles">Loading articles…</string>
     <string name="action_refresh">Refresh</string>
-    <string name="action_send_to_wear">Send to my watch</string>
+    <string name="action_send_to_wear">You have liked</string>
     <string name="error_load_categories">Check your internet connection,tyr again</string>
     <string name="error_load_posts">Network error. Failed to load articles.</string>
     <string name="action_retry">Retry</string>

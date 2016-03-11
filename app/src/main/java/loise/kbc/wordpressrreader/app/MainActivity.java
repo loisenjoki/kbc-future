@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements
     private FragmentManager fm = null;
     private TabLayoutFragment tlf;
     private PostFragment pf;
+    private PostFragmetntAll pfp;
     private PostFragmetntAll pf1;
     private CommentFragment cf;
     private SearchResultFragment srf;
@@ -84,6 +85,7 @@ public class MainActivity extends AppCompatActivity implements
 
         // Configure PostFragment to display the right post
         pf.setUIArguments(args);
+        pfp.setUIArguments(args);
 //        pf1.setUIArguments(args);
         // Show the fragment
         FragmentTransaction ft = fm.beginTransaction();
@@ -96,6 +98,7 @@ public class MainActivity extends AppCompatActivity implements
         }
         else{ ft.show(pf);}
         ft.show(pf);
+
 
 
         ft.addToBackStack(null);

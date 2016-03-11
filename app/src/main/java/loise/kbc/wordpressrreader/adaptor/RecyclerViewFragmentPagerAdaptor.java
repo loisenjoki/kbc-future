@@ -28,7 +28,7 @@ public class RecyclerViewFragmentPagerAdaptor extends FragmentPagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return categories.get(position).getName();
+        return categories.get(position).getName("business");
     }
 
     @Override

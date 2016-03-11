@@ -74,8 +74,8 @@ public class JsonParserNews {
         myString = myString.replace("&#8217;","\'");
         //double quotes
         myString = myString.replace("&#8216;","\'");
-        myString = myString.replace("&#34;","\"");
-        myString = myString.replace("&#x22;","\"");
+        myString = myString.replace("&#8220;","\"");
+        myString = myString.replace("&#8221;","\"");
 
         return myString;
     }

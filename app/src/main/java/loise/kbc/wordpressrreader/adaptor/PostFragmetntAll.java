@@ -78,6 +78,8 @@ public class PostFragmetntAll extends FragmentActivity {
         // Create the WebView
         webView = (WebView) findViewById(R.id.webview_post);
 
+        
+
     }
 
     public void setUIArguments(final Bundle args) {

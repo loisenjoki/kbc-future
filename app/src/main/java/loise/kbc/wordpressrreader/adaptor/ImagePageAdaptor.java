@@ -29,7 +29,7 @@ import loise.kbc.wordpressrreader.model.Category;
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return categories.get(position).getName();
+        return categories.get(position).getName("business");
     }
 
     @Override

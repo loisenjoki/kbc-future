@@ -21,6 +21,7 @@ import java.io.Writer;
 import java.util.ArrayList;
 
 import loise.kbc.navigationviewpagerliveo.R;
+import loise.kbc.ui.fragment.Business;
 import loise.kbc.wordpressrreader.app.AppController;
 import loise.kbc.wordpressrreader.model.Category;
 import loise.kbc.wordpressrreader.model.Post;
@@ -54,7 +55,7 @@ public class JSONParser {
             // Create "All" category
             Category all = new Category();
             all.setId(6);
-           // final String categories = all.toString();
+            all.setName("Business");
             all.setName(AppController.getInstance().getString(R.string.tab_all));
             all.setCharacterEncoding("UTF-8");
             categoryArrayList.add(all);
@@ -113,8 +114,8 @@ public class JSONParser {
         myString = myString.replace("&#8217;","\'");
         //double quotes
         myString = myString.replace("&#8216;","\'");
-        myString = myString.replace("&#34;","\"");
-        myString = myString.replace("&#x22;","\"");
+        myString = myString.replace("&#8220;","\"");
+        myString = myString.replace("&#8221;","\"");
 
         return myString;
     }
