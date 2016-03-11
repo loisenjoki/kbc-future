@@ -1,22 +1,15 @@
 package loise.kbc.wordpressrreader.app;
 
 import android.app.ActionBar;
-import android.app.Activity;
 import android.os.Bundle;
-
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Menu;
-import android.view.View;
 
 import loise.kbc.navigationviewpagerliveo.R;
 import loise.kbc.wordpressrreader.adaptor.ImageRecordsAdapter;
-import loise.kbc.wordpressrreader.adaptor.ImagesFragment;
 import loise.kbc.wordpressrreader.adaptor.PostFragmetntAll;
 import loise.kbc.wordpressrreader.model.Post;
 
@@ -85,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements
 
         // Configure PostFragment to display the right post
         pf.setUIArguments(args);
-        pfp.setUIArguments(args);
+       // pfp.setUIArguments(args);
 //        pf1.setUIArguments(args);
         // Show the fragment
         FragmentTransaction ft = fm.beginTransaction();

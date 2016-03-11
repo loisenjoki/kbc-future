@@ -125,8 +125,17 @@ public class ImageRecordsAdapter extends Fragment implements SwipeRefreshLayout.
             @Override
             public void onItemClick(Post post) {
 
-                Toast.makeText(getActivity(), post + "you have clicked postiton", Toast.LENGTH_LONG).show();
-                startActivity(new Intent(getActivity(),PostFragmetntAll.class));
+              //  Toast.makeText(getActivity(), post.getTitle(), Toast.LENGTH_LONG).show();
+                Bundle arg = new Bundle();
+                arg.putInt("id", post.getId());
+                arg.putString("title", post.getTitle());
+                arg.putString("date", post.getDate());
+                arg.putString("author", post.getAuthor());
+                arg.putString("content",post.getContent());
+                arg.putString("url",post.getUrl());
+                arg.putString("featuredImage",post.getFeaturedImageUrl());
+
+                startActivity(new Intent(getActivity(), PostFragmetntAll.class).putExtras(arg));
 
             }
         });

@@ -94,9 +94,7 @@ public static class ViewHolder extends RecyclerView.ViewHolder {
         super(itemView);
 
         thumbnailImageView = (ImageView) itemView.findViewById(R.id.thumbnail);
-        //String unedited= "&#8217;";
 
-        //String editedText = unedited.replaceAll("&#8217;", "\\u0027");
 
 
         title = (TextView) itemView.findViewById(R.id.title);
@@ -105,9 +103,6 @@ public static class ViewHolder extends RecyclerView.ViewHolder {
         String article = "...&#8217;..";
         article = formatString(article);
         title.setText(article);
-        //String editedText = new String(b, "US-ASCII");
-       // title.setText(editedText);
-      //  title.setText(unedited.replaceAll("&#8217;", "\\u0027"));
 
         commentCount = (TextView) itemView.findViewById(R.id.comment_count);
 
