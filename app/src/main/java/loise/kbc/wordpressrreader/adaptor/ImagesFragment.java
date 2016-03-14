@@ -61,32 +61,26 @@ public class ImagesFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_images, container, false);
-
-
         // mAdapter = new ImageRecordsAdapter(getActivity());
         mViewPager = (ViewPager) v.findViewById(R.id.viewpager);
         mTabLayout = (TabLayout) v.findViewById(R.id.tab_layout);
         // Preload 1 page to either side of the current page
         mViewPager.setOffscreenPageLimit(1);
 
-
-        // //listView = (ListView)v.findViewById(R.id.list1);
+        //listView = (ListView)v.findViewById(R.id.list1);
         //listView.setAdapter(mAdapter);
-
         return v;
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
         loadCategories();
     }
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         // Log.d(TAG, "onCreateOptionsMenu()");
-
         inflater.inflate(R.menu.menu_main, menu);
 
         // Create expandable & collapsible SearchView
