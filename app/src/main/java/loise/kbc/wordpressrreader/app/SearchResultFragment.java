@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 
 
 import loise.kbc.navigationviewpagerliveo.R;
+import loise.kbc.wordpressrreader.adaptor.ImageRecordsAdapter;
 
 
 /**
@@ -71,7 +72,9 @@ public class SearchResultFragment extends Fragment {
         FragmentTransaction ft = getChildFragmentManager().beginTransaction();
 
         RecyclerViewFragment fragment = RecyclerViewFragment.newInstance(mQuery);
+        ImageRecordsAdapter fragment1 = ImageRecordsAdapter.newInstance(mQuery);
         ft.add(R.id.search_container, fragment);
+        ft.add(R.id.search_container, fragment1);
         ft.addToBackStack(null);
         ft.commit();
 

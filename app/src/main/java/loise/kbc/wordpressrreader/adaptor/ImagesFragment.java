@@ -1,6 +1,5 @@
 package loise.kbc.wordpressrreader.adaptor;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.app.SearchManager;
 import android.content.Context;
@@ -17,42 +16,36 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 import android.widget.SearchView;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 
-import org.json.JSONArray;
-import org.json.JSONException;
+
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import loise.kbc.navigationviewpagerliveo.R;
 import loise.kbc.wordpressrreader.app.AppController;
-import loise.kbc.wordpressrreader.app.PostFragment;
+import loise.kbc.wordpressrreader.app.MainActivity;
 import loise.kbc.wordpressrreader.model.Category;
-import loise.kbc.wordpressrreader.model.Post;
 import loise.kbc.wordpressrreader.util.Config;
-import loise.kbc.wordpressrreader.util.JSONParser;
 import loise.kbc.wordpressrreader.util.JsonParserNews;
 
 /**
  * Created by homeboyz on 2/23/16.
  */
-public class ImagesFragment extends Fragment {
+public class ImagesFragment extends Fragment implements SearchView.OnQueryTextListener {
     private static final String TAG = "ImagesFragment";
     private ProgressDialog mProgressDialog;
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
-    // private Toolbar toolbar;
-    // private SearchView searchView;
-    //private MenuItem searchMenuItem;
+    private Toolbar toolbar;
+    private SearchView searchView;
+    private MenuItem searchMenuItem;
     protected static ArrayList<Category> categories = null;
     private ImageRecordsAdapter.PostListListener mListener;
 
@@ -61,7 +54,8 @@ public class ImagesFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_images, container, false);
-
+        toolbar = (Toolbar)v.findViewById(R.id.toolbarwp);
+//        ((MainActivity)getActivity()).setSupportActionBar(toolbar);
 
         // mAdapter = new ImageRecordsAdapter(getActivity());
         mViewPager = (ViewPager) v.findViewById(R.id.viewpager);
@@ -86,13 +80,40 @@ public class ImagesFragment extends Fragment {
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         // Log.d(TAG, "onCreateOptionsMenu()");
+        Log.d(TAG, "onCreateOptionsMenu()");
 
         inflater.inflate(R.menu.menu_main, menu);
 
         // Create expandable & collapsible SearchView
         SearchManager searchManager = (SearchManager)
                 getActivity().getSystemService(Context.SEARCH_SERVICE);
+        searchMenuItem = menu.findItem(R.id.action_search);
+        searchView = (SearchView) searchMenuItem.getActionView();
+
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getActivity().getComponentName()));
+        searchView.setIconifiedByDefault(false); // Expanded by default
+        //searchView.requestFocus();
+        searchView.setQueryHint(getString(R.string.search_hint));
+        searchView.setOnQueryTextListener((SearchView.OnQueryTextListener) getActivity());
+        getActivity().invalidateOptionsMenu();
+
         super.onCreateOptionsMenu(menu, inflater);
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                // this takes the user 'back', as if they pressed the left-facing triangle icon on the main android toolbar.
+                // if this doesn't work as desired, another possibility is to call `finish()` here.
+                getActivity().onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+    protected void resetActionBar() {
+        ((MainActivity)getActivity()).setSupportActionBar(toolbar);
+        searchMenuItem.collapseActionView();
     }
 
     private void loadCategories() {
@@ -142,13 +163,14 @@ public class ImagesFragment extends Fragment {
         // Add the request to request queue
         AppController.getInstance().addToRequestQueue(request);
     }
-
-    //@Override
+    @Override
     public boolean onQueryTextSubmit(String query) {
-        //   searchView.clearFocus(); // Hide soft keyboard
-        //  mListener.onSearchSubmitted(query); // Deal with fragment transaction on MainActivity
+        searchView.clearFocus(); // Hide soft keyboard
+        mListener.onSearchSubmitted(query); // Deal with fragment transaction on MainActivity
         return false;
     }
+
+
 
     //  @Override
     public boolean onQueryTextChange(String newText) {

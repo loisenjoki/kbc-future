@@ -1,6 +1,7 @@
 package loise.kbc.wordpressrreader.adaptor;
 
 import android.app.PendingIntent;
+import android.app.SearchManager;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -23,6 +24,7 @@ import android.view.MenuItem;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.animation.GlideAnimation;
@@ -75,8 +77,8 @@ public class PostFragmetntAll extends AppCompatActivity {
 
         // Create the WebView
         webView = (WebView) findViewById(R.id.webview_post);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-//        setUIArguments(Bundle);
 
         final Bundle args = getIntent().getExtras();
 
@@ -142,8 +144,6 @@ public class PostFragmetntAll extends AppCompatActivity {
         }
     }
 
-    public void setUIArguments(final Bundle args) {
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -166,6 +166,18 @@ public class PostFragmetntAll extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
 
     }
+    @Override
+    protected void onNewIntent(Intent intent) {
+        handleIntent(intent);
+    }
+
+    private void handleIntent(Intent intent) {
+
+        if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
+            String query = intent.getStringExtra(SearchManager.QUERY);
+            //use the query to search
+        }
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -179,7 +191,7 @@ public class PostFragmetntAll extends AppCompatActivity {
                 sendToWear();
                 return true;
             case android.R.id.home:
-                mListener.onHomePressed();
+                onBackPressed();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
