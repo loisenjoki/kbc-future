@@ -17,9 +17,6 @@ import android.widget.ShareActionProvider;
 
 import loise.kbc.navigationviewpagerliveo.R;
 
-/**
- * Created by loise on 10/5/15.
- */
 public class AdvertismentFragment extends Fragment {
 
     private boolean mSearchCheck;

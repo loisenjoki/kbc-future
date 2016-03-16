@@ -12,9 +12,7 @@ import java.util.ArrayList;
 import loise.kbc.navigationviewpagerliveo.R;
 import loise.kbc.ui.fragment.InternationalNews;
 
-/**
- * Created by v on 10-Feb-15.
- */
+
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
 
     private ArrayList<ProductsData> productsDataSet;

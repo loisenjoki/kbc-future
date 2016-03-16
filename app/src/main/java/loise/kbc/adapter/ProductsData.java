@@ -1,8 +1,6 @@
 package loise.kbc.adapter;
 
-/**
- * Created by v on 10-Feb-15.
- */
+
 public class ProductsData {
     String name;
     String description;

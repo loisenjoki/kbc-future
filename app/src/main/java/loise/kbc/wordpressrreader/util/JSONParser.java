@@ -107,7 +107,7 @@ public class JSONParser {
 
         return categoryArrayList;
     }
-
+        //removes the json code errors from the title links
     public static String formatString(String s){
         String myString = s;
         //apostrophe

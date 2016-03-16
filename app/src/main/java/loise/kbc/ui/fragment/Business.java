@@ -13,9 +13,7 @@ import com.mikhaellopez.circularprogressbar.CircularProgressBar;
 import loise.kbc.navigationviewpagerliveo.R;
 
 
-/**
- * Created by loise on 10/12/15.
- */
+
 public class Business extends Fragment {
 
     private static int SPLASH_TIME_OUT = 3000;

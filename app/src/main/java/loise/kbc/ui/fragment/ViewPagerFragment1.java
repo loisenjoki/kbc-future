@@ -17,9 +17,6 @@ import loise.kbc.adapter.ViewPagerAdapter;
 import loise.kbc.navigationviewpagerliveo.R;
 import loise.kbc.wordpressrreader.app.MainActivity;
 
-/**
- * Created by loise on 10/12/15.
- */
 public class ViewPagerFragment1 extends Fragment {
     private List<TabPagerItem> mTabs = new ArrayList<>();
 
