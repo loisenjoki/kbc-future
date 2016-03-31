@@ -54,12 +54,10 @@ public class ImagesFragment extends Fragment implements SearchView.OnQueryTextLi
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_images, container, false);
-<<<<<<< HEAD
-=======
+
         toolbar = (Toolbar)v.findViewById(R.id.toolbarwp);
 //        ((MainActivity)getActivity()).setSupportActionBar(toolbar);
 
->>>>>>> e4dc1ccd6386d9334d029c3c4ad235cee325a401
         // mAdapter = new ImageRecordsAdapter(getActivity());
         mViewPager = (ViewPager) v.findViewById(R.id.viewpager);
         mTabLayout = (TabLayout) v.findViewById(R.id.tab_layout);
@@ -80,11 +78,10 @@ public class ImagesFragment extends Fragment implements SearchView.OnQueryTextLi
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         // Log.d(TAG, "onCreateOptionsMenu()");
-<<<<<<< HEAD
-=======
+
         Log.d(TAG, "onCreateOptionsMenu()");
 
->>>>>>> e4dc1ccd6386d9334d029c3c4ad235cee325a401
+
         inflater.inflate(R.menu.menu_main, menu);
 
         // Create expandable & collapsible SearchView

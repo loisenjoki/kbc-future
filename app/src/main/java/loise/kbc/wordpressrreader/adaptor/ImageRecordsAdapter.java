@@ -133,11 +133,9 @@ public class ImageRecordsAdapter extends Fragment implements SwipeRefreshLayout.
                 arg.putString("author", post.getAuthor());
                 arg.putString("content",post.getContent());
                 arg.putString("url",post.getUrl());
-<<<<<<< HEAD
-                arg.putString("featuredImage",post.getFeaturedImageUrl());
-=======
+
                 arg.putString("featuredImage", post.getFeaturedImageUrl());
->>>>>>> e4dc1ccd6386d9334d029c3c4ad235cee325a401
+
 
                 startActivity(new Intent(getActivity(), PostFragmetntAll.class).putExtras(arg));
 

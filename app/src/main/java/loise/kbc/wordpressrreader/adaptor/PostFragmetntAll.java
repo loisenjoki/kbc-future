@@ -77,13 +77,12 @@ public class PostFragmetntAll extends AppCompatActivity {
 
         // Create the WebView
         webView = (WebView) findViewById(R.id.webview_post);
-<<<<<<< HEAD
+
 
 //        setUIArguments(Bundle);
-=======
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
->>>>>>> e4dc1ccd6386d9334d029c3c4ad235cee325a401
 
         final Bundle args = getIntent().getExtras();
 
@@ -149,11 +148,9 @@ public class PostFragmetntAll extends AppCompatActivity {
         }
     }
 
-<<<<<<< HEAD
     public void setUIArguments(final Bundle args) {
     }
-=======
->>>>>>> e4dc1ccd6386d9334d029c3c4ad235cee325a401
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
