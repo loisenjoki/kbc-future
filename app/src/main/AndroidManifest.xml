@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="loise.kbc.navigationviewpagerliveo">
+    package="com.kbc.navigationviewpagerliveo"
+    android:versionCode="1"
+    android:versionName="1.0"
+
+
+
+    >
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -14,14 +20,14 @@
     <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
-        android:name="loise.liveo.ui.activity.TwitterApplication"
+        android:name="com.liveo.ui.activity.TwitterApplication"
         android:allowBackup="true"
         android:icon="@mipmap/kbclauncher"
         android:label="@string/app_name"
         android:theme="@style/myTheme">
 
         <activity
-            android:name="loise.kbc.ui.activity.SplashScreen"
+            android:name="com.kbc.ui.activity.SplashScreen"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Holo.Light.NoActionBar.Fullscreen">
             <intent-filter>
@@ -34,27 +40,27 @@
                 android:value=".SearchResultsActivity" />
         </activity>
         <activity
-            android:name="loise.kbc.ui.activity.TimelineKbc"
+            android:name="com.kbc.ui.activity.TimelineKbc"
             android:label="@string/title_activity_timeline_kbc" />
         <activity
-            android:name="loise.kbc.ui.activity.MoreNews"
+            android:name="com.kbc.ui.activity.MoreNews"
             android:label="@string/title_activity_more_news" />
         <activity
-            android:name="loise.kbc.ui.activity.SignUpActivity"
+            android:name="com.kbc.ui.activity.SignUpActivity"
             android:label="@string/title_activity_sign_up"
-            android:parentActivityName="loise.kbc.ui.activity.MainActivity">
+            android:parentActivityName="com.kbc.ui.activity.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="loise.kbc.ui.activity.MainActivity" />
+                android:value="com.kbc.ui.activity.MainActivity" />
         </activity>
         <activity
-            android:name="loise.kbc.ui.activity.News"
+            android:name="com.kbc.ui.activity.News"
             android:label="@string/title_activity_news"
             android:theme="@style/myTheme.NoActionBar" />
-        <activity android:name="loise.kbc.ui.activity.KBCTv" />
-        <activity android:name="loise.kbc.ui.activity.Video" />
+        <activity android:name="com.kbc.ui.activity.KBCTv" />
+        <activity android:name="com.kbc.ui.activity.Video" />
         <activity
-            android:name="loise.kbc.ui.activity.MainActivity"
+            android:name="com.kbc.ui.activity.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/nLiveoDrawer" />
 
@@ -62,18 +68,18 @@
             android:name="io.fabric.ApiKey"
             android:value="c4187f8ac4cb5d8068a1328986d55d80386316d1" />
 
-        <activity android:name="loise.kbc.ui.activity.RadioTaifa" />
-        <activity android:name="loise.kbc.ui.activity.EnglishServiceRadio" />
-        <activity android:name="loise.kbc.ui.activity.CoroRadio" />
-        <activity android:name="loise.kbc.ui.activity.PwaniRadio" />
-        <activity android:name="loise.kbc.ui.activity.IftiinRadio" />
-        <activity android:name="loise.kbc.ui.activity.LiveTv" />
-        <activity android:name="loise.kbc.ui.activity.InstagramFeed" />
-        <activity android:name="loise.kbc.ui.activity.Mayienga" />
+        <activity android:name="com.kbc.ui.activity.RadioTaifa" />
+        <activity android:name="com.kbc.ui.activity.EnglishServiceRadio" />
+        <activity android:name="com.kbc.ui.activity.CoroRadio" />
+        <activity android:name="com.kbc.ui.activity.PwaniRadio" />
+        <activity android:name="com.kbc.ui.activity.IftiinRadio" />
+        <activity android:name="com.kbc.ui.activity.LiveTv" />
+        <activity android:name="com.kbc.ui.activity.InstagramFeed" />
+        <activity android:name="com.kbc.ui.activity.Mayienga" />
         <activity
-            android:name="loise.kbc.wordpressrreader.app.MainActivity"
+            android:name="com.kbc.wordpressrreader.app.MainActivity"
             android:theme="@style/myTheme" />
-        <activity android:name="loise.kbc.wordpressrreader.adaptor.PostFragmetntAll"></activity>
+        <activity android:name="com.kbc.wordpressrreader.adaptor.PostFragmetntAll"></activity>
     </application>
 
 </manifest>

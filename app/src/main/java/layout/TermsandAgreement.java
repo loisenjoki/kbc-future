@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import loise.kbc.navigationviewpagerliveo.R;
+import com.kbc.navigationviewpagerliveo.R;
 
 /**
  * A simple {@link Fragment} subclass.
