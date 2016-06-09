@@ -15,8 +15,8 @@ import com.kbc.wordpressrreader.app.AppController;
 
 public class TwitterApplication extends AppController {
     // Note: Your consumer key and secret should be obfuscated in your source code before shipping.
-    private static final String TWITTER_KEY = "CtXW8KLLGFfQTqWlrdoK7oUbR";
-    private static final String TWITTER_SECRET = "xq0mHEOlOpBVfr1uyvehFF1dt05YIAPxCHav0diBfr99QuBXrL";
+    private static final String TWITTER_KEY = "";
+    private static final String TWITTER_SECRET = "";
 
     @Override
     public void onCreate() {
