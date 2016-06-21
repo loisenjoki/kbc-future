@@ -1,11 +1,7 @@
 package com.kbc.ui.activity;
 
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
-import android.widget.MediaController;
-import android.widget.VideoView;
 
 import com.kbc.navigationviewpagerliveo.R;
 

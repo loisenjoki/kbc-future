@@ -8,10 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.mikhaellopez.circularprogressbar.CircularProgressBar;
-
 import com.kbc.navigationviewpagerliveo.R;
-
+import com.kbc.ui.activity.MainActivity;
+import com.mikhaellopez.circularprogressbar.CircularProgressBar;
 
 
 public class Business extends Fragment {
@@ -24,7 +23,7 @@ public class Business extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.business, container, false);
 
-        CircularProgressBar circularProgressBar = (CircularProgressBar)v.findViewById(R.id.progress);
+        CircularProgressBar circularProgressBar = (CircularProgressBar) v.findViewById(R.id.progress);
         circularProgressBar.setColor(getResources().getColor(R.color.primary_dark_material_dark));
         circularProgressBar.setBackgroundColor(getResources().getColor(R.color.nliveo_white));
         circularProgressBar.setProgressBarWidth(getResources().getDimension(R.dimen.progress));
@@ -43,7 +42,7 @@ public class Business extends Fragment {
             public void run() {
                 // This method will be executed once the timer is over
                 // Start your app main activity
-                startActivity(new Intent(getActivity(), com.kbc.wordpressrreader.app.MainActivity.class));
+                startActivity(new Intent(getActivity(), MainActivity.class));
 
                 // close this activity
                 //  finish();

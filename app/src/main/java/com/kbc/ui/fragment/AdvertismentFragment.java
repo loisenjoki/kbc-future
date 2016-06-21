@@ -3,12 +3,7 @@ package com.kbc.ui.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.MenuItemCompat;
-import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -29,7 +24,6 @@ public class AdvertismentFragment extends Fragment {
     EditText textMessage;
 
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -37,9 +31,9 @@ public class AdvertismentFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.ads_fragment, container, false);
 
         buttonSend = (Button) rootView.findViewById(R.id.buttonSend);
-        textTo = (EditText)rootView.findViewById(R.id.editTextTo);
-        textSubject = (EditText)rootView.findViewById(R.id.editTextSubject);
-        textMessage = (EditText)rootView.findViewById(R.id.editTextMessage);
+        textTo = (EditText) rootView.findViewById(R.id.editTextTo);
+        textSubject = (EditText) rootView.findViewById(R.id.editTextSubject);
+        textMessage = (EditText) rootView.findViewById(R.id.editTextMessage);
 
         buttonSend.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,7 +56,7 @@ public class AdvertismentFragment extends Fragment {
             }
         });
 
-        rootView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT ));
+        rootView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         return rootView;
     }
 

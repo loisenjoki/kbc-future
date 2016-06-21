@@ -1,32 +1,25 @@
 package com.kbc.adapter;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.content.ContextCompat;
-import android.text.Spannable;
-import android.text.SpannableString;
-import android.text.style.ImageSpan;
 
 import java.util.List;
 
-import com.kbc.navigationviewpagerliveo.R;
-
-public class ViewPagerAdapter extends FragmentStatePagerAdapter{
-   /* private int[] imageResId = {
-            R.mipmap.news,
-            R.mipmap.tv,
-            R.mipmap.listen
-    };*/
+public class ViewPagerAdapter extends FragmentStatePagerAdapter {
+    /* private int[] imageResId = {
+             R.mipmap.news,
+             R.mipmap.tv,
+             R.mipmap.listen
+     };*/
     private List<TabPagerItem> mTabs;
+
     public ViewPagerAdapter(FragmentManager fragmentManager, List<TabPagerItem> tabs) {
         super(fragmentManager);
         this.mTabs = tabs;
     }
 
-    public void setDatasource(List<TabPagerItem> datasource){
+    public void setDatasource(List<TabPagerItem> datasource) {
         mTabs = datasource;
         notifyDataSetChanged();
     }

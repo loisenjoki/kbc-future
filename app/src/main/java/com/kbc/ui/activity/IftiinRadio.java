@@ -1,8 +1,7 @@
 package com.kbc.ui.activity;
 
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,11 +18,11 @@ public class IftiinRadio extends Fragment {
     WebView webview;
 
     @Override
-    public View onCreateView( LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        View v=inflater.inflate(R.layout.activity_iftiin_radio, container, false);
+        View v = inflater.inflate(R.layout.activity_iftiin_radio, container, false);
 
-      webview = (WebView)v.findViewById(R.id.webView4);
+        webview = (WebView) v.findViewById(R.id.webView4);
         //http://iframe.dacast.com/b/37017/c/79023
 
         String Url = "http://iframe.dacast.com/b/57052/c/79189";
@@ -31,11 +30,11 @@ public class IftiinRadio extends Fragment {
 
         String vid = "<html>" +
                 "<body style=\"margin: 0; padding: 0; font-size:20px;\">" +
-                "<iframe width=\"100%\" height=\"100%\" src=\""+Url+"\" type=\"text/html\" frameborder=\"0\" scrolling=\"yes\">" +
+                "<iframe width=\"100%\" height=\"100%\" src=\"" + Url + "\" type=\"text/html\" frameborder=\"0\" scrolling=\"yes\">" +
                 "</iframe>" +
                 "</body>" +
                 "</html>";
-        WebChromeClient mWebChromeClient = new WebChromeClient(){
+        WebChromeClient mWebChromeClient = new WebChromeClient() {
             public void onProgressChanged(WebView view, int newProgress) {
             }
 

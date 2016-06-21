@@ -1,8 +1,7 @@
 package com.kbc.ui.activity;
 
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +14,7 @@ import com.kbc.navigationviewpagerliveo.R;
 import java.lang.reflect.InvocationTargetException;
 
 
-public class Mayienga extends Fragment {
+public class MayiengaFragment extends Fragment {
 
     WebView webview;
 
@@ -25,7 +24,7 @@ public class Mayienga extends Fragment {
         super.onCreate(savedInstanceState);
         View v = inflater.inflate(R.layout.activity_mayienga, container, false);
 
-         webview = (WebView) v.findViewById(R.id.webView4);
+        webview = (WebView) v.findViewById(R.id.webView4);
         //http://iframe.dacast.com/b/37017/c/79023
 
         String Url = "http://iframe.dacast.com/b/57052/c/79193";

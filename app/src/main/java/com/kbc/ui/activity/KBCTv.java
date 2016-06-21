@@ -10,7 +10,6 @@ import com.google.android.youtube.player.YouTubeBaseActivity;
 import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
-
 import com.kbc.adapter.Config;
 import com.kbc.navigationviewpagerliveo.R;
 

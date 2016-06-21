@@ -1,11 +1,9 @@
-package com.kbc.wordpressrreader.app;
+package com.kbc.ui.fragment;
 
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -13,15 +11,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-
 import com.kbc.navigationviewpagerliveo.R;
-import com.kbc.wordpressrreader.adaptor.ImageRecordsAdapter;
+import com.kbc.adapter.ImageRecordsAdapter;
 
 
 /**
  * Fragment to show search result
  */
-public class SearchResultFragment extends Fragment {
+public class SearchResultFragment extends BaseFragment {
     private String mQuery;
 
     private SearchResultListener mListener;
@@ -64,7 +61,7 @@ public class SearchResultFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_search_result, container, false);
 
         Toolbar toolbar = (Toolbar) v.findViewById(R.id.toolbarwp);
-    //    ((MainActivity) getActivity()).setSupportActionBar(toolbar);
+        //    ((OldMainActivity) getActivity()).setSupportActionBar(toolbar);
         ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         ((AppCompatActivity) getActivity()).getSupportActionBar()
                 .setTitle(getString(R.string.search_result) + " \"" + mQuery + "\"");
@@ -101,7 +98,7 @@ public class SearchResultFragment extends Fragment {
         }
     }
 
-    // Interface used to communicate with MainActivity
+    // Interface used to communicate with OldMainActivity
     public interface SearchResultListener {
         void onHomePressed();
     }

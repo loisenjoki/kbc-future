@@ -1,6 +1,5 @@
 package com.kbc.ui.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -8,7 +7,7 @@ import android.os.Handler;
 import com.kbc.navigationviewpagerliveo.R;
 
 
-public class SplashScreen extends Activity {
+public class SplashScreen extends BaseActivity {
 
     // Splash screen timer
     private static int SPLASH_TIME_OUT = 3000;
@@ -29,14 +28,12 @@ public class SplashScreen extends Activity {
             public void run() {
                 // This method will be executed once the timer is over
                 // Start your app main activity
-                Intent i = new Intent(SplashScreen.this, MainActivity.class);
-                startActivity(i);
+                startActivity(new Intent(context, OldMainActivity.class));
 
                 // close this activity
                 finish();
             }
         }, SPLASH_TIME_OUT);
-
     }
 
     @Override

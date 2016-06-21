@@ -1,6 +1,11 @@
-package com.kbc.wordpressrreader.util;
+package com.kbc.util;
 
 import android.util.Log;
+
+import com.kbc.navigationviewpagerliveo.R;
+import com.kbc.app.BaseAppController;
+import com.kbc.model.Category;
+import com.kbc.model.Post;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -17,16 +22,11 @@ import java.io.Reader;
 import java.io.Writer;
 import java.util.ArrayList;
 
-import com.kbc.navigationviewpagerliveo.R;
-import com.kbc.wordpressrreader.app.AppController;
-import com.kbc.wordpressrreader.model.Category;
-import com.kbc.wordpressrreader.model.Post;
-
 /**
  * Created by homeboyz on 3/1/16.
  */
 public class JsonParserNews {
-    private static final String	TAG	= "JSONParserNews";
+    private static final String TAG = "JSONParserNews";
 
     /**
      * Parse JSON data and return an ArrayList of Category objects
@@ -44,12 +44,12 @@ public class JsonParserNews {
             // Create "All" category
             Category all = new Category();
             all.setId(6);
-            all.setName(AppController.getInstance().getString(R.string.tab_all));
+            all.setName(BaseAppController.getInstance().getString(R.string.tab_all));
 
             categoryArrayList.add(all);
 
             // Go through all categories and get their details
-            for (int i=5; i<categories.optInt(7); i++) {
+            for (int i = 5; i < categories.optInt(7); i++) {
                 // Get individual category Json object
                 JSONObject catObj = categories.getJSONObject(i);
                 Log.d(TAG, "Parsing " + catObj.getString("title") + ", ID " + catObj.getInt("id"));
@@ -68,14 +68,14 @@ public class JsonParserNews {
         return categoryArrayList;
     }
 
-    public static String formatString(String s){
+    public static String formatString(String s) {
         String myString = s;
         //apostrophe
-        myString = myString.replace("&#8217;","\'");
+        myString = myString.replace("&#8217;", "\'");
         //double quotes
-        myString = myString.replace("&#8216;","\'");
-        myString = myString.replace("&#8220;","\"");
-        myString = myString.replace("&#8221;","\"");
+        myString = myString.replace("&#8216;", "\'");
+        myString = myString.replace("&#8220;", "\"");
+        myString = myString.replace("&#8221;", "\"");
 
         return myString;
     }
@@ -89,7 +89,7 @@ public class JsonParserNews {
     public static ArrayList<Post> parsePosts(JSONObject jsonObject) {
         ArrayList<Post> posts = new ArrayList<>();
 
-        try{
+        try {
             JSONArray postArray = jsonObject.getJSONArray("posts");
             // Go through each post
             for (int i = 0; i < postArray.length(); i++) {
@@ -98,7 +98,7 @@ public class JsonParserNews {
                 Post post = new Post();
                 // Configure the Post object
                 String article = post.setTitle(postObject.optString("title", "N/A"));
-               // post.setTitle(postObject.optString("title", "N/A"));
+                // post.setTitle(postObject.optString("title", "N/A"));
                 // Use a default thumbnail if one doesn't exist
                 post.setThumbnailUrl(postObject.optString("thumbnail",
                         Config.DEFAULT_THUMBNAIL_URL));
@@ -137,7 +137,7 @@ public class JsonParserNews {
                     new FileOutputStream("UTF-8"));
             BufferedWriter fout = new BufferedWriter(writer);
             String s;
-            while ((s=fin.readLine())!=null) {
+            while ((s = fin.readLine()) != null) {
                 fout.write(s);
                 fout.newLine();
             }

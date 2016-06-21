@@ -2,33 +2,26 @@ package com.kbc.ui.fragment;
 
 
 import android.app.AlertDialog;
-import android.os.Bundle;
 import android.app.Fragment;
-import android.support.v4.app.FragmentActivity;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView;
 
-import de.psdev.licensesdialog.LicensesDialog;
-import de.psdev.licensesdialog.LicensesDialogFragment;
-import de.psdev.licensesdialog.licenses.ApacheSoftwareLicense20;
-import de.psdev.licensesdialog.licenses.License;
-import de.psdev.licensesdialog.model.Notice;
 import com.kbc.navigationviewpagerliveo.R;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class TermsandAgreement extends android.support.v4.app.Fragment{
+public class TermsandAgreement extends android.support.v4.app.Fragment {
 
     private AlertDialog mAlertDialog;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-       View v=  inflater.inflate(R.layout.fragment_termsand_agreement, container, false);
+        View v = inflater.inflate(R.layout.fragment_termsand_agreement, container, false);
         return v;
     }
     /*private void displayLicensesAlertDialog() {

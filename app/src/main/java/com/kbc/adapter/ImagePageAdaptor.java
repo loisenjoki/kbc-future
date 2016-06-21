@@ -1,29 +1,30 @@
-package com.kbc.wordpressrreader.adaptor;
+package com.kbc.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.kbc.model.Category;
+
 import java.util.ArrayList;
 
-import com.kbc.wordpressrreader.app.RecyclerViewFragment;
-import com.kbc.wordpressrreader.model.Category;
-
-
 /**
- * Adaptor for ViewPager
+ * Created by homeboyz on 2/23/16.
  */
-public class RecyclerViewFragmentPagerAdaptor extends FragmentPagerAdapter {
+
+
+public class ImagePageAdaptor extends FragmentPagerAdapter {
+
     private ArrayList<Category> categories;
 
-    public RecyclerViewFragmentPagerAdaptor(FragmentManager fm, ArrayList<Category> categories) {
+    public ImagePageAdaptor(FragmentManager fm, ArrayList<Category> categories) {
         super(fm);
         this.categories = categories;
     }
 
     @Override
     public Fragment getItem(int position) {
-        return RecyclerViewFragment.newInstance(categories.get(position).getId());
+        return ImageRecordsAdapter.newInstance(categories.get(position).getId());
     }
 
     @Override

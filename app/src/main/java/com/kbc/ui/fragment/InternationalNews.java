@@ -1,5 +1,3 @@
-
-
 package com.kbc.ui.fragment;
 
 import android.content.Context;
@@ -15,13 +13,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-
 import com.kbc.adapter.Adapter;
-import com.kbc.adapter.Data;
 import com.kbc.adapter.ProductsData;
 import com.kbc.navigationviewpagerliveo.R;
 import com.kbc.ui.activity.News;
+
+import java.util.ArrayList;
 
 /**
  * Created by loise on 9/28/15.
@@ -31,7 +28,7 @@ public class InternationalNews extends Fragment {
     private boolean mSearchCheck;
     public static final String TEXT_FRAGMENT = "TEXT_FRAGMENT";
 
-    public static InternationalNews newInstance(String text){
+    public static InternationalNews newInstance(String text) {
         InternationalNews mFragment = new InternationalNews();
         Bundle mBundle = new Bundle();
         mBundle.putString(TEXT_FRAGMENT, text);
@@ -39,7 +36,7 @@ public class InternationalNews extends Fragment {
         return mFragment;
     }
 
-//  declaration of recycle view design
+    //  declaration of recycle view design
     private static RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
     private static RecyclerView recyclerView;
@@ -52,7 +49,7 @@ public class InternationalNews extends Fragment {
         View v = inflater.inflate(R.layout.news_fragment, container, false);
 
         //Set the Onclick Listener
-       myOnClickListener = new MyOnclickListener(getActivity());
+        myOnClickListener = new MyOnclickListener(getActivity());
         recyclerView = (RecyclerView) v.findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
 
@@ -76,24 +73,23 @@ public class InternationalNews extends Fragment {
             ));
 
         }
-         removedItems = new ArrayList<Integer>();
+        removedItems = new ArrayList<Integer>();
         adapter = new Adapter(products);
         recyclerView.setAdapter(adapter);
 
         return v;
     }
 
-    private static class MyOnclickListener implements View.OnClickListener{
+    private static class MyOnclickListener implements View.OnClickListener {
 
         private final Context context;
-        private MyOnclickListener(Context context){
+
+        private MyOnclickListener(Context context) {
             this.context = context;
-           // Toast.makeText(context, "mdcvmx vf", Toast.LENGTH_SHORT).show();
+            // Toast.makeText(context, "mdcvmx vf", Toast.LENGTH_SHORT).show();
 
 
         }
-
-
 
 
         @Override
@@ -117,7 +113,7 @@ public class InternationalNews extends Fragment {
 //            products.remove(selectedItemPosition);
 //            adapter.notifyItemRemoved(selectedItemPosition);
 
-            Toast.makeText(context,"removed", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "removed", Toast.LENGTH_SHORT).show();
             Intent intent;
             intent = new Intent(context, News.class);
             context.startActivity(intent);

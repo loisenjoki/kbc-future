@@ -1,38 +1,34 @@
-package com.kbc.wordpressrreader.util;
+package com.kbc.util;
 
 import android.util.Log;
+
+import com.kbc.navigationviewpagerliveo.R;
+import com.kbc.app.BaseAppController;
+import com.kbc.model.Category;
+import com.kbc.model.Post;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
-
-import java.io.InputStreamReader;
 import java.io.BufferedWriter;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.Reader;
-import java.io.UnsupportedEncodingException;
 import java.io.Writer;
-
 import java.util.ArrayList;
-
-import com.kbc.navigationviewpagerliveo.R;
-import com.kbc.ui.fragment.Business;
-import com.kbc.wordpressrreader.app.AppController;
-import com.kbc.wordpressrreader.model.Category;
-import com.kbc.wordpressrreader.model.Post;
 
 
 /**
  * Utility class used to parse JSON data
  */
 public class JSONParser {
-    private static final String	TAG	= "JSONParser";
-   // BufferedReader reader = new BufferedReader(new InputStreamReader(new  "ISO-8859-1"), 8);
+    private static final String TAG = "JSONParser";
+    // BufferedReader reader = new BufferedReader(new InputStreamReader(new  "ISO-8859-1"), 8);
 
 
     /**
@@ -50,18 +46,18 @@ public class JSONParser {
             // Get "categories" Json array
 
             JSONArray categories = jsonObject.getJSONArray("categories");
-            java.net.URLDecoder.decode( "UTF-8");
+            java.net.URLDecoder.decode("UTF-8");
             //  myJsonString = myJsonString.replaceAll("\\","");`
             // Create "All" category
             Category all = new Category();
             all.setId(6);
             all.setName("Business");
-            all.setName(AppController.getInstance().getString(R.string.tab_all));
+            all.setName(BaseAppController.getInstance().getString(R.string.tab_all));
             all.setCharacterEncoding("UTF-8");
             categoryArrayList.add(all);
 
             // Go through all categories and get their details
-            for (int i=0; i<categories.length(); i++) {
+            for (int i = 0; i < categories.length(); i++) {
                 // Get individual category Json object
                 JSONObject catObj = categories.getJSONObject(i);
 
@@ -90,7 +86,7 @@ public class JSONParser {
                     new FileOutputStream("UTF-8"));
             BufferedWriter fout1 = new BufferedWriter(writer1);
             String s;
-            while ((s=fin1.readLine())!=null) {
+            while ((s = fin1.readLine()) != null) {
                 fout1.write(s);
                 fout1.newLine();
             }
@@ -107,15 +103,16 @@ public class JSONParser {
 
         return categoryArrayList;
     }
-        //removes the json code errors from the title links
-    public static String formatString(String s){
+
+    //removes the json code errors from the title links
+    public static String formatString(String s) {
         String myString = s;
         //apostrophe
-        myString = myString.replace("&#8217;","\'");
+        myString = myString.replace("&#8217;", "\'");
         //double quotes
-        myString = myString.replace("&#8216;","\'");
-        myString = myString.replace("&#8220;","\"");
-        myString = myString.replace("&#8221;","\"");
+        myString = myString.replace("&#8216;", "\'");
+        myString = myString.replace("&#8220;", "\"");
+        myString = myString.replace("&#8221;", "\"");
 
         return myString;
     }
@@ -129,7 +126,7 @@ public class JSONParser {
     public static ArrayList<Post> parsePosts(JSONObject jsonObject) {
         ArrayList<Post> posts = new ArrayList<>();
 
-        try{
+        try {
             JSONArray postArray = jsonObject.getJSONArray("posts");
             // Go through each post
             for (int i = 0; i < postArray.length(); i++) {
@@ -177,7 +174,7 @@ public class JSONParser {
                     new FileOutputStream("UTF-8"));
             BufferedWriter fout = new BufferedWriter(writer);
             String s;
-            while ((s=fin.readLine())!=null) {
+            while ((s = fin.readLine()) != null) {
                 fout.write(s);
                 fout.newLine();
             }

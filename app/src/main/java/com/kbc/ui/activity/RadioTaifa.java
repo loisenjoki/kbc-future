@@ -1,29 +1,21 @@
 package com.kbc.ui.activity;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.AdapterView;
-import android.widget.ListView;
-import android.widget.Toast;
 
-import com.github.ivbaranov.mli.MaterialLetterIcon;
+import com.kbc.navigationviewpagerliveo.R;
+import com.kbc.ui.fragment.BaseFragment;
 
 import java.lang.reflect.InvocationTargetException;
 
-import com.kbc.adapter.CustomList;
-import com.kbc.navigationviewpagerliveo.R;
 
-
-public class RadioTaifa extends Fragment {
+public class RadioTaifa extends BaseFragment {
 
     WebView webview;
 
@@ -34,7 +26,7 @@ public class RadioTaifa extends Fragment {
 
         //inintializaaing the webiew
 
-         webview = (WebView) v.findViewById(R.id.webView);
+        webview = (WebView) v.findViewById(R.id.webView);
         //http://iframe.dacast.com/b/37017/c/79023
 
         String Url = "http://iframe.dacast.com/b/57052/c/79192";

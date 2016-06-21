@@ -1,4 +1,4 @@
-package com.kbc.wordpressrreader.util;
+package com.kbc.util;
 
 import android.util.Log;
 import android.webkit.WebView;
@@ -18,15 +18,15 @@ public class MyWebViewClient extends WebViewClient {
     @Override
     public void onPageFinished(WebView view, String url) {
         super.onPageFinished(view, url);
-        if(url.contains("logout") || url.contains("login-success")){
+        if (url.contains("logout") || url.contains("login-success")) {
             Log.d("--- URL login-success: ", url);
             Log.d("--- URL indexof: ", String.valueOf(url.indexOf("login-success")));
 
             view.loadUrl(myUrl);
         }
-        if(url.contains("disqus.com/_ax/twitter/complete") ||
+        if (url.contains("disqus.com/_ax/twitter/complete") ||
                 url.contains("disqus.com/_ax/facebook/complete") ||
-                url.contains("disqus.com/_ax/google/complete")){
+                url.contains("disqus.com/_ax/google/complete")) {
             view.loadUrl(myUrl);
         }
     }

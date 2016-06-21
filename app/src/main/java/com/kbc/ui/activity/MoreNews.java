@@ -6,13 +6,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.kbc.adapter.CustomListViewAdapter;
-import com.kbc.adapter.Data;
 import com.kbc.adapter.ProductsData;
 import com.kbc.navigationviewpagerliveo.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class MoreNews extends AppCompatActivity {
@@ -40,7 +39,7 @@ public class MoreNews extends AppCompatActivity {
             CustomListViewAdapter adapter = new CustomListViewAdapter(this,
                     R.layout.morenews_items, rowItems);
             listView.setAdapter(adapter);
-           // listView.setOnItemClickListener(this);
+            // listView.setOnItemClickListener(this);
         }
 
     }

@@ -1,4 +1,4 @@
-package com.kbc.wordpressrreader.app;
+package com.kbc.app;
 
 import android.app.Application;
 import android.text.TextUtils;
@@ -8,14 +8,11 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.Volley;
 
-import com.kbc.wordpressrreader.util.LruBitmapCache;
-
-
-public class AppController extends Application {
-	/**
+public abstract class BaseAppController extends Application {
+    /**
      * Log or request TAG
      */
-    public static final String TAG = AppController.class.getSimpleName();
+    public static final String TAG = BaseAppController.class.getSimpleName();
 
     /**
      * Global request queue for Volley
@@ -27,7 +24,7 @@ public class AppController extends Application {
     /**
      * A singleton instance of the application class for easy access in other places
      */
-    private static AppController mInstance;
+    private static BaseAppController mInstance;
 
     @Override
     public void onCreate() {
@@ -38,9 +35,9 @@ public class AppController extends Application {
     }
 
     /**
-     * @return AppController singleton instance
+     * @return BaseAppController singleton instance
      */
-    public static synchronized AppController getInstance() {
+    public static synchronized BaseAppController getInstance() {
         return mInstance;
     }
 
@@ -48,7 +45,7 @@ public class AppController extends Application {
      * @return The Volley Request queue, the queue will be created if it is null
      */
     public RequestQueue getRequestQueue() {
-    	// lazy initialize the request queue, the queue instance will be
+        // lazy initialize the request queue, the queue instance will be
         // created when it is accessed for the first time
         if (mRequestQueue == null) {
             mRequestQueue = Volley.newRequestQueue(getApplicationContext());
@@ -57,14 +54,7 @@ public class AppController extends Application {
         return mRequestQueue;
     }
 
-    public ImageLoader getImageLoader() {
-        getRequestQueue();
-        if (mImageLoader == null) {
-            mImageLoader = new ImageLoader(this.mRequestQueue,
-                    new LruBitmapCache());
-        }
-        return this.mImageLoader;
-    }
+
 
     /**
      * Adds the specified request to the global queue, if tag is specified
@@ -103,3 +93,4 @@ public class AppController extends Application {
         }
     }
 }
+//nvnvnvg vgb

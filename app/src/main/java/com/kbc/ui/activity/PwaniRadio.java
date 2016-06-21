@@ -1,8 +1,7 @@
 package com.kbc.ui.activity;
 
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,20 +16,19 @@ import java.lang.reflect.InvocationTargetException;
 
 public class PwaniRadio extends Fragment {
     //declaration of webview
-    WebView  webview;
-
+    WebView webview;
 
 
     @Override
-    public View onCreateView( LayoutInflater inflater,ViewGroup container,Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        View v=inflater.inflate(R.layout.activity_pwani_radio,container,false);
+        View v = inflater.inflate(R.layout.activity_pwani_radio, container, false);
 
 
         //initalization of the values
 
-         webview = (WebView)v.findViewById(R.id.webView3);
+        webview = (WebView) v.findViewById(R.id.webView3);
         //http://iframe.dacast.com/b/37017/c/79023
 
         String Url = "http://iframe.dacast.com/b/37017/c/79109";
@@ -38,11 +36,11 @@ public class PwaniRadio extends Fragment {
 
         String vid = "<html>" +
                 "<body style=\"margin: 0; padding: 0; font-size:20px;\">" +
-                "<iframe width=\"100%\" height=\"100%\" src=\""+Url+"\" type=\"text/html\" frameborder=\"0\" scrolling=\"yes\">" +
+                "<iframe width=\"100%\" height=\"100%\" src=\"" + Url + "\" type=\"text/html\" frameborder=\"0\" scrolling=\"yes\">" +
                 "</iframe>" +
                 "</body>" +
                 "</html>";
-        WebChromeClient mWebChromeClient = new WebChromeClient(){
+        WebChromeClient mWebChromeClient = new WebChromeClient() {
             public void onProgressChanged(WebView view, int newProgress) {
             }
 
@@ -66,6 +64,7 @@ public class PwaniRadio extends Fragment {
 
         return v;
     }
+
     public void onPause() {
         super.onPause();
 

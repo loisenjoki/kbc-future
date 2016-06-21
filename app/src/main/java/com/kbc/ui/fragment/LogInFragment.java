@@ -10,6 +10,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.kbc.navigationviewpagerliveo.R;
+import com.kbc.ui.activity.OldMainActivity;
+import com.kbc.ui.activity.SignUpActivity;
 import com.twitter.sdk.android.Twitter;
 import com.twitter.sdk.android.core.Callback;
 import com.twitter.sdk.android.core.Result;
@@ -19,9 +22,6 @@ import com.twitter.sdk.android.core.TwitterSession;
 import com.twitter.sdk.android.core.identity.TwitterLoginButton;
 
 import io.fabric.sdk.android.Fabric;
-import com.kbc.navigationviewpagerliveo.R;
-import com.kbc.ui.activity.MainActivity;
-import com.kbc.ui.activity.SignUpActivity;
 
 import static com.kbc.navigationviewpagerliveo.R.layout.fragment_log_in;
 
@@ -31,8 +31,9 @@ public class LogInFragment extends android.support.v4.app.Fragment {
     private static final String TWITTER_SECRET = "xq0mHEOlOpBVfr1uyvehFF1dt05YIAPxCHav0diBfr99QuBXrL";
     // Note: Your consumer key and secret should be obfuscated in your source code before shipping.
 
-   private TwitterLoginButton loginButton;
+    private TwitterLoginButton loginButton;
     TextView Signup;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -40,18 +41,18 @@ public class LogInFragment extends android.support.v4.app.Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_log_in, container, false);
 
-       v.findViewById(R.id.txtsignup).setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View v) {
-              startActivity(new Intent(getActivity(), SignUpActivity.class));
-          }
-      });
+        v.findViewById(R.id.txtsignup).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), SignUpActivity.class));
+            }
+        });
 
-       TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
+        TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
         Fabric.with(getActivity(), new Twitter(authConfig));
 
 
-       loginButton = (TwitterLoginButton) v.findViewById(R.id.login_button1);
+        loginButton = (TwitterLoginButton) v.findViewById(R.id.login_button1);
         loginButton.setCallback(new Callback<TwitterSession>() {
             @Override
             public void success(Result<TwitterSession> result) {
@@ -74,42 +75,36 @@ public class LogInFragment extends android.support.v4.app.Fragment {
             }
 
 
-
-
         });
 
-            return v;
+        return v;
 
 
     }
-   /* @Override
+
+    /* @Override
+     public void onActivityResult(int requestCode, int resultCode, Intent data) {
+         super.onActivityResult(requestCode, resultCode, data);
+         // Make sure that the loginButton hears the result from any
+         // Activity that it triggered.
+         loginButton.onActivityResult(requestCode, resultCode, data);
+     }*/
+    @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        // Make sure that the loginButton hears the result from any
-        // Activity that it triggered.
-        loginButton.onActivityResult(requestCode, resultCode, data);
-    }*/
-   @Override
-  public void onActivityResult(int requestCode, int resultCode, Intent data) {
-       super.onActivityResult(requestCode, resultCode, data);
 
-       // Pass the activity result to the fragment, which will then pass the result to the login
-       // button.
-       Fragment fragment = getFragmentManager().findFragmentById(R.id.container);
-       if (fragment != null) {
-           fragment.onActivityResult(requestCode, resultCode, data);
-           startActivity(new Intent(getActivity(), MainActivity.class));
-       }
+        // Pass the activity result to the fragment, which will then pass the result to the login
+        // button.
+        Fragment fragment = getFragmentManager().findFragmentById(R.id.container);
+        if (fragment != null) {
+            fragment.onActivityResult(requestCode, resultCode, data);
+            startActivity(new Intent(getActivity(), OldMainActivity.class));
+        }
 
-   }
-
-
+    }
 
 
     // private class LogInHandler extends Callback<TwitterSession> {
 
-
-
-    
 
 }

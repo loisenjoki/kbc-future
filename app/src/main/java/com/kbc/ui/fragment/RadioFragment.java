@@ -1,5 +1,3 @@
-
-
 package com.kbc.ui.fragment;
 
 import android.content.Intent;
@@ -34,7 +32,7 @@ public class RadioFragment extends Fragment {
     private boolean mSearchCheck;
     public static final String TEXT_FRAGMENT = "TEXT_FRAGMENT";
 
-    public static RadioFragment newInstance(String text){
+    public static RadioFragment newInstance(String text) {
         RadioFragment mFragment = new RadioFragment();
         Bundle mBundle = new Bundle();
         mBundle.putString(TEXT_FRAGMENT, text);
@@ -49,9 +47,9 @@ public class RadioFragment extends Fragment {
             "Coro Fm",
             "Iftiin",
             "Pwani",
-            "Mayienga ",
+            "MayiengaFragment ",
 
-    } ;
+    };
     int[] imageId = {
             R.drawable.radiotaifa,
             R.drawable.english,
@@ -69,7 +67,7 @@ public class RadioFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.radio_fragment, container, false);
 
         CustomGrid adapter = new CustomGrid(getActivity(), web, imageId);
-        grid=(GridView)rootView.findViewById(R.id.grid);
+        grid = (GridView) rootView.findViewById(R.id.grid);
         grid.setAdapter(adapter);
         grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -78,7 +76,7 @@ public class RadioFragment extends Fragment {
                                     int position, long id) {
                 Toast.makeText(getActivity(), "You Clicked at " + web[+position], Toast.LENGTH_SHORT).show();
 
-                switch (position){
+                switch (position) {
 
                     case 0:
                         startActivity(new Intent(getActivity(), RadioTaifa.class));
@@ -104,8 +102,7 @@ public class RadioFragment extends Fragment {
         });
 
 
-
-        rootView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT ));
+        rootView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         return rootView;
     }
 
@@ -125,7 +122,7 @@ public class RadioFragment extends Fragment {
         SearchView searchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.menu_search));
         searchView.setQueryHint(this.getString(R.string.search));
 
-        ((EditText)searchView.findViewById(android.support.v7.appcompat.R.id.search_src_text))
+        ((EditText) searchView.findViewById(android.support.v7.appcompat.R.id.search_src_text))
                 .setHintTextColor(getResources().getColor(R.color.nliveo_white));
         searchView.setOnQueryTextListener(onQuerySearchView);
 
@@ -161,7 +158,7 @@ public class RadioFragment extends Fragment {
 
         @Override
         public boolean onQueryTextChange(String s) {
-            if (mSearchCheck){
+            if (mSearchCheck) {
                 // implement your search here
             }
             return false;

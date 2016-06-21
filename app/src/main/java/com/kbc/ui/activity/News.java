@@ -21,16 +21,8 @@ import com.kbc.navigationviewpagerliveo.R;
 import com.kbc.ui.fragment.InternationalNews;
 import com.kbc.ui.fragment.MoreNews;
 
-public class News extends AppCompatActivity implements View.OnClickListener {
+public class News extends BaseActivity implements View.OnClickListener {
 
-    /**
-     * The {@link android.support.v4.view.PagerAdapter} that will provide
-     * fragments for each of the sections. We use a
-     * {@link FragmentPagerAdapter} derivative, which will keep every
-     * loaded fragment in memory. If this becomes too memory intensive, it
-     * may be best to switch to a
-     * {@link android.support.v4.app.FragmentStatePagerAdapter}.
-     */
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
     /**
@@ -48,12 +40,8 @@ public class News extends AppCompatActivity implements View.OnClickListener {
         setSupportActionBar(toolbar);
 
         //setting the backword arrow
-      ActionBar mActionBar;
         setNavigationIcon(getResources().getDrawable(R.mipmap.back));
         toolbar.setNavigationOnClickListener(this);
-
-//        getActionBar().setDisplayHomeAsUpEnabled(true);
-
 
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
@@ -66,8 +54,7 @@ public class News extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        Toast.makeText(getApplicationContext(),"boom",Toast.LENGTH_SHORT).show();
-
+        Toast.makeText(context, "boom", Toast.LENGTH_SHORT).show();
     }
 
 
@@ -88,7 +75,7 @@ public class News extends AppCompatActivity implements View.OnClickListener {
             default:
                 return super.onOptionsItemSelected(item);
         }
-        }
+    }
 
 
     public void setNavigationIcon(Drawable navigationIcon) {
@@ -122,7 +109,6 @@ public class News extends AppCompatActivity implements View.OnClickListener {
             }
 
             return null;
-            //return PlaceholderFragment.newInstance(index);
         }
 
         @Override
@@ -142,41 +128,6 @@ public class News extends AppCompatActivity implements View.OnClickListener {
                     return "SECTION 3";
             }
             return null;
-        }
-    }
-
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
-        private static final String ARG_SECTION_NUMBER = "section_number";
-
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
-            Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            fragment.setArguments(args);
-            return fragment;
-        }
-
-        public PlaceholderFragment() {
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_news, container, false);
-            TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-            textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
-            return rootView;
         }
     }
 }

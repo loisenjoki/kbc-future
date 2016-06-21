@@ -1,4 +1,4 @@
-package com.kbc.wordpressrreader.model;
+package com.kbc.model;
 
 /**
  * Category object

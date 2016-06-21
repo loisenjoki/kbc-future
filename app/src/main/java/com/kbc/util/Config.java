@@ -1,4 +1,4 @@
-package com.kbc.wordpressrreader.util;
+package com.kbc.util;
 
 /**
  * Configuration class

@@ -22,7 +22,7 @@ public class NewsFragment extends Fragment {
     private boolean mSearchCheck;
     public static final String TEXT_FRAGMENT = "TEXT_FRAGMENT";
 
-    public static NewsFragment newInstance(String text){
+    public static NewsFragment newInstance(String text) {
         NewsFragment mFragment = new NewsFragment();
         Bundle mBundle = new Bundle();
         mBundle.putString(TEXT_FRAGMENT, text);
@@ -39,7 +39,7 @@ public class NewsFragment extends Fragment {
 //        TextView mTxtTitle = (TextView) rootView.findViewById(R.id.txtTitle);
 //        mTxtTitle.setText(getArguments().getString(TEXT_FRAGMENT));
 
-        rootView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT ));
+        rootView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         return rootView;
     }
 
@@ -59,7 +59,7 @@ public class NewsFragment extends Fragment {
         SearchView searchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.menu_search));
         searchView.setQueryHint(this.getString(R.string.search));
 
-        ((EditText)searchView.findViewById(android.support.v7.appcompat.R.id.search_src_text))
+        ((EditText) searchView.findViewById(android.support.v7.appcompat.R.id.search_src_text))
                 .setHintTextColor(getResources().getColor(R.color.nliveo_white));
         searchView.setOnQueryTextListener(onQuerySearchView);
 
@@ -95,7 +95,7 @@ public class NewsFragment extends Fragment {
 
         @Override
         public boolean onQueryTextChange(String s) {
-            if (mSearchCheck){
+            if (mSearchCheck) {
                 // implement your search here
             }
             return false;

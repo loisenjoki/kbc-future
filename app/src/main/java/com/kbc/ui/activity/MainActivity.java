@@ -1,243 +1,245 @@
 package com.kbc.ui.activity;
 
-import android.content.ActivityNotFoundException;
-import android.content.Intent;
-import android.net.Uri;
+import android.app.ActionBar;
 import android.os.Bundle;
-import android.os.Handler;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.view.Menu;
-import android.view.View;
-import android.widget.Toast;
-
-import br.liveo.Model.HelpLiveo;
-import br.liveo.interfaces.OnItemClickListener;
-import br.liveo.interfaces.OnPrepareOptionsMenuLiveo;
-import br.liveo.navigationliveo.NavigationLiveo;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
 
 import com.kbc.navigationviewpagerliveo.R;
-import com.kbc.ui.fragment.AdvertismentFragment;
-import com.kbc.ui.fragment.ContactsFragment;
-import com.kbc.ui.fragment.MainFragment;
-import com.kbc.ui.fragment.TvFragment;
-import com.kbc.ui.fragment.ViewPagerFragment1;
+import com.kbc.ui.fragment.PostFragment;
+import com.kbc.ui.fragment.RecyclerViewFragment;
+import com.kbc.ui.fragment.SearchResultFragment;
+import com.kbc.ui.fragment.TabLayoutFragment;
+import com.kbc.adapter.ImageRecordsAdapter;
+import com.kbc.adapter.PostFragmetntAll;
+import com.kbc.ui.fragment.CommentFragment;
+import com.kbc.model.Post;
 
-import com.kbc.wordpressrreader.adaptor.ImagesFragment;
+public class MainActivity extends AppCompatActivity implements
+        RecyclerViewFragment.PostListListener, PostFragment.PostListener,
+        TabLayoutFragment.TabLayoutListener, SearchResultFragment.SearchResultListener,
+        CommentFragment.CommentListener, ImageRecordsAdapter.PostListListener, PostFragmetntAll.PostListener {
 
-import com.kbc.wordpressrreader.app.TabLayoutFragment;
+    private static final String TAG = MainActivity.class.getSimpleName();
+    public static final String TAB_LAYOUT_FRAGMENT_TAG = "TabLayoutFragment";
+    public static final String POST_FRAGMENT_TAG = "PostFragment";
+    public static final String COMMENT_FRAGMENT_TAG = "CommentFragment";
 
-public class MainActivity extends NavigationLiveo implements OnItemClickListener {
+    private FragmentManager fm = null;
+    private TabLayoutFragment tlf;
+    private PostFragment pf;
+    private PostFragmetntAll pfp;
+    private PostFragmetntAll pf1;
+    private CommentFragment cf;
+    private SearchResultFragment srf;
 
-    private HelpLiveo mHelpLiveo;
 
     @Override
-    public void onInt(Bundle bundle) {
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
-        // User Information
-       // this.userName.setText("KBC");
-        //quitthis.userEmail.setText("Your Channel One TV");
-        //this.userPhoto.setImageResource(R.drawable.kbclogo);
-        this.userBackground.setImageResource(R.drawable.kbcover);
-
-        // Creating items navigation
-        mHelpLiveo = new HelpLiveo();
-        mHelpLiveo.add(getString(R.string.recent), R.mipmap.news);
-        mHelpLiveo.addSubHeader("Stream");
-        mHelpLiveo.add(getString(R.string.inbox), R.mipmap.tv);
-        mHelpLiveo.addSubHeader("News");
+        fm = getSupportFragmentManager();
 
 
-        mHelpLiveo.add(getString(R.string.local), R.mipmap.news);
-        mHelpLiveo.addSubHeader(getString(R.string.Listen)); //Item subHeader
-        // mHelpLiveo.addSeparator(); // Item separator
-
-        mHelpLiveo.add(getString(R.string.RadioTaifa),R.mipmap.radiotaifalogo);
-        mHelpLiveo.add(getString(R.string.Englishservice),R.mipmap.englishlogo);
-        mHelpLiveo.add(getString(R.string.Iftiin),R.mipmap.ifitiniii);
-        mHelpLiveo.add(getString(R.string.Mayienga), R.mipmap.maiye);
-        mHelpLiveo.add(getString(R.string.Pwani), R.mipmap.pwani);
-        mHelpLiveo.add(getString(R.string.Coro), R.mipmap.coroo);
-
-        mHelpLiveo.addSubHeader(getString(R.string.Connect)); //Item subHeader
-        mHelpLiveo.add(getString(R.string.Twitter), R.drawable.twitter48);
-        mHelpLiveo.add(getString(R.string.Instagram), R.drawable.instagram48);
-        mHelpLiveo.add(getString(R.string.Facebook), R.drawable.facebook48);
-        mHelpLiveo.add(getString(R.string.drafts), R.mipmap.conta);
-        mHelpLiveo.add(getString(R.string.trash), R.mipmap.ad);
-
-        mHelpLiveo.add(getString(R.string.sharing), R.mipmap.sharing);
-
-        mHelpLiveo.add(getString(R.string.Rate), R.mipmap.rate);
+        // Setup fragments
+        tlf = new TabLayoutFragment();
+        pf = new PostFragment();
+        cf = new CommentFragment();
+        srf = new SearchResultFragment();
 
 
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.add(android.R.id.content, pf, POST_FRAGMENT_TAG);
+        ft.add(android.R.id.content, cf, COMMENT_FRAGMENT_TAG);
+        ft.add(android.R.id.content, tlf, TAB_LAYOUT_FRAGMENT_TAG);
+
+        ft.hide(pf);
+        ft.hide(cf);
+        ft.commit();
+        //goBack();
+
+    }
 
 
+    @Override
+    public void onPostSelectednew(Post post, boolean isSearch) {
+        // Find the fragment in order to set it up later
+        pf = (PostFragment) getSupportFragmentManager().findFragmentByTag(POST_FRAGMENT_TAG);
 
-        with(this).startingPosition(0) //Starting position in the list
-                .addAllHelpItem(mHelpLiveo.getHelp())
-                .colorNameSubHeader(R.color.nliveo_blue_colorPrimary)
-                .colorItemSelected(R.color.nliveo_blue_colorPrimary)
-                .footerItem(R.string.settings, R.mipmap.ic_settings_black_24dp)
-                .setOnClickUser(onClickPhoto)
-                .setOnPrepareOptionsMenu(onPrepare)
-                .setOnClickFooter(onClickFooter)
-                .build();
+        // Set necessary arguments
+        Bundle args = new Bundle();
+        args.putInt("id", post.getId());
+        args.putString("title", post.getTitle());
+        args.putString("date", post.getDate());
+        args.putString("author", post.getAuthor());
+        args.putString("content", post.getContent());
+        args.putString("url", post.getUrl());
+        //args.putString("thumbnailUrl", post.getThumbnailUrl());
+        args.putString("featuredImage", post.getFeaturedImageUrl());
 
-        int position = this.getCurrentPosition();
-        this.setElevationToolBar(position != 2 ? 15 : 0);
+        // Configure PostFragment to display the right post
+        pf.setUIArguments(args);
+        // pfp.setUIArguments(args);
+//        pf1.setUIArguments(args);
+        // Show the fragment
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right,
+                android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+        if (!isSearch) { // Hide TabLayoutFragment if this is not search result
+            ft.hide(tlf);
+        } else if (isSearch) { // Otherwise, hide the search result, ie. SearchResultFragment.
+            ft.hide(srf);
+        } else {
+            ft.show(pf);
+        }
+        ft.show(pf);
+
+
+        ft.addToBackStack(null);
+        ft.commit();
+    }
+
+
+    /**
+     * Invoked when a post in the list is selected
+     *
+     * @param post Selected Post object
+     */
+    @Override
+    public void onPostSelected(Post post, boolean isSearch) {
+        // Find the fragment in order to set it up later
+        pf = (PostFragment) getSupportFragmentManager().findFragmentByTag(POST_FRAGMENT_TAG);
+
+        // Set necessary arguments
+        Bundle args = new Bundle();
+        args.putInt("id", post.getId());
+        args.putString("title", post.getTitle());
+        args.putString("date", post.getDate());
+        args.putString("author", post.getAuthor());
+        args.putString("content", post.getContent());
+        args.putString("url", post.getUrl());
+        //args.putString("thumbnailUrl", post.getThumbnailUrl());
+        args.putString("featuredImage", post.getFeaturedImageUrl());
+
+        // Configure PostFragment to display the right post
+        pf.setUIArguments(args);
+//        pf1.setUIArguments(args);
+        // Show the fragment
+        FragmentTransaction ft = fm.beginTransaction();
+       /* ft.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right,
+                android.R.anim.slide_in_left, android.R.anim.slide_out_right);*/
+        if (!isSearch) { // Hide TabLayoutFragment if this is not search result
+            ft.hide(tlf);
+        } else if (isSearch) { // Otherwise, hide the search result, ie. SearchResultFragment.
+            ft.hide(srf);
+        } else {
+            ft.show(pf);
+        }
+        ft.show(pf);
+
+
+        ft.addToBackStack(null);
+        ft.commit();
     }
 
     @Override
-    public void onItemClick(int position) {
-        Fragment mFragment = null;
-        FragmentManager mFragmentManager = getSupportFragmentManager();
+    public void getFragmentManager(Toolbar toolbar) {
 
-        switch (position) {
-            case 0:
-                mFragment = new ImagesFragment();
-                break;
-        case 2:
-                mFragment = new TvFragment();
-                break;
-            case 4:
-                Intent intent = new Intent(getApplicationContext(), com.kbc.wordpressrreader.app.MainActivity.class);
-                startActivity(intent);
-                break;
-           /* case 3:
-                mFragment = new TabLayoutFragment();
-                break;*/
-            case 6:
-                mFragment = new RadioTaifa();
-                break;
-            case 7:
-                mFragment = new EnglishServiceRadio();
-                break;
-            case 8:
-                mFragment = new IftiinRadio();
-                break;
-            case 9:
-                mFragment = new Mayienga();
-                break;
-            case 10:
-                mFragment = new PwaniRadio();
-                break;
+    }
 
-            /*case 12:
-               mFragment =new TimelineKbc();*/
+    /**
+     * Invoked when a search query is submitted
+     *
+     * @param query Selected Post object
+     */
+    @Override
+    public void onSearchSubmitted(String query) {
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right,
+                android.R.anim.slide_in_left, android.R.anim.slide_out_right);
 
-            case 11:
-                mFragment = new CoroRadio();
-                break;
+        // Send query to fragment using factory method
+        srf = SearchResultFragment.newInstance(query);
+        ft.add(android.R.id.content, srf);
+        ft.hide(tlf);
+        ft.addToBackStack(null);
+        ft.commit();
+    }
 
+    /**
+     * Invoked when comment menu is selected
+     *
+     * @param id ID of the article, assigned by WordPress
+     */
+    @Override
+    public void onCommentSelected(int id) {
+        cf = (CommentFragment) getSupportFragmentManager().findFragmentByTag(COMMENT_FRAGMENT_TAG);
+        Bundle args = new Bundle();
+        args.putInt("id", id);
+        // Setup CommentFragment to display the right comments page
+        cf.setUIArguments(args);
 
-            case 13:
-               mFragment =new TimelineKbc();
-                break;
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right,
+                android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+        ft.hide(pf);
+        ft.show(cf);
+        ft.addToBackStack(null);
+        ft.commit();
+    }
 
-           /* case 13:
-                Intent intent2=new Intent(getApplicationContext(), TimelineKbc.class);
-                startActivity(intent2);
-                break;*/
-
-            case  14:
-                Uri uri1 = Uri.parse("http://instagram.com/_u/kbckenya");
-                Intent Instagram = new Intent(Intent.ACTION_VIEW, uri1);
-
-                Instagram.setPackage("com.instagram.android");
-                try {
-                    startActivity(Instagram);
-                } catch (ActivityNotFoundException e) {
-                    startActivity(new Intent(Intent.ACTION_VIEW,
-                     Uri.parse("https://www.instagram.com/kbckenya")));
-                }
-                break;
-            case 15:
-                Intent intent1 = new Intent();
-                intent1.setAction(Intent.ACTION_VIEW);
-                intent1.addCategory(Intent.CATEGORY_BROWSABLE);
-                intent1.setData(Uri.parse("https://www.facebook.com/kbcchannel1/"));
-                startActivity(intent1);
-            case 16:
-                mFragment =new ContactsFragment();
-                break;
-            case 17:
-                mFragment=new AdvertismentFragment();
-                break;
-
-            case 18:
-                Intent sendIntent = new Intent();
-                sendIntent.setAction(Intent.ACTION_SEND);
-                sendIntent.putExtra(Intent.EXTRA_TEXT, "https://play.google.com/store/search?q=bbc%20news&hl=en");
-                sendIntent.setType("text/plain");
-                startActivity(sendIntent);
-                break;
-
-            case 19:
-                Uri uri = Uri.parse("market://details?id=" + getPackageName());
-                Intent myAppLinkToMarket = new Intent(Intent.ACTION_VIEW, uri);
-                     try {
-                    startActivity(myAppLinkToMarket);
-                      } catch (ActivityNotFoundException e) {
-
-                    Toast.makeText(this, "Sorry not able to open!", Toast.LENGTH_SHORT).show();
-
-                     }
-               break;
-
-
-
-            default:
-                mFragment = MainFragment.newInstance(mHelpLiveo.get(position).getName());
-                break;
-        }
-
-        if (mFragment != null){
-            mFragmentManager.beginTransaction().replace(R.id.container, mFragment).commit();
-        }
-
-            setElevationToolBar(position != 2 ? 15 : 0);
-        }
-
-
-    private OnPrepareOptionsMenuLiveo onPrepare = new OnPrepareOptionsMenuLiveo() {
-        @Override
-        public void onPrepareOptionsMenu(Menu menu, int position, boolean visible) {
-        }
-    };
-
-    private View.OnClickListener onClickPhoto = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            closeDrawer();
-        }
-    };
-
-    private View.OnClickListener onClickFooter = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            closeDrawer();
-        }
-    };
-    boolean doubleBackToExitPressedOnce = false;
-
+    /**
+     * Intercept back button event, reset ActionBar if necessary
+     */
     @Override
     public void onBackPressed() {
-        if (doubleBackToExitPressedOnce) {
+        android.app.FragmentManager fragmentManager = getFragmentManager();
+        int backCount = fragmentManager.getBackStackEntryCount();
+
+        if (backCount > 1) {
             super.onBackPressed();
-            return;
+        } else {
+            finish();
         }
-
-        this.doubleBackToExitPressedOnce = true;
-        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
-
-        new Handler().postDelayed(new Runnable() {
-
-            @Override
-            public void run() {
-                doubleBackToExitPressedOnce=true;
-            }
-        }, 3000);
+        resetActionBarIfApplicable();
+        super.onBackPressed();
     }
-}
 
+    /**
+     * Simulate a back button press when home is selected
+     */
+    @Override
+    public void onHomePressed() {
+        resetActionBarIfApplicable();
+        fm.popBackStack();
+    }
+
+
+    /**
+     * Reset TabLayoutFragment's ActionBar if necessary
+     */
+    private void resetActionBarIfApplicable() {
+        Log.d(TAG, "SearchResultFragment is visible: " + srf.isHidden());
+        if (srf.isVisible()) {
+            // tlf.resetActionBar();
+        }
+    }
+
+    public ActionBar setSupportActionBar() {
+        return null;
+    }
+
+    // Commented out coz we will let fragments handle their own Options Menus
+  /*  @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+      return true;
+   }*/
+
+
+}

@@ -1,14 +1,9 @@
 package com.kbc.ui.activity;
 
-import android.app.Application;
-import android.os.Bundle;
-
-import com.kbc.wordpressrreader.app.AppController;
-
 /**
  * Created by faith on 12/1/15.
  */
-public class ParseApplication{
+public class ParseApplication {
 
 /*
     @Override

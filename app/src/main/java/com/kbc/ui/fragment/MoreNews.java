@@ -15,13 +15,12 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.ShareActionProvider;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.kbc.adapter.CustomListViewAdapter;
-import com.kbc.adapter.Data;
 import com.kbc.adapter.ProductsData;
 import com.kbc.navigationviewpagerliveo.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MoreNews extends Fragment {
 
@@ -47,11 +46,11 @@ public class MoreNews extends Fragment {
                     Data.id_[i]
 
             ));
-            listView = (ListView)v.findViewById(R.id.list);
+            listView = (ListView) v.findViewById(R.id.list);
             CustomListViewAdapter adapter = new CustomListViewAdapter(getActivity(),
                     R.layout.morenews_items, rowItems);
             listView.setAdapter(adapter);
-           // listView.setOnItemClickListener(this);
+            // listView.setOnItemClickListener(this);
         }
         return v;
     }
@@ -70,7 +69,6 @@ public class MoreNews extends Fragment {
         searchView.setOnQueryTextListener(onQuerySearchView);
 
 
-
 // 			Locate MenuItem with ShareActionProvider
         MenuItem item = menu.findItem(R.id.menu_add);
         menu.findItem(R.id.menu_add).setVisible(true);
@@ -82,6 +80,7 @@ public class MoreNews extends Fragment {
 
 
     }
+
     // Call to update the share intent
     private void setShareIntent(Intent shareIntent) {
         if (mShareActionProvider != null) {
@@ -122,7 +121,7 @@ public class MoreNews extends Fragment {
 
         @Override
         public boolean onQueryTextChange(String s) {
-            if (mSearchCheck){
+            if (mSearchCheck) {
                 // implement your search here
             }
             return false;

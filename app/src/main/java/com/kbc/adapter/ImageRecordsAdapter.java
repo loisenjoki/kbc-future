@@ -1,9 +1,10 @@
-package com.kbc.wordpressrreader.app;
+package com.kbc.adapter;
 
-import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -15,47 +16,41 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.kbc.navigationviewpagerliveo.R;
+import com.kbc.app.BaseAppController;
+import com.kbc.model.Post;
+import com.kbc.util.Config;
+import com.kbc.util.JsonParserNews;
 
 import org.json.JSONObject;
-
 
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-import com.kbc.navigationviewpagerliveo.R;
-import com.kbc.wordpressrreader.adaptor.MyRecyclerViewAdaptor;
-import com.kbc.wordpressrreader.model.Post;
-import com.kbc.wordpressrreader.util.Config;
-import com.kbc.wordpressrreader.util.JSONParser;
-
 /**
- * Fragment to display a RecyclerView.
- * Activities that contain this fragment must implement the
- * {@link RecyclerViewFragment.PostListListener} interface
- * to handle interaction events.
+ * Created by homeboyz on 2/23/16.
  */
-public class RecyclerViewFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
+public class ImageRecordsAdapter extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
     private static final String TAG = "RecyclerViewFragment";
     protected static final String CAT_ID = "id";
     protected static final String QUERY = "query";
-    TextView tv;
+    //private static java.util.ArrayList<loise.kbc.wordpressrreader.model.Post> posts;
+    private static FragmentManager posts;
 
     private SwipeRefreshLayout mSwipeRefreshLayout;
     private RecyclerView mRecyclerView;
-    private MyRecyclerViewAdaptor mAdaptor;
     private LinearLayoutManager mLayoutManager;
     // Widget to show user a loading message
     private TextView mLoadingView;
-
+    private ImageRecord mAdaptor;
     // List of all posts in the ListView
-    private ArrayList<Post> postList = new ArrayList<>();
+    private ArrayList postList = new ArrayList<>();
     // A flag to keep track if the app is currently loading new posts
     private boolean isLoading = false;
 
@@ -66,12 +61,10 @@ public class RecyclerViewFragment extends Fragment implements SwipeRefreshLayout
     private String mQuery = ""; // Query string used for search result
     // Flag to determine if current fragment is used to show search result
     private boolean isSearch = false;
-
+    private PostListListener mListener;
     // Keep track of the list items
     private int mPastVisibleItems;
     private int mVisibleItemCount;
-
-    private PostListListener mListener;
 
     /**
      * Use this factory method to create a new instance of
@@ -80,8 +73,8 @@ public class RecyclerViewFragment extends Fragment implements SwipeRefreshLayout
      * @param id ID of the category.
      * @return A new instance of RecyclerViewFragment.
      */
-    public static RecyclerViewFragment newInstance(int id) {
-        RecyclerViewFragment fragment = new RecyclerViewFragment();
+    public static ImageRecordsAdapter newInstance(int id) {
+        ImageRecordsAdapter fragment = new ImageRecordsAdapter();
         Bundle args = new Bundle();
         args.putInt(CAT_ID, id);
         fragment.setArguments(args);
@@ -95,15 +88,15 @@ public class RecyclerViewFragment extends Fragment implements SwipeRefreshLayout
      * @param query search query.
      * @return A new instance of RecyclerViewFragment.
      */
-    public static RecyclerViewFragment newInstance(String query) {
-        RecyclerViewFragment fragment = new RecyclerViewFragment();
+    public static ImageRecordsAdapter newInstance(String query) {
+        ImageRecordsAdapter fragment = new ImageRecordsAdapter();
         Bundle args = new Bundle();
         args.putString(QUERY, query);
         fragment.setArguments(args);
         return fragment;
     }
 
-    public RecyclerViewFragment() {
+    public ImageRecordsAdapter() {
         // Required empty public constructor
     }
 
@@ -133,10 +126,24 @@ public class RecyclerViewFragment extends Fragment implements SwipeRefreshLayout
         mSwipeRefreshLayout.setOnRefreshListener(this);
 
         // RecyclerView adaptor for Post object
-        mAdaptor = new MyRecyclerViewAdaptor(postList, new MyRecyclerViewAdaptor.OnItemClickListener() {
+        mAdaptor = new ImageRecord(postList, new ImageRecord.OnItemClickListener() {
             @Override
             public void onItemClick(Post post) {
-                mListener.onPostSelected(post, isSearch);
+
+                //  Toast.makeText(getActivity(), post.getTitle(), Toast.LENGTH_LONG).show();
+                Bundle arg = new Bundle();
+                arg.putInt("id", post.getId());
+                arg.putString("title", post.getTitle());
+                arg.putString("date", post.getDate());
+                arg.putString("author", post.getAuthor());
+                arg.putString("content", post.getContent());
+                arg.putString("url", post.getUrl());
+
+                arg.putString("featuredImage", post.getFeaturedImageUrl());
+
+
+                startActivity(new Intent(getActivity(), PostFragmetntAll.class).putExtras(arg));
+
             }
         });
 
@@ -180,7 +187,7 @@ public class RecyclerViewFragment extends Fragment implements SwipeRefreshLayout
     /**
      * Load the first page of a category
      */
-    public void loadFirstPage(){
+    public void loadFirstPage() {
         mPage = 1; // Reset page number
 
         if (postList.isEmpty()) {
@@ -196,15 +203,27 @@ public class RecyclerViewFragment extends Fragment implements SwipeRefreshLayout
     /**
      * Load the next page of a category
      */
-    public void loadNextPage(){
-        mPage ++;
+    public void loadNextPage() {
+        mPage++;
         loadPosts(mPage, true);
+    }
+
+    public String formatString(String s) {
+        String myString = s;
+        //apostrophe
+        myString = myString.replace("...&#8217;...", "\'");
+        //double quotes
+        myString = myString.replace("&#8216;", "\"");
+        myString = myString.replace("&#34;", "\"");
+        myString = myString.replace("&#x22;", "\"");
+
+        return myString;
     }
 
     /**
      * Load posts from a specific page number
      *
-     * @param page Page number
+     * @param page           Page number
      * @param showLoadingMsg Flag to determine whether to show Toast loading msg to inform the user
      */
     private void loadPosts(int page, final boolean showLoadingMsg) {
@@ -246,7 +265,7 @@ public class RecyclerViewFragment extends Fragment implements SwipeRefreshLayout
                         mSwipeRefreshLayout.setRefreshing(false); // Stop when done
 
                         // Parse JSON data
-                        postList.addAll(JSONParser.parsePosts(jsonObject));
+                        postList.addAll(JsonParserNews.parsePosts(jsonObject));
 
                         // A temporary workaround to avoid downloading duplicate posts in some
                         // rare circumstances by converting ArrayList to a LinkedHashSet without
@@ -258,9 +277,12 @@ public class RecyclerViewFragment extends Fragment implements SwipeRefreshLayout
                         mPostNum = postList.size(); // The newest post number
                         Log.d(TAG, "Number of posts: " + mPostNum);
                         mAdaptor.notifyDataSetChanged(); // Display the list
+                        String article = "...&#8217;..";
+                        article = formatString(article);
+                        // postList.get(Stringarticle));
 
                         // Set ListView position
-                        if (RecyclerViewFragment.this.mPage != 1) {
+                        if (ImageRecordsAdapter.this.mPage != 1) {
                             // Move the article list up by one row
                             // We don't actually need to add 1 here since position starts at 0
                             mLayoutManager.scrollToPosition(mPastVisibleItems + mVisibleItemCount);
@@ -301,7 +323,7 @@ public class RecyclerViewFragment extends Fragment implements SwipeRefreshLayout
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
 
         // Add request to request queue
-        AppController.getInstance().addToRequestQueue(request, TAG);
+        BaseAppController.getInstance().addToRequestQueue(request, TAG);
     }
 
     @Override
@@ -329,8 +351,8 @@ public class RecyclerViewFragment extends Fragment implements SwipeRefreshLayout
     }
 
     //@Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
+    public void onAttach(Fragment activity) {
+        super.onAttach(getActivity());
 
         try {
             mListener = (PostListListener) activity;
@@ -340,12 +362,17 @@ public class RecyclerViewFragment extends Fragment implements SwipeRefreshLayout
         }
     }
 
-    // Interface used to communicate with MainActivity
+    // Interface used to communicate with OldMainActivity
     public interface PostListListener {
+        void onHomePressed();
+
+        void onPostSelectednew(Post post, boolean isSearch);
+
         void onPostSelected(Post post, boolean isSearch);
 
         void getFragmentManager(Toolbar toolbar);
+
+        void onSearchSubmitted(String query);
     }
 
 }
-

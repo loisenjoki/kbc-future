@@ -20,7 +20,7 @@
     <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
-        android:name="com.liveo.ui.activity.TwitterApplication"
+        android:name="com.kbc.app.TwitterApplication"
         android:allowBackup="true"
         android:icon="@mipmap/kbcdigital"
         android:label="@string/app_name"
@@ -48,10 +48,10 @@
         <activity
             android:name="com.kbc.ui.activity.SignUpActivity"
             android:label="@string/title_activity_sign_up"
-            android:parentActivityName="com.kbc.ui.activity.MainActivity">
+            android:parentActivityName="com.kbc.ui.activity.OldMainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.kbc.ui.activity.MainActivity" />
+                android:value="com.kbc.ui.activity.OldMainActivity" />
         </activity>
         <activity
             android:name="com.kbc.ui.activity.News"
@@ -60,7 +60,7 @@
         <activity android:name="com.kbc.ui.activity.KBCTv" />
         <activity android:name="com.kbc.ui.activity.Video" />
         <activity
-            android:name="com.kbc.ui.activity.MainActivity"
+            android:name="com.kbc.ui.activity.OldMainActivity"
             android:label="@string/app_name"
             android:theme="@style/nLiveoDrawer" />
 
@@ -75,11 +75,11 @@
         <activity android:name="com.kbc.ui.activity.IftiinRadio" />
         <activity android:name="com.kbc.ui.activity.LiveTv" />
         <activity android:name="com.kbc.ui.activity.InstagramFeed" />
-        <activity android:name="com.kbc.ui.activity.Mayienga" />
+        <activity android:name="com.kbc.ui.activity.MayiengaFragment" />
         <activity
-            android:name="com.kbc.wordpressrreader.app.MainActivity"
+            android:name="com.kbc.ui.activity.MainActivity"
             android:theme="@style/myTheme" />
-        <activity android:name="com.kbc.wordpressrreader.adaptor.PostFragmetntAll"></activity>
+        <activity android:name="com.kbc.adapter.PostFragmetntAll"></activity>
     </application>
 
 </manifest>

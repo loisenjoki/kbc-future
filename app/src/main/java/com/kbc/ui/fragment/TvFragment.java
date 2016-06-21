@@ -2,17 +2,15 @@ package com.kbc.ui.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 
+import com.kbc.navigationviewpagerliveo.R;
 
 import java.lang.reflect.InvocationTargetException;
-
-import com.kbc.navigationviewpagerliveo.R;
 
 /**
  * Created by loise on 9/28/15.
@@ -21,20 +19,21 @@ public class TvFragment extends Fragment {
     String TAG = "com.ebookfrenzy.videoplayer";
     public static final String TEXT_FRAGMENT = "TEXT_FRAGMENT";
 
-    public static TvFragment newInstance(String text){
+    public static TvFragment newInstance(String text) {
         TvFragment mFragment = new TvFragment();
         Bundle mBundle = new Bundle();
         mBundle.putString(TEXT_FRAGMENT, text);
         mFragment.setArguments(mBundle);
         return mFragment;
     }
+
     WebView video;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.activity_video, container, false);
 
-        video = (WebView)v.findViewById(R.id.videoView1);
+        video = (WebView) v.findViewById(R.id.videoView1);
 
 
         video.getSettings().setJavaScriptEnabled(true);
@@ -48,12 +47,10 @@ public class TvFragment extends Fragment {
         String html = getHTML("0sFTC7l0okg"); //Only change this video id to change video!
         video.loadDataWithBaseURL("", html, mimeType, encoding, "");
 
-            super.onPause();
-
+        super.onPause();
 
 
         return v;
-
 
 
     }
@@ -70,6 +67,7 @@ public class TvFragment extends Fragment {
                         + "controls onclick=\"this.play()\">\n" + "</iframe>\n";
         return html;
     }
+
     @Override
     public void onPause() {
         super.onPause();
@@ -79,11 +77,11 @@ public class TvFragment extends Fragment {
                     .getMethod("onPause", (Class[]) null)
                     .invoke(video, (Object[]) null);
 
-        } catch(ClassNotFoundException cnfe) {
+        } catch (ClassNotFoundException cnfe) {
 
-        } catch(NoSuchMethodException nsme) {
+        } catch (NoSuchMethodException nsme) {
 
-        } catch(InvocationTargetException ite) {
+        } catch (InvocationTargetException ite) {
 
         } catch (IllegalAccessException iae) {
 

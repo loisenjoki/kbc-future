@@ -1,10 +1,8 @@
-package com.kbc.wordpressrreader.app;
+package com.kbc.ui.fragment;
 
 import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,10 +14,10 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 
-
 import com.kbc.navigationviewpagerliveo.R;
-import com.kbc.wordpressrreader.util.Config;
-import com.kbc.wordpressrreader.util.MyWebViewClient;
+import com.kbc.ui.activity.MainActivity;
+import com.kbc.util.Config;
+import com.kbc.util.MyWebViewClient;
 
 
 /**
@@ -28,14 +26,9 @@ import com.kbc.wordpressrreader.util.MyWebViewClient;
  * {@link CommentFragment.CommentListener} interface
  * to handle interaction events.
  */
-public class CommentFragment extends Fragment {
-    private static final String TAG = "CommentFragment";
-
+public class CommentFragment extends BaseFragment {
     private WebView webView;
-    private Toolbar toolbar;
-
     private CommentListener mListener;
-
     public CommentFragment() {
         // Required empty public constructor
     }
@@ -65,7 +58,7 @@ public class CommentFragment extends Fragment {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-             mListener.onHomePressed();
+            mListener.onHomePressed();
         }
         return true;
     }
@@ -109,16 +102,16 @@ public class CommentFragment extends Fragment {
 
                 // Reset Actionbar
 
-               // ((MainActivity) getActivity()).setSupportActionBar(toolbar);
-                ((MainActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-                ((MainActivity)getActivity()).getSupportActionBar()
+                // ((OldMainActivity) getActivity()).setSupportActionBar(toolbar);
+                ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+                ((MainActivity) getActivity()).getSupportActionBar()
                         .setTitle(getString(R.string.action_comments));
             }
         });
     }
+
     /**
      * Eliminate the chance of showing previous content by clearing the fragment on hidden.
-     *
      */
     @Override
     public void onHiddenChanged(boolean hidden) {
@@ -130,13 +123,18 @@ public class CommentFragment extends Fragment {
     }
 
     @Override
-    public void onAttach(Activity activity) {
+    public void onAttach(Activity  activity) {
         super.onAttach(activity);
         try {
             mListener = (CommentListener) activity;
         } catch (ClassCastException e) {
-            throw new ClassCastException(activity.toString()
-                    + " must implement CommentListener");
+            throw new
+                    ClassCastException(
+                    activity.toString()
+                            + " must implement          " +
+                            "           " +
+                            "" +
+                            "           CommentListener");
         }
     }
 
@@ -145,7 +143,7 @@ public class CommentFragment extends Fragment {
      * fragment to allow an interaction in this fragment to be communicated
      * to the activity and potentially other fragments contained in that
      * activity.
-     * <p/>
+     * <p>
      * See the Android Training lesson <a href=
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.

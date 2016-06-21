@@ -1,22 +1,20 @@
-
 package com.kbc.ui.fragment;
 
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
-
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.kbc.adapter.TabPagerItem;
 import com.kbc.adapter.ViewPagerAdapter;
 import com.kbc.navigationviewpagerliveo.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class ViewPagerFragment extends Fragment {
@@ -40,7 +38,7 @@ public class ViewPagerFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_viewpager, container, false);
-        rootView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT ));
+        rootView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         return rootView;
     }
 
@@ -52,8 +50,8 @@ public class ViewPagerFragment extends Fragment {
         mViewPager.setAdapter(new ViewPagerAdapter(getChildFragmentManager(), mTabs));
         final TabLayout mSlidingTabLayout = (TabLayout) view.findViewById(R.id.tabLayout);
 
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                mSlidingTabLayout.setElevation(10);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            mSlidingTabLayout.setElevation(10);
         }
 
         mViewPager.postDelayed(new Runnable() {

@@ -4,7 +4,6 @@ package com.kbc.ui.fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -24,14 +23,12 @@ import android.widget.Toast;
 
 import com.cjj.MaterialRefreshLayout;
 import com.cjj.MaterialRefreshListener;
-
-import java.util.ArrayList;
-
 import com.kbc.adapter.Adapter;
-import com.kbc.adapter.Data;
 import com.kbc.adapter.ProductsData;
 import com.kbc.navigationviewpagerliveo.R;
 import com.kbc.ui.activity.News;
+
+import java.util.ArrayList;
 
 
 /**
@@ -43,7 +40,7 @@ public class Localnews extends Fragment {
     public static final String TEXT_FRAGMENT = "TEXT_FRAGMENT";
     private ShareActionProvider mShareActionProvider;
 
-    public static Localnews newInstance(String text){
+    public static Localnews newInstance(String text) {
         Localnews mFragment = new Localnews();
         Bundle mBundle = new Bundle();
         mBundle.putString(TEXT_FRAGMENT, text);
@@ -94,7 +91,7 @@ public class Localnews extends Fragment {
         adapter = new Adapter(products);
         recyclerView.setAdapter(adapter);
 
-        final MaterialRefreshLayout materialRefreshLayout = (MaterialRefreshLayout)rootView.findViewById(R.id.refresh);
+        final MaterialRefreshLayout materialRefreshLayout = (MaterialRefreshLayout) rootView.findViewById(R.id.refresh);
         materialRefreshLayout.setIsOverLay(false);
         materialRefreshLayout.setWaveShow(false);
         materialRefreshLayout.setShowArrow(true);
@@ -118,17 +115,16 @@ public class Localnews extends Fragment {
         return rootView;
     }
 
-    private static class MyOnclickListener implements View.OnClickListener{
+    private static class MyOnclickListener implements View.OnClickListener {
 
         private final Context context;
-        private MyOnclickListener(Context context){
+
+        private MyOnclickListener(Context context) {
             this.context = context;
             // Toast.makeText(context, "mdcvmx vf", Toast.LENGTH_SHORT).show();
 
 
         }
-
-
 
 
         @Override
@@ -181,7 +177,6 @@ public class Localnews extends Fragment {
         searchView.setOnQueryTextListener(onQuerySearchView);
 
 
-
 // 			Locate MenuItem with ShareActionProvider
         MenuItem item = menu.findItem(R.id.menu_add);
         menu.findItem(R.id.menu_add).setVisible(true);
@@ -227,7 +222,7 @@ public class Localnews extends Fragment {
 
         @Override
         public boolean onQueryTextChange(String s) {
-            if (mSearchCheck){
+            if (mSearchCheck) {
                 // implement your search here
             }
             return false;

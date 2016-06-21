@@ -1,7 +1,7 @@
-package com.kbc.wordpressrreader.app;
+package com.kbc.adapter;
 
-import android.app.Activity;
 import android.app.PendingIntent;
+import android.app.SearchManager;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -9,21 +9,18 @@ import android.os.Handler;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.NestedScrollView;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.ShareActionProvider;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.widget.ImageView;
@@ -31,19 +28,12 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.SimpleTarget;
-
 import com.kbc.navigationviewpagerliveo.R;
-import com.kbc.wordpressrreader.adaptor.ImageRecordsAdapter;
-import com.kbc.wordpressrreader.model.Post;
+import com.kbc.ui.activity.MainActivity;
+import com.kbc.model.Post;
 
+public class PostFragmetntAll extends AppCompatActivity {
 
-/**
- * Fragment to display content of a post in a WebView.
- * Activities that contain this fragment must implement the
- * {@link PostFragment.PostListener} interface
- * to handle interaction events.
- */
-public class PostFragment extends Fragment {
     private static final String TAG = "PostFragment";
 
     private int id;
@@ -63,118 +53,108 @@ public class PostFragment extends Fragment {
 
     private PostListener mListener;
 
-    public PostFragment() {
-        // Required empty public constructor
-    }
-
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.fragment_post);
 
-        setRetainInstance(true);
-
-        // Needed to show Options Menu
-        setHasOptionsMenu(true);
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_post, container, false);
-
-        toolbar = (Toolbar) rootView.findViewById(R.id.toolbarwp);
-        //((MainActivity)getActivity()).setSupportActionBar(toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbarwp);
+        //((OldMainActivity)getActivity()).setSupportActionBar(toolbar);
 
         CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout)
-                rootView.findViewById(R.id.collapsingToolbarLayout);
+                findViewById(R.id.collapsingToolbarLayout);
         collapsingToolbarLayout.setTitle(getString(R.string.app_name));
 
-        nestedScrollView = (NestedScrollView) rootView.findViewById(R.id.nestedScrollView);
+        nestedScrollView = (NestedScrollView) findViewById(R.id.nestedScrollView);
 
         // The following two layouts are needed to expand the collapsed Toolbar
-        appBarLayout = (AppBarLayout) rootView.findViewById(R.id.appbarLayout);
-        coordinatorLayout = (CoordinatorLayout) rootView.findViewById(R.id.coordinatorLayout);
+        appBarLayout = (AppBarLayout) findViewById(R.id.appbarLayout);
+        coordinatorLayout = (CoordinatorLayout) findViewById(R.id.coordinatorLayout);
 
-        featuredImageView = (ImageView) rootView.findViewById(R.id.featuredImage);
+        featuredImageView = (ImageView) findViewById(R.id.featuredImage);
 
         // Create the WebView
-        webView = (WebView) rootView.findViewById(R.id.webview_post);
+        webView = (WebView) findViewById(R.id.webview_post);
 
-        return rootView;
+
+//        setUIArguments(Bundle);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+        final Bundle args = getIntent().getExtras();
+
+        if (args != null) {
+            runOnUiThread(new Runnable() {
+                public void run() {
+                    // Clear the content first
+                    webView.loadData("", "text/html; charset=UTF-8", null);
+                    featuredImageView.setImageBitmap(null);
+
+                    id = args.getInt("id");
+                    title = args.getString("title");
+                    String date = args.getString("date");
+                    String author = args.getString("author");
+                    content = args.getString("content");
+                    url = args.getString("url");
+                    featuredImageUrl = args.getString("featuredImage");
+                    // Download featured image
+                    Glide.with(PostFragmetntAll.this)
+                            .load(featuredImageUrl)
+                            .centerCrop()
+                            .into(featuredImageView);
+
+                    // Construct HTML content
+                    // First, some CSS
+                    String html = "<style>img{max-width:100%;height:auto;} " +
+                            "iframe{width:100%;}</style> ";
+                    // Article Title
+                    html += "<h2>" + title + "</h2> ";
+                    // Date & author
+                    html += "<h4>" + date + " " + author + "</h4>";
+                    // The actual content
+                    html += content;
+
+                    // Enable JavaScript in order to be able to Play Youtube videos
+                    webView.getSettings().setJavaScriptEnabled(true);
+                    webView.setWebChromeClient(new WebChromeClient());
+
+                    // Load and display HTML content
+                    // Use "charset=UTF-8" to support non-English language
+                    webView.loadData(html, "text/html; charset=UTF-8", null);
+
+                    Log.d(TAG, "Showing post, ID: " + id);
+                    Log.d(TAG, "Featured Image: " + featuredImageUrl);
+
+                    // Reset Actionbar
+                    //   mListener.getFragmentManager();
+                    //     mListener.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+                    // Expand the Toolbar by default
+                    expandToolbar();
+
+                    // Make sure the article starts from the very top
+                    // Delayed coz it can take some time for WebView to load HTML content
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            nestedScrollView.smoothScrollTo(0, 0);
+                        }
+                    }, 500);
+                }
+            });
+        }
     }
 
-    /**
-     * Since we can't call setArguments() on an existing fragment, we make our own!
-     *
-     * @param args Bundle containing information about the new post
-     */
     public void setUIArguments(final Bundle args) {
-        getActivity().runOnUiThread(new Runnable() {
-            public void run() {
-                // Clear the content first
-                webView.loadData("", "text/html; charset=UTF-8", null);
-                featuredImageView.setImageBitmap(null);
-
-                id = args.getInt("id");
-                title = args.getString("title");
-                String date = args.getString("date");
-                String author = args.getString("author");
-                content = args.getString("content");
-                url = args.getString("url");
-                featuredImageUrl = args.getString("featuredImage");
-
-                // Download featured image
-                Glide.with(PostFragment.this)
-                        .load(featuredImageUrl)
-                        .centerCrop()
-                        .into(featuredImageView);
-
-                // Construct HTML content
-                // First, some CSS
-                String html = "<style>img{max-width:100%;height:auto;} " +
-                        "iframe{width:100%;}</style> ";
-                // Article Title
-                html += "<h2>" + title + "</h2> ";
-                // Date & author
-                html += "<h4>" + date + " " + author + "</h4>";
-                // The actual content
-                html += content;
-
-                // Enable JavaScript in order to be able to Play Youtube videos
-                 webView.getSettings().setJavaScriptEnabled(true);
-                webView.setWebChromeClient(new WebChromeClient());
-
-                // Load and display HTML content
-                // Use "charset=UTF-8" to support non-English language
-                webView.loadData(html, "text/html; charset=UTF-8", null);
-
-                Log.d(TAG, "Showing post, ID: " + id);
-                Log.d(TAG, "Featured Image: " + featuredImageUrl);
-
-                // Reset Actionbar
-                ((MainActivity) getActivity()).getFragmentManager(toolbar);
-                ((MainActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-                // Expand the Toolbar by default
-                expandToolbar();
-
-                // Make sure the article starts from the very top
-                // Delayed coz it can take some time for WebView to load HTML content
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        nestedScrollView.smoothScrollTo(0, 0);
-                    }
-                }, 500);
-            }
-        });
     }
+
 
     @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+    public boolean onCreateOptionsMenu(Menu menu) {
         Log.d(TAG, "onCreateOptionsMenu()");
-
-        inflater.inflate(R.menu.menu_post, menu);
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu_post, menu);
 
         // Get share menu item
         MenuItem item = menu.findItem(R.id.action_share);
@@ -188,7 +168,21 @@ public class PostFragment extends Fragment {
         i.putExtra(Intent.EXTRA_TEXT, title + "\n" + url);
         shareActionProvider.setShareIntent(i);
 
-        super.onCreateOptionsMenu(menu, inflater);
+        return super.onCreateOptionsMenu(menu);
+
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        handleIntent(intent);
+    }
+
+    private void handleIntent(Intent intent) {
+
+        if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
+            String query = intent.getStringExtra(SearchManager.QUERY);
+            //use the query to search
+        }
     }
 
     @Override
@@ -203,7 +197,7 @@ public class PostFragment extends Fragment {
                 sendToWear();
                 return true;
             case android.R.id.home:
-                mListener.onHomePressed();
+                onBackPressed();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -219,7 +213,7 @@ public class PostFragment extends Fragment {
                 appBarLayout.getLayoutParams();
         AppBarLayout.Behavior behavior = (AppBarLayout.Behavior) params.getBehavior();
 
-        if(behavior!=null) {
+        if (behavior != null) {
             behavior.setTopAndBottomOffset(0);
             behavior.onNestedPreScroll(coordinatorLayout, appBarLayout, null, 0, 1, new int[2]);
         }
@@ -230,8 +224,8 @@ public class PostFragment extends Fragment {
      */
     private void sendToWear() {
         // Intent used to run app on the phone from watch
-        Intent viewIntent = new Intent(getActivity(), MainActivity.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(getActivity(), 0, viewIntent, 0);
+        Intent viewIntent = new Intent(getApplicationContext(), MainActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, viewIntent, 0);
 
         // Use BigTextStyle to read long notification
         NotificationCompat.BigTextStyle bigTextStyle = new NotificationCompat.BigTextStyle();
@@ -239,7 +233,7 @@ public class PostFragment extends Fragment {
         // Use Html.fromHtml() to remove HTML tags
         bigTextStyle.bigText(Html.fromHtml(content));
 
-        final NotificationCompat.Builder builder = new NotificationCompat.Builder(getActivity());
+        final NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext());
         builder.setSmallIcon(R.mipmap.ic_launcher)
                 .setContentTitle(title)
                 .setContentIntent(pendingIntent)
@@ -257,42 +251,37 @@ public class PostFragment extends Fragment {
                         builder.setLargeIcon(resource);
 
                         NotificationManagerCompat notificationManagerCompat =
-                                NotificationManagerCompat.from(getActivity());
+                                NotificationManagerCompat.from(getApplicationContext());
                         notificationManagerCompat.cancel(id);
                         notificationManagerCompat.notify(id, builder.build());
                     }
                 });
     }
 
-    @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
+    // @Override
+   /* public void onAttach(Activity activity) {
+        mListener.onAttach(activity);
         try {
-            mListener = (PostListener) activity;
+            mListener = (PostFragmetntAll.PostListener) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
                     + " must implement PostListener");
         }
-    }
+    }*/
 
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
 
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
      * to the activity and potentially other fragments contained in that
      * activity.
-     * <p/>
+     * <p>
      * See the Android Training lesson <a href=
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface PostListener extends ImageRecordsAdapter.PostListListener {
-       // void onCommentSelected(int id);
+        // void onCommentSelected(int id);
         void onHomePressed();
 
         @Override
@@ -301,5 +290,6 @@ public class PostFragment extends Fragment {
         @Override
         void getFragmentManager(Toolbar toolbar);
     }
+
 
 }

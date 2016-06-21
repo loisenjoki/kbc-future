@@ -7,10 +7,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-
 import com.kbc.navigationviewpagerliveo.R;
 import com.kbc.ui.fragment.InternationalNews;
+
+import java.util.ArrayList;
 
 
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {

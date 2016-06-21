@@ -9,17 +9,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.kbc.adapter.TabPagerItem;
 import com.kbc.adapter.ViewPagerAdapter;
 import com.kbc.navigationviewpagerliveo.R;
-import com.kbc.wordpressrreader.app.MainActivity;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ViewPagerFragment1 extends Fragment {
     private List<TabPagerItem> mTabs = new ArrayList<>();
-
 
 
     @Override
@@ -28,18 +26,18 @@ public class ViewPagerFragment1 extends Fragment {
         createTabPagerItem();
     }
 
-    private void createTabPagerItem(){
-       // mTabs.add(new TabPagerItem(getString(R.string.news), InternationalNews.newInstance(getString(R.string.news))));
+    private void createTabPagerItem() {
+        // mTabs.add(new TabPagerItem(getString(R.string.news), InternationalNews.newInstance(getString(R.string.news))));
         mTabs.add(new TabPagerItem(getString(R.string.tv), TvFragment.newInstance(getString(R.string.tv))));
-       // mTabs.add(new TabPagerItem(getString(R.string.radio), RadioFragment.newInstance(getString(R.string.radio))));
-        //mTabs.add(new TabPagerItem(getString(R.string.radio), MainActivity.newInstance(getString(R.string.radio))));
+        // mTabs.add(new TabPagerItem(getString(R.string.radio), RadioFragment.newInstance(getString(R.string.radio))));
+        //mTabs.add(new TabPagerItem(getString(R.string.radio), OldMainActivity.newInstance(getString(R.string.radio))));
 
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_viewpager, container, false);
-        rootView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT ));
+        rootView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         return rootView;
     }
 
@@ -51,7 +49,7 @@ public class ViewPagerFragment1 extends Fragment {
         mViewPager.setAdapter(new ViewPagerAdapter(getChildFragmentManager(), mTabs));
         final TabLayout mSlidingTabLayout = (TabLayout) view.findViewById(R.id.tabLayout);
 
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             mSlidingTabLayout.setElevation(10);
         }
 

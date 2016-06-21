@@ -1,4 +1,4 @@
-package com.kbc.wordpressrreader.adaptor;
+package com.kbc.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -9,11 +9,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.kbc.navigationviewpagerliveo.R;
+import com.kbc.model.Post;
 
 import java.util.ArrayList;
 import java.util.List;
-import com.kbc.navigationviewpagerliveo.R;
-import com.kbc.wordpressrreader.model.Post;
 
 
 /**
@@ -53,13 +53,13 @@ public class MyRecyclerViewAdaptor extends RecyclerView.Adapter<MyRecyclerViewAd
         viewHolder.title.setText(posts.get(i).getTitle());
 
         int count = posts.get(i).getCommentCount();
-      //  String countText = (count == 1 || count == 0) ? count + " read more" : count + " read more";
-      //  viewHolder.commentCount.setText(countText);
+        //  String countText = (count == 1 || count == 0) ? count + " read more" : count + " read more";
+        //  viewHolder.commentCount.setText(countText);
 
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mListener.onItemClick(posts.get(i ));
+                mListener.onItemClick(posts.get(i));
             }
         });
     }
@@ -79,7 +79,7 @@ public class MyRecyclerViewAdaptor extends RecyclerView.Adapter<MyRecyclerViewAd
 
 
             thumbnailImageView = (ImageView) itemView.findViewById(R.id.thumbnail);
-            String unedited= "....&#8217;...";
+            String unedited = "....&#8217;...";
             title = (TextView) itemView.findViewById(R.id.title);
 
 

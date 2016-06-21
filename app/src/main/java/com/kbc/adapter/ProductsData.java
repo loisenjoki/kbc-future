@@ -12,7 +12,7 @@ public class ProductsData {
     int id_;
 
 
-    public ProductsData(String name, String description,String moredesc, String price, int image, int id_){
+    public ProductsData(String name, String description, String moredesc, String price, int image, int id_) {
 
         this.name = name;
         this.description = description;
@@ -22,32 +22,31 @@ public class ProductsData {
         this.id_ = id_;
     }
 
- public String getName(){
-     return name;
- }
+    public String getName() {
+        return name;
+    }
 
 
-    public String getDescription(){
+    public String getDescription() {
         return description;
     }
 
-    public String getMoreData(){
+    public String getMoreData() {
         return moredesc;
     }
 
 
-    public String getPrice(){
+    public String getPrice() {
         return price;
     }
 
 
-    public int getImage(){
+    public int getImage() {
         return image;
     }
 
 
-
-    public int getId(){
+    public int getId() {
         return id_;
     }
 

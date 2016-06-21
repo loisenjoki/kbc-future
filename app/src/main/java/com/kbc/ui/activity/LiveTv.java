@@ -1,7 +1,7 @@
 package com.kbc.ui.activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -16,7 +16,7 @@ public class LiveTv extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_live_tv);
 
-        final WebView webview = (WebView)findViewById(R.id.webView5);
+        final WebView webview = (WebView) findViewById(R.id.webView5);
         //http://iframe.dacast.com/b/37017/c/79023
 
         String Url = "http://player.dacast.com/js/dacast_player.js";
@@ -24,7 +24,7 @@ public class LiveTv extends AppCompatActivity {
 
         String vid = "<html>" +
                 "<body style=\"margin: 0; padding: 0; font-size:20px;\">" +
-                "<iframe width=\"100%\" height=\"100%\" src=\""+Url+"\" type=\"text/html\" frameborder=\"0\" scrolling=\"yes\">" +
+                "<iframe width=\"100%\" height=\"100%\" src=\"" + Url + "\" type=\"text/html\" frameborder=\"0\" scrolling=\"yes\">" +
                 "</iframe>" +
                 "</body>" +
                 "</html>";
@@ -32,7 +32,7 @@ public class LiveTv extends AppCompatActivity {
         webview.setWebChromeClient(mWebChromeClient);
         webview.setWebViewClient(new WebViewClient() {
             public void onPageFinished(WebView view, String url) {
-                 webview.loadUrl("javascript:(function() { document.getElementsByTagName('iframe')[0].play(); })()");
+                webview.loadUrl("javascript:(function() { document.getElementsByTagName('iframe')[0].play(); })()");
             }
         });
         webview.getSettings().setJavaScriptEnabled(true);

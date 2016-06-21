@@ -1,4 +1,3 @@
-
 package com.kbc.ui.activity;
 
 import android.app.ProgressDialog;
@@ -6,7 +5,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,10 +16,10 @@ import com.twitter.sdk.android.tweetui.UserTimeline;
 
 
 public class TimelineKbc extends Fragment {
-  //  private static final String TWITTER_KEY = "CtXW8KLLGFfQTqWlrdoK7oUbR";
-   // private static final String TWITTER_SECRET = "xq0mHEOlOpBVfr1uyvehFF1dt05YIAPxCHav0diBfr99QuBXrL";
+    //  private static final String TWITTER_KEY = "CtXW8KLLGFfQTqWlrdoK7oUbR";
+    // private static final String TWITTER_SECRET = "xq0mHEOlOpBVfr1uyvehFF1dt05YIAPxCHav0diBfr99QuBXrL";
     private Toolbar toolbar;
-     private ProgressDialog barprogress;
+    private ProgressDialog barprogress;
     private ListView listview;
 
 
@@ -29,12 +27,12 @@ public class TimelineKbc extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v= inflater.inflate(R.layout.activity_timeline_kbc, container, false);
+        View v = inflater.inflate(R.layout.activity_timeline_kbc, container, false);
 
 
         barprogress = ProgressDialog.show(getActivity(), "", "Loading.Please wait...", true);
 
-        listview = (ListView)v. findViewById(R.id.list);
+        listview = (ListView) v.findViewById(R.id.list);
         final UserTimeline userTimeline = new UserTimeline.Builder().screenName("KBCChannel1").build();
         TweetTimelineListAdapter adapter;
         adapter = new TweetTimelineListAdapter(getActivity(), userTimeline);
@@ -91,7 +89,6 @@ public class TimelineKbc extends Fragment {
 
         return super.onOptionsItemSelected(item);
     }
-
 
 
 }
