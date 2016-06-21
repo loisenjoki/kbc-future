@@ -47,7 +47,7 @@ public class CommentFragment extends BaseFragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_comment, container, false);
 
-        toolbar = (Toolbar) rootView.findViewById(R.id.toolbarw);
+        //toolbar = (Toolbar) rootView.findViewById(R.id.toolbarw);
 
         // Setup WebView
         webView = (WebView) rootView.findViewById(R.id.webView_comment);

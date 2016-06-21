@@ -43,9 +43,6 @@
             android:name="com.kbc.ui.activity.TimelineKbc"
             android:label="@string/title_activity_timeline_kbc" />
         <activity
-            android:name="com.kbc.ui.activity.MoreNews"
-            android:label="@string/title_activity_more_news" />
-        <activity
             android:name="com.kbc.ui.activity.SignUpActivity"
             android:label="@string/title_activity_sign_up"
             android:parentActivityName="com.kbc.ui.activity.OldMainActivity">

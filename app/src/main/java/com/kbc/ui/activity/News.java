@@ -1,25 +1,18 @@
 package com.kbc.ui.activity;
 
-import android.app.ActionBar;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.kbc.navigationviewpagerliveo.R;
-import com.kbc.ui.fragment.InternationalNews;
-import com.kbc.ui.fragment.MoreNews;
 
 public class News extends BaseActivity implements View.OnClickListener {
 
@@ -96,17 +89,6 @@ public class News extends BaseActivity implements View.OnClickListener {
         public Fragment getItem(int index) {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-            switch (index) {
-                case 0:
-                    // Top Rated fragment activity
-                    return new MoreNews();
-                case 1:
-                    // Games fragment activity
-                    return new InternationalNews();
-                case 2:
-                    // Movies fragment activity
-                    return new MoreNews();
-            }
 
             return null;
         }

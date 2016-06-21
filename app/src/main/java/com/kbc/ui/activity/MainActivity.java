@@ -181,7 +181,7 @@ public class MainActivity extends AppCompatActivity implements
         Bundle args = new Bundle();
         args.putInt("id", id);
         // Setup CommentFragment to display the right comments page
-        cf.setUIArguments(args);
+       // cf.setUIArguments(args);
 
         FragmentTransaction ft = fm.beginTransaction();
         ft.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right,
